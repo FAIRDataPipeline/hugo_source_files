@@ -1,6 +1,6 @@
 # FDP_hugo
 
-The [SCRC Docs website](https://github.com/FAIRDataPipeline.github.io) contains information related to datasets, the data pipeline, and various other technical documents associated with the SCRC project.
+The [FAIR Data Pipeline website](https://fairdatapipeline.github.io) contains information related to datasets, the data pipeline, and various other technical documents associated with the SCRC project.
 
 * [ScottishCovidResponse/ScottishCovidResponse.github.io](https://github.com/FAIRDataPipeline/FAIRDataPipeline.github.io) contains website source files.
 
