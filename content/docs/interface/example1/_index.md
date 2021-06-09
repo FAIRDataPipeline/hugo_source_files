@@ -3,7 +3,7 @@ weight: 30
 title: "Working example (with Data Pipeline API functionality)"
 ---
 
-<span style="font-size:12pt; color:red">Note that this is a living document and the following is subject to change. For reference, my R code lives [here](https://github.com/ScottishCovidResponse/SCRCdataAPI/tree/implement_yaml). Please post any questions on Zulip.</span>
+<span style="font-size:12pt; color:red">Note that this is a living document and the following is subject to change. </span>
 
 # Working example (with Data Pipeline API functionality)
 
