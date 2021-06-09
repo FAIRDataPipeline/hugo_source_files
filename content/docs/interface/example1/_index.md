@@ -12,9 +12,9 @@ The following example downloads some data from outside the pipeline, does some p
 In this simple example, the user should run the following from the terminal:
 
 ```bash
-fdp pull config.yaml
-fdp run config.yaml
-fdp push config.yaml
+fair pull config.yaml
+fair run config.yaml
+fair push config.yaml
 ```
 
 These functions require a *config.yaml* file to be supplied by the user. This file should specify various metadata associated with the code run, including where external objects comes from and the aliases that will be used in the submission script, data objects to be read and written, and the submission scipt location.
@@ -100,7 +100,7 @@ write:
 
 ## Working *config.yaml*
 
-`fdp run` should create a working *config.yaml* file, which is then read by the Data Pipeline API.
+`fair run` should create a working *config.yaml* file, which is then read by the Data Pipeline API.
 
 ```yaml
 run_metadata:
@@ -120,28 +120,28 @@ read:
 write:
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/ambulance
   description: Ambulance data
-  version: 0.{DATETIME}.0
+  version: 0.20210414.0
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/calls
   description: Calls data
-  version: 0.{DATETIME}.0
+  version: 0.20210414.0
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/carehomes
   description: Care homes data
-  version: 0.{DATETIME}.0
+  version: 0.20210414.0
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/hospital
   description: Hospital data
-  version: 0.{DATETIME}.0
+  version: 0.20210414.0
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/mortality
   description: Mortality data
-  version: 0.{DATETIME}.0
+  version: 0.20210414.0
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/nhsworkforce
   description: NHS workforce data
-  version: 0.{DATETIME}.0
+  version: 0.20210414.0
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/schools
   description: Schools data
-  version: 0.{DATETIME}.0
+  version: 0.20210414.0
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/testing
   description: Testing data
-  version: 0.{DATETIME}.0
+  version: 0.20210414.0
 ```
 
 ## *submission_script.R*
@@ -178,41 +178,38 @@ finalise(handle)
 
 ### `initialise()`
 
-- read the working *config.yaml* file
-- return a `handle` containing:
+- responsible for reading the working *config.yaml* file
+- registers a CodeRun (since the CodeRun UUID should be referenced if `{RUN_ID}` is specified in a DataProduct name)
+- returns a `handle` containing:
   - the working *config.yaml* file contents
   - the object id for this file
   - the object id for the submission script file
 
 ### `link_read()`
 
-- this function returns the path of an external object in the local data store
-- if the alias is already recorded in the handle, return the path
-- if the alias is not recorded in the handle, find the location of the file referenced by its `alias`
-  - in the above example the alias is `management-data`
-  - note that the alias is not recorded in the data registry, rather, it's a means to reference external objects in the *config.yaml*)
-- store metadata associated with the external object
+- responsible for returning the path of an external object in the local data store
+- updates `handle` with file path (if not already present) and useful metadata
+- returns file path
 
 ### `read_array()`
 
-- responsible for reading the correct data product, which at this point has been downloaded from the remote data store by `fdp pull`
-- should by default read the latest version of the data, which at this point has been downloaded from the remote data store by `fdp pull`
+- responsible for reading the correct data product, which at this point has been downloaded from the remote data store by `fair pull`
+- reads a specified version of the data
+- updates `handle`
 
 ### `link_write()`
 
-- when writing external objects, we use `link_read()` and `link_write()` to read and write objects, rather than the standard API `read_xxx()` and `write_xxx()` calls.
+- returns a path to write external objects to
+- updates `handle`
 
 ### `write_array()`
 
 - responsible for writing an array as a component to an hdf5 file
-- should allocate the correct data product name to the data (*e.g.* for *human/outbreak/simulation_run-{RUN_ID}*, `{RUN_ID}` is replaced with an appropriate index)
-- should by default increment the data product version by PATCH if none is specified
-- if the **component** is already recorded in the handle, return the index of this handle reference invisibly
-- otherwise:
-  - if this is the first component to be written, record the save location in the handle, conversely, if this is not the first component to be written, reference the save location from the handle
-  - write the component to the hdf5 file
-  - determine the correct version number to be associated with the new data product
-  - update the `handle` with the component that was written and its location in the data store
+- updates `handle`
+  - if this is the first component to be written, update `handle` with storage location
+  - if this is not the first component to be written, reference the storage location from the `handle`
+  - if the component is already recorded in the handle, return the index of this handle reference invisibly
+- writes component to the hdf5 file
 
 ### `issue_with_component()`
 
@@ -225,9 +222,10 @@ finalise(handle)
 
 ### `finalise()`
 
-- rename the data product as *<hash>.h5*
-- record data product metadata (*e.g.* location, components, various descriptions, issues) in the data registry
-- record the code run in the data registry
+- renames any hdf5 files as *<hash>.h5*
+- renames any data products (storage directory) if variables are present, *e.g.* for `human/outbreak/simulation_run-{RUN_ID}`, `{RUN_ID}` is replaced with the CodeRun UUID
+- records metadata (*e.g.* location, components, various descriptions, issues) in the data registry
+- records the code run in the data registry
 
 ## *submission_script.py*
 
