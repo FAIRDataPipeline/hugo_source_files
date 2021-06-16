@@ -33,11 +33,11 @@ run_metadata:
   script: |- 
     R -f inst/SCRC/scotgov_management/submission_script.R {CONFIG_DIR}
 register:
-- external_object: management-data
+- external_object: records/SARS-CoV-2/scotland/cases-and-management
   source_name: Scottish Government Open Data Repository
   source_abbreviation: Scottish Government Open Data Repository
   source_website: https://statistics.gov.scot/
-  root_name: Scottish Government Open Data Repository
+  root_name: Scottish Government Open Data Repository database
   root: https://statistics.gov.scot/sparql.csv?query=
   path: |
     PREFIX qb: <http://purl.org/linked-data/cube#>
@@ -64,7 +64,6 @@ register:
   title: Data associated with COVID-19
   description: The data provide past data around COVID-19 for the daily updates provided by the Scottish Government.
   unique_name: COVID-19 management information
-  product_name: records/SARS-CoV-2/scotland/cases-and-management
   file_type: csv
   release_date: {DATETIME}
   version: 0.{DATETIME}.0
@@ -113,7 +112,7 @@ run_metadata:
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata
   script: R -f inst/SCRC/scotgov_management/submission_script.R /Users/SoniaM/datastore/coderun/20210511-231444/
 read:
-- external_object: management-data
+- external_object: records/SARS-CoV-2/scotland/cases-and-management
   doi_or_unique_name: COVID-19 management information
   title: Data associated with COVID-19
   version: 0.20210414.0
@@ -164,7 +163,7 @@ data <- read.csv(input_path)
 array <- some_processing(data)
 index <- write_array(array, 
                      handle, 
-                     data_product = "human/mortality", 
+                     data_product = "records/SARS-CoV-2/scotland/cases-and-management/mortality", 
                      component = "mortality_data",
                      dimension_names = list(location = rownames(array),
                                             date = colnames(array)))
@@ -235,9 +234,9 @@ Alternatively, the submission script may be written in Python.
 from data_pipeline_api.standard_api import StandardAPI
 
 with StandardAPI.from_config("config.yaml") as api:
-  matrix = read(api.link_read("raw-mortality-data"))
-  api.write_array("human/mortality", "mortality_data", matrix)
-  api.issue_with_component("human/mortality", "mortality_data", "this data is bad", "7")
+  matrix = read(api.link_read("records/SARS-CoV-2/scotland/cases-and-management"))
+  api.write_array("records/SARS-CoV-2/scotland/cases-and-management/mortality", "mortality_data", matrix)
+  api.issue_with_component("records/SARS-CoV-2/scotland/cases-and-management/mortality", "mortality_data", "this data is bad", "7")
   api.finalise()
 ```
 
@@ -259,7 +258,7 @@ data = read_csv(input_path)
 array = some_processing(data)
 index = write_estimate(array, 
                        handle, 
-                       data_product = "human/mortality", 
+                       data_product = "records/SARS-CoV-2/scotland/cases-and-management/mortality", 
                        component = "mortality_data")
 
 issue_with_component(index,
