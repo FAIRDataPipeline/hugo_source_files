@@ -10,6 +10,12 @@ The documentation for the registry is available [here](https://data.scrc.uk/docs
 
 ## Installation
 
+### Dependencies
+
+The registry relies on the ```graphviz``` package to produce the schema visualisation, so you will need to follow [graphviz installation process](https://www.graphviz.org/download/) for your system before initialising a local registry.
+
+### Install local registry
+
 To initialise a local registry, run the following command from your terminal:
 
 ```
