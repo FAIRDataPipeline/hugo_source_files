@@ -160,7 +160,7 @@ input_path <- link_read(handle, "raw-mortality-data")
 
 # Process raw data and write data product
 data <- read.csv(input_path)
-array <- some_processing(data)
+array <- some_processing(data) # e.g. data wrangling, running a model, etc.
 index <- write_array(array, 
                      handle, 
                      data_product = "records/SARS-CoV-2/scotland/cases-and-management/mortality", 
