@@ -1,11 +1,11 @@
 ---
-weight: 40
-title: "Additional examples"
+weight: 50
+title: "Additional working examples"
 ---
 
 <span style="font-size:12pt; color:red">Note that this is a living document and the following is subject to change.</span>
 
-# Additional examples
+# Additional working examples
 
 ## Read data product, process, and write data product (with aliases)
 
@@ -21,7 +21,7 @@ run_metadata:
   default_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata
   script: |- 
-    R -f inst/SCRC/scotgov_management/submission_script.R {CONFIG_DIR}
+    R -f inst/SCRC/scotgov_management/submission_script.R ${{CLI.CONFIG_DIR}}
 
 read:
 - data_product: human/population
@@ -35,12 +35,12 @@ write:
     data_product: scotland/human/outbreak-timeseries
 - data_product: human/outbreak/simulation_run
   use:
-    data_product: human/outbreak/simulation_run-{RUN_ID}
+    data_product: human/outbreak/simulation_run-${{DPAPI.RUN_ID}}
 ```
 
 ### Working *config.yaml*
 
-`fdp run` should create a working *config.yaml* file, which is read by the Data Pipeline API. In this example, the working *config.yaml* file is pretty much identical to the original *config.yaml* file, only `{CONFIG_DIR}` is replaced by the directory in which the working *config.yaml* file resides.
+`fair run` should create a working *config.yaml* file, which is read by the Data Pipeline API. In this example, the working *config.yaml* file is pretty much identical to the original *config.yaml* file, only `${{CLI.CONFIG_DIR}}` is replaced by the directory in which the working *config.yaml* file resides.
 
 ```yaml
 run_metadata:
@@ -66,7 +66,7 @@ write:
     data_product: scotland/human/outbreak-timeseries
 - data_product: human/outbreak/simulation_run
   use:
-    data_product: human/outbreak/simulation_run-{RUN_ID}
+    data_product: human/outbreak/simulation_run-${{DPAPI.RUN_ID}}
 ```
 
 ## Read and write an external object
@@ -85,7 +85,7 @@ run_metadata:
   default_data_store: /datastore/
   local_repo: /Users/johnsmith/git/myproject/
   script: # Points to the R script, below (relative to local_repo)
-    R -f path/submission_script.R {CONFIG_DIR}
+    R -f path/submission_script.R ${{CLI.CONFIG_DIR}}
 
 read: 
 - external_object: time-series
@@ -118,7 +118,7 @@ run_metadata:
   default_input_namespace: SCRC
   local_repo: /Users/johnsmith/git/myproject
   script: | # addresses are relative to local_repo
-    julia -f path/submission_script.jl {CONFIG_DIR}
+    julia -f path/submission_script.jl ${{CLI.CONFIG_DIR}}
 
 read:
 - data_product: human/infection/SARS-CoV-2

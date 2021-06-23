@@ -7,7 +7,9 @@ title: "User written config file"
 
 # User written *config.yaml* file
 
-The Data Pipeline API hinges on a *config.yaml* file, which lets users specify metadata to be used during file lookup for read or write, and configure overall API behaviour.
+The Data Pipeline API hinges on a *config.yaml* file, which lets users specify metadata to be used during file lookup for read or write, and configure overall API behaviour. This user written *config.yaml* is translated into a working config file by `FAIR run`, which is then taken as input by the Data Pipeline API.
+
+This page gives examples of the **user written** *config.yaml* file.
 
 ## Simple inputs and outputs
 

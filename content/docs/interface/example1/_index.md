@@ -1,11 +1,11 @@
 ---
-weight: 30
-title: "Working example (with Data Pipeline API functionality)"
+weight: 40
+title: "Full working example (with descriptions of Data Pipeline API functionality)"
 ---
 
 <span style="font-size:12pt; color:red">Note that this is a living document and the following is subject to change. </span>
 
-# Working example (with Data Pipeline API functionality)
+# Full working example (with Data Pipeline API functionality)
 
 The following example downloads some data from outside the pipeline, does some processing in R (for example), and records the original file and the resultant data product into the pipeline.
 
@@ -31,7 +31,7 @@ run_metadata:
   default_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata
   script: |- 
-    R -f inst/SCRC/scotgov_management/submission_script.R {CONFIG_DIR}
+    R -f inst/SCRC/scotgov_management/submission_script.R ${{CLI.CONFIG_DIR}}
 register:
 - external_object: records/SARS-CoV-2/scotland/cases-and-management
   source_name: Scottish Government Open Data Repository
@@ -65,36 +65,36 @@ register:
   description: The data provide past data around COVID-19 for the daily updates provided by the Scottish Government.
   unique_name: COVID-19 management information
   file_type: csv
-  release_date: {DATETIME}
-  version: 0.{DATETIME}.0
+  release_date: ${{CLI.DATETIME}}
+  version: 0.${{CLI.DATETIME}}.0
   primary: True
   accessibility: open
 
 write:
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/ambulance
   description: Ambulance data
-  version: 0.{DATETIME}.0
+  version: 0.${{CLI.DATETIME}}.0
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/calls
   description: Calls data
-  version: 0.{DATETIME}.0
+  version: 0.${{CLI.DATETIME}}.0
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/carehomes
   description: Care homes data
-  version: 0.{DATETIME}.0
+  version: 0.${{CLI.DATETIME}}.0
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/hospital
   description: Hospital data
-  version: 0.{DATETIME}.0
+  version: 0.${{CLI.DATETIME}}.0
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/mortality
   description: Mortality data
-  version: 0.{DATETIME}.0
+  version: 0.${{CLI.DATETIME}}.0
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/nhsworkforce
   description: NHS workforce data
-  version: 0.{DATETIME}.0
+  version: 0.${{CLI.DATETIME}}.0
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/schools
   description: Schools data
-  version: 0.{DATETIME}.0
+  version: 0.${{CLI.DATETIME}}.0
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/testing
   description: Testing data
-  version: 0.{DATETIME}.0
+  version: 0.${{CLI.DATETIME}}.0
 ```
 
 ## Working *config.yaml*
@@ -178,7 +178,7 @@ finalise(handle)
 ### `initialise()`
 
 - responsible for reading the working *config.yaml* file
-- registers a CodeRun (since the CodeRun UUID should be referenced if `{RUN_ID}` is specified in a DataProduct name)
+- registers a CodeRun (since the CodeRun UUID should be referenced if `${{DPAPI.RUN_ID}}` is specified in a DataProduct name)
 - returns a `handle` containing:
   - the working *config.yaml* file contents
   - the object id for this file
@@ -222,7 +222,7 @@ finalise(handle)
 ### `finalise()`
 
 - renames any hdf5 files as *<hash>.h5*
-- renames any data products (storage directory) if variables are present, *e.g.* for `human/outbreak/simulation_run-{RUN_ID}`, `{RUN_ID}` is replaced with the CodeRun UUID
+- renames any data products (storage directory) if variables are present, *e.g.* for `human/outbreak/simulation_run-${{DPAPI.RUN_ID}}`, `${{DPAPI.RUN_ID}}` is replaced with the CodeRun UUID
 - records metadata (*e.g.* location, components, various descriptions, issues) in the data registry
 - records the code run in the data registry
 
