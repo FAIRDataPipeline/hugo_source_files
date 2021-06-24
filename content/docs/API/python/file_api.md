@@ -21,7 +21,6 @@ The config file lets users specify metadata to be used during file lookup, and c
 ```
 data_directory: . 
 access_log: access-{run_id}.yaml 
-fail_on_hash_mismatch: True 
 run_metadata: 
   description: A test model 
   data_registry_url: https://data.scrc.uk/api/ 
@@ -53,8 +52,6 @@ write:
 `data_directory` specifies the file system root used for data access (default “.”). It may be relative; in which case it is relative to the directory containing the config file. The data directory must contain a `metadata.yaml` file. 
 
 `access_log` specifies the filename used to record the access log (default “access-{run_id}.yaml”). It may be relative; in which case it is relative to the directory containing the config file. It may contain the string `{run_id}`, which will be replaced with the run id. It may be set to the boolean value False to indicate that no access log should be written. 
-
-`fail_on_hash_mismatch` will, if set to True (the default), cause the API to fail is an attempt is made to read a file whose computed hash differs from the one stored in the `metadata.yaml` file. 
 
 `run_id` specifies the run id to be used, otherwise a hash of the config contents and the date will be used. 
 

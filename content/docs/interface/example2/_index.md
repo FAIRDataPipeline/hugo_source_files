@@ -22,7 +22,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: SCRC
   default_output_namespace: soniamitchell
-  default_data_store: /Users/SoniaM/datastore/
+  write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata
   script: |- 
     R -f inst/SCRC/scotgov_management/submission_script.R ${{CLI.CONFIG_DIR}}
@@ -53,7 +53,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: SCRC
   default_output_namespace: soniamitchell
-  default_data_store: /Users/SoniaM/datastore/
+  write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata
   script: |- 
     R -f inst/SCRC/scotgov_management/submission_script.R /Users/SoniaM/datastore/coderun/20210511-231444/
@@ -86,7 +86,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: SCRC 
   default_output_namespace: johnsmith
-  default_data_store: /datastore/
+  write_data_store: /datastore/
   local_repo: /Users/johnsmith/git/myproject/
   script: # Points to the R script, below (relative to local_repo)
     R -f path/submission_script.R ${{CLI.CONFIG_DIR}}
