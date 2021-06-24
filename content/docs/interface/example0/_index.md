@@ -185,3 +185,65 @@ read_array(handle = handle,
 finalise(handle)
 ```
 
+## Write data product (csv)
+
+### User written *config.yaml*
+
+```yaml
+run_metadata:
+  description: Write csv file
+  local_data_registry_url: https://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: soniamitchell
+  default_output_namespace: soniamitchell
+  write_data_store: /Users/SoniaM/datastore/
+  local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
+  script: |-
+    R -f simple_working_examples/write_csv.R ${{CLI.CONFIG_DIR}}
+
+write:
+- data_product: test/csv
+  description: test csv file with simple data
+  file_type: csv
+```
+
+### Working *config.yaml*
+
+```yaml
+run_metadata:
+  description: Write csv file
+  local_data_registry_url: https://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: soniamitchell
+  default_output_namespace: soniamitchell
+  write_data_store: /Users/SoniaM/datastore/
+  local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
+  script: |-
+    R -f simple_working_examples/write_csv.R ${{CLI.CONFIG_DIR}}
+
+write:
+- data_product: test/csv
+  description: test csv file with simple data
+  file_type: csv
+  use:
+    version: 0.1.0
+```
+
+### Submission script (R)
+
+```r
+library(rFDP)
+
+# Open the connection to the local registry with a given config file
+handle <- initialise()
+
+df <- data.frame(a = 1:2, b = 3:4)
+rownames(df) <- 1:2
+
+path <- link_write(handle, "test/csv")
+
+write.csv(df, path)
+
+finalise(handle)
+```
+
