@@ -19,7 +19,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: SCRC
   default_output_namespace: soniamitchell
-  default_data_store: /Users/SoniaM/datastore/
+  write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
   script: |- 
     R -f simple_working_examples/empty_script.R ${{CLI.CONFIG_DIR}}
@@ -36,7 +36,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: SCRC
   default_output_namespace: soniamitchell
-  default_data_store: /Users/SoniaM/datastore/
+  write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
   script: |- 
     R -f simple_working_examples/empty_script.R /Users/SoniaM/datastore/coderun/20210511-231444/
@@ -53,7 +53,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: SCRC
   default_output_namespace: soniamitchell
-  default_data_store: /Users/SoniaM/datastore/
+  write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
   script: |- 
     R -f simple_working_examples/write_array.R ${{CLI.CONFIG_DIR}}
@@ -75,7 +75,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: SCRC
   default_output_namespace: soniamitchell
-  default_data_store: /Users/SoniaM/datastore/
+  write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
   script: |- 
     R -f simple_working_examples/write_array.R /Users/SoniaM/datastore/coderun/20210511-231444/
@@ -97,7 +97,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: SCRC
   default_output_namespace: soniamitchell
-  default_data_store: /Users/SoniaM/datastore/
+  write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
   script: |- 
     R -f simple_working_examples/read_array.R ${{CLI.CONFIG_DIR}}
@@ -119,7 +119,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: SCRC
   default_output_namespace: soniamitchell
-  default_data_store: /Users/SoniaM/datastore/
+  write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
   script: |- 
     R -f simple_working_examples/read_array.R /Users/SoniaM/datastore/coderun/20210511-231444/
