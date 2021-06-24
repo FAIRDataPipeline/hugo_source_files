@@ -16,7 +16,6 @@ This page gives examples of the **user written** *config.yaml* file.
 The following example reads various pieces of data and writes an external object.
 
 ```yaml
-fail_on_hash_mismatch: True
 run_metadata:
   description: A simple analysis
   local_data_registry_url: https://localhost:8000/api/
@@ -56,8 +55,6 @@ write:
   unique_name: My amazing figure
   version: {MINOR}
 ```
-
-- `fail_on_hash_mismatch:` will, if set to True (the default), cause the API to fail is an attempt is made to read a file whose computed hash differs from the one stored in the local registry
 
 - `run_metadata:` provides metadata for the run:
   - `description:` is a human readable description of the purpose of the config.yaml
@@ -154,7 +151,6 @@ write:
 The following example describes an analysis which typically reads *human/population* and writes *human/outbreak-timeseries*. Instead, a test model is run using Scottish data, whereby *scotland/human/population* is read from the *eera* namespace, rather than *human/population*. Likewise, the output is written as *scotland/human/outbreak-timeseries* rather than *human/outbreak-timeseries*.
 
 ```yaml
-fail_on_hash_mismatch: True
 run_metadata:
   description: A test model
   local_data_registry_url: https://localhost:8000/api/
