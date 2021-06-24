@@ -34,7 +34,8 @@ read:
   version: 1.0
 # Read human/health from the cache
 - data_product: human/health
-  cache: /local/file.h5
+  use:
+    cache: /local/file.h5
 # Read crummy_table with specific doi and title
 - external_object: crummy_table
   doi: 10.1111/ddi.12887
@@ -43,7 +44,8 @@ read:
 - external_object: secret_data
   doi: 10.1111/ddi.12887
   title: Supplementary Table 3
-  cache: /local/secret.csv
+  use:
+    cache: /local/secret.csv
 # Read weird_lost_file (which perhaps has no metadata) with specific hash
 - object: weird_lost_file
   hash: b5a514810b4cb6dc795848464572771f
