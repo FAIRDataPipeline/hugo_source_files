@@ -22,8 +22,8 @@ To initialise a local registry, run the following command from your terminal:
 /bin/bash -c "$(curl -fsSL https://data.scrc.uk/static/localregistry.sh)"
 ```
 
-This will install the registry and all the related files will be stored in `~/.scrc`.
+This will install the registry and all the related files will be stored in `~/.fair`.
 
-To run the server, run the `~/.scrc/scripts/run_scrc_server` script, then navigate to http://localhost:8000 in your browser to check that the server is up and running. A token will be automatically generated in `~/.scrc/token`.
+To run the server, run the `~/.fair/registry/scripts/run_scrc_server` script, then navigate to http://localhost:8000 in your browser to check that the server is up and running. A token will be automatically generated in `~/.fair/registry/token`.
 
-To stop the server, run the `~/.scrc/scripts/stop_scrc_server` script.
+To stop the server, run the `~/.fair/registry/scripts/stop_scrc_server` script.
