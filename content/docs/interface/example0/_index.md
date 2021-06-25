@@ -94,8 +94,7 @@ run_metadata:
 write:
 - data_product: test/array
   description: test array with simple data
-  use: 
-    version: 0.1.0
+  version: 0.1.0
 ```
 
 ### Submission script (R)
@@ -163,8 +162,7 @@ run_metadata:
 read:
 - data_product: test/array
   component: component1/a/s/d/f/s
-  use:
-    version: 0.1.0
+  version: 0.1.0
 ```
 
 ### Submission script (R)
@@ -225,8 +223,7 @@ write:
 - data_product: test/csv
   description: test csv file with simple data
   file_type: csv
-  use:
-    version: 0.1.0
+  version: 0.1.0
 ```
 
 ### Submission script (R)
@@ -247,3 +244,10 @@ write.csv(df, path)
 finalise(handle)
 ```
 
+## Read data product (csv)
+
+### User written *config.yaml*
+
+### Working *config.yaml*
+
+### Submission script (R)
