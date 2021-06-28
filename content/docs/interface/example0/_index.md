@@ -49,7 +49,9 @@ run_metadata:
 library(rFDP)
 
 # Initialise Code Run
-handle <- initialise()
+config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
+script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
+handle <- initialise(config, script)
 
 finalise(handle)
 ```
@@ -103,7 +105,9 @@ write:
 library(rFDP)
 
 # Initialise Code Run
-handle <- initialise()
+config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
+script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
+handle <- initialise(config, script)
 
 df <- data.frame(a = 1:2, b = 3:4)
 rownames(df) <- 1:2
@@ -171,7 +175,9 @@ read:
 library(rFDP)
 
 # Open the connection to the local registry with a given config file
-handle <- initialise()
+config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
+script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
+handle <- initialise(config, script)
 
 data_product <- "test/array"
 component <- "component1/a/s/d/f/s"
@@ -232,7 +238,9 @@ write:
 library(rFDP)
 
 # Open the connection to the local registry with a given config file
-handle <- initialise()
+config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
+script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
+handle <- initialise(config, script)
 
 df <- data.frame(a = 1:2, b = 3:4)
 rownames(df) <- 1:2

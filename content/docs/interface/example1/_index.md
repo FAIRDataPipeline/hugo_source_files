@@ -153,9 +153,9 @@ A submission script should be supplied by the user, which in this case registers
 library(SCRCdataAPI)
 
 # Open the connection to the local registry with a given config file
-# You can put in a file if you really want to, but otherwise read from 
-# the environment directly or from a command line argument
-handle <- initialise(Sys.getenv("FDP_CONFIG_DIR"))
+config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
+script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
+handle <- initialise(config, script)
 
 # Return location of file stored in the pipeline
 input_path <- link_read(handle, "raw-mortality-data")
@@ -251,7 +251,7 @@ Alternatively, the submission script may be written in Julia.
 using DataPipeline
 
 # Open the connection to the local registry with a given config file
-handle = initialise("config.yaml") 
+handle = initialise("working-config.yaml", "script.sh") 
 
 # Return location of file stored in the pipeline
 input_path = link_read(handle)
