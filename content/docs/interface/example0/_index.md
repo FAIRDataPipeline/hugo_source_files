@@ -223,13 +223,13 @@ run_metadata:
   write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
   script: |-
-    R -f simple_working_examples/write_csv.R ${{CLI.CONFIG_DIR}}
+    R -f simple_working_examples/write_csv.R /Users/SoniaM/datastore/coderun/20210511-231444/
 
 write:
 - data_product: test/csv
   description: test csv file with simple data
   file_type: csv
-  version: 0.1.0
+  version: 0.0.1
 ```
 
 ### Submission script (R)
@@ -252,10 +252,62 @@ write.csv(df, path)
 finalise(handle)
 ```
 
-## Read data product (csv)
+## Write data product (point estimate)
 
 ### User written *config.yaml*
 
+```yaml
+run_metadata:
+  description: Register a file in the pipeline
+  local_data_registry_url: https://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: soniamitchell
+  default_output_namespace: soniamitchell
+  write_data_store: /Users/SoniaM/datastore/
+  local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata/
+  script: |-
+    R -f simple_working_examples/write_point_estimate.R ${{CLI.CONFIG_DIR}}
+
+write:
+- data_product: test/distribution/asymptomatic-period
+  description: asymptomatic period
+```
+
 ### Working *config.yaml*
 
+```yaml
+run_metadata:
+  description: Register a file in the pipeline
+  local_data_registry_url: https://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: soniamitchell
+  default_output_namespace: soniamitchell
+  write_data_store: /Users/SoniaM/datastore/
+  local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata/
+  script: |-
+    R -f simple_working_examples/write_point_estimate.R /Users/SoniaM/datastore/coderun/20210511-231444/
+
+write:
+- data_product: test/distribution/asymptomatic-period
+  description: asymptomatic period
+  version: 0.0.1
+```
+
 ### Submission script (R)
+
+```r
+library(rFDP)
+
+# Open the connection to the local registry with a given config file
+config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
+script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
+handle <- initialise(config, script)
+
+input_path <- write_estimate(value = 9,
+                             handle = handle,
+                             data_product = "test/distribution/asymptomatic-period",
+                             component = "asymptomatic-period",
+                             description = "asymptomatic period")
+
+finalise(handle)
+```
