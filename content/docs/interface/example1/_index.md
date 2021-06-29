@@ -68,35 +68,35 @@ register:
   unique_name: COVID-19 management information
   file_type: csv
   release_date: ${{CLI.DATETIME}}
-  version: 0.${{CLI.DATETIME}}.0
+  version: 0.${{CLI.DATE}}.0
   primary: True
   accessibility: open
 
 write:
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/ambulance
   description: Ambulance data
-  version: 0.${{CLI.DATETIME}}.0
+  version: 0.${{CLI.DATE}}.0
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/calls
   description: Calls data
-  version: 0.${{CLI.DATETIME}}.0
+  version: 0.${{CLI.DATE}}.0
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/carehomes
   description: Care homes data
-  version: 0.${{CLI.DATETIME}}.0
+  version: 0.${{CLI.DATE}}.0
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/hospital
   description: Hospital data
-  version: 0.${{CLI.DATETIME}}.0
+  version: 0.${{CLI.DATE}}.0
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/mortality
   description: Mortality data
-  version: 0.${{CLI.DATETIME}}.0
+  version: 0.${{CLI.DATE}}.0
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/nhsworkforce
   description: NHS workforce data
-  version: 0.${{CLI.DATETIME}}.0
+  version: 0.${{CLI.DATE}}.0
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/schools
   description: Schools data
-  version: 0.${{CLI.DATETIME}}.0
+  version: 0.${{CLI.DATE}}.0
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/testing
   description: Testing data
-  version: 0.${{CLI.DATETIME}}.0
+  version: 0.${{CLI.DATE}}.0
 ```
 
 ## Working *config.yaml*
@@ -112,6 +112,8 @@ run_metadata:
   default_output_namespace: soniamitchell
   write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata
+  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
+  remote_repo: https://github.com/ScottishCovidResponse/SCRCdata
   script: R -f inst/SCRC/scotgov_management/submission_script.R /Users/SoniaM/datastore/coderun/20210511-231444/
 read:
 - external_object: records/SARS-CoV-2/scotland/cases-and-management
@@ -180,6 +182,7 @@ finalise(handle)
 ### `initialise()`
 
 - responsible for reading the working *config.yaml* file
+- registers the working *config.yaml* file and submission script
 - registers a CodeRun (since the CodeRun UUID should be referenced if `${{DPAPI.RUN_ID}}` is specified in a DataProduct name)
 - returns a `handle` containing:
   - the working *config.yaml* file contents
