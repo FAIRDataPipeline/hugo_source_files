@@ -25,7 +25,7 @@ run_metadata:
   write_data_store: /datastore/
   local_repo: /Users/johnsmith/git/myproject/
   # `script:` points to the submission script (relative to local_repo)
-  script: python path/submission_script.py {CONFIG_PATH}
+  script: python path/submission_script.py ${{CLI.CONFIG_PATH}}
   # `script_path:` can be used instead of `script:`
 
 read:
@@ -54,7 +54,7 @@ write:
 # Write beautiful_figure and increment version number
 - external_object: beautiful_figure
   unique_name: My amazing figure
-  version: {MINOR}
+  version: ${{CLI.MINOR}}
 ```
 
 - `run_metadata:` provides metadata for the run:
@@ -71,7 +71,7 @@ write:
   - For reads, a `cache:` may be specified directly, in which case it will be used without any further lookup.
   - If a write is carried out to a data product where no such `data_product:` entry exists, then a new data product is created with that name in the local namespace, or the patch version of an existing data product is suitably incremented. The level of incrementation or version number can be explicitly defined by `version:`.
   - If a write is carried out to an object that is not a data product and no such `external_object:` entry exists, then a new object is created with no associated external object or data product, and an issue is raised with the object to note the absence of an appropriate reference, referencing the name given in the write API call.
-  - `version:` can be specified explicitly (*e.g.* `0.1.0` or `0.20210414.0`), by reference (*e.g.* `0.{DATETIME}.0`, meaning `0.20210414.0`), or by increment (*i.e.* `{MAJOR}`, `{MINOR}`, or `{PATCH}`). If an object already exists and no version is specified, it will be incremented by patch, by default.
+  - `version:` can be specified explicitly (*e.g.* `0.1.0` or `0.20210414.0`), by reference (*e.g.* `0.${{CLI.DATE}}.0`, meaning `0.20210414.0`), or by increment (*i.e.* `${{MAJOR}}`, `${{MINOR}}`, or `${{PATCH}}`). If an object already exists and no version is specified, it will be incremented by patch, by default.
 
 ## Extended inputs and outputs
 
@@ -135,15 +135,15 @@ register:
   unique_name: Scottish deaths involving COVID19  # or doi
   product_name: records/SARS-CoV-2/scotland/human-mortality
   file_type: csv
-  release_date: {DATETIME}    
-  version: 0.{DATETIME}.0       
+  release_date: ${{CLI.DATE}}    
+  version: 0.${{CLI.DATE}}.0       
   primary: True
   accessibility: open        # Other option is "closed"
   
 write:
 - data_product: records/SARS-CoV-2/scotland/human-mortality
   description: human mortality data
-  version: 0.{DATETIME}.0
+  version: 0.${{CLI.DATE}}.0
 ```
 
 ## Flexible inputs and outputs
@@ -171,9 +171,9 @@ write:
     data_product: scotland/human/outbreak-timeseries
 - data_product: human/outbreak/simulation_run
   use:
-    data_product: human/outbreak/simulation_run-{RUN_ID}
+    data_product: human/outbreak/simulation_run-${{DPAPI.RUN_ID}}
 ```
 
 - `read:` and `write:` provide references to data:
   - The corresponding `use:` sections contain metadata that is used to update the call metadata before the file access is attempted
-  - Any part of a `use:` statement may contain the string `{RUN_ID}`, which will be replaced with the run id, otherwise a hash of the config contents and the date will be used
+  - Any part of a `use:` statement may contain the string `${{DPAPI.RUN_ID}}`, which will be replaced with the run id, otherwise a hash of the config contents and the date will be used

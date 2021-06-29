@@ -26,10 +26,11 @@ fair push config.yaml
 - read (and validate) the *config.yaml* file
 - generate a working *config.yaml* file (see [Working example]({{% ref "/docs/interface/example1" %}}))
   - globbing (`*` and `**` replaced with all matching objects, all components listed), specific version numbers, and any variables in `run_metadata:`, `register:`, `read:`, and `write:` are replaced with true values
-    - *e.g.* `${{CLI.CONFIG_DIR}}` is replaced by the directory within which the working *config.yaml* file resides, `release_date: ${{CLI.DATETIME}}` is replaced by `release_date: 2021-04-14 11:34:37`, and `version: 0.{DATETIME}.0` is replaced by `version: 0.20210414.0`
+    - *e.g.* `${{CLI.CONFIG_DIR}}` is replaced by the directory within which the working *config.yaml* file resides, `release_date: ${{CLI.DATETIME}}` is replaced by `release_date: 2021-04-14 11:34:37`, `version: 0.${{CLI.DATE}}.0` is replaced by `version: 0.20210414.0`, `version: ${{PATCH}}` should increment version by patch, and `version: 0.${{CLI.DATETIME-%Y%m%d}}.0` or any variants thereof are replaced by an appropriately formatted string.
+  - If no version is given, then one should be written such that patch is incremented if the data product already exists, otherwise version should be set to 0.0.1.
   - `register:` is removed and external objects / data products are written in `read:`
-- save the working *config.yaml* file in the local data store (in *<local_store>/coderun/\<date>-\<time>/config.yaml*) and register metadata in the data registry
-- save the submission script to the local data store in *<local_store>/coderun/\<date>-\<time>/script.sh* (note that *config.yaml* should contain either `script:` that should be saved as the submission script, or `script_path:` that points to the file that should be saved as the submission script) and register metadata in the data registry
+- save the working *config.yaml* file in the local data store (in *<local_store>/coderun/\<date>-\<time>/config.yaml*) 
+- save the submission script to the local data store in *<local_store>/coderun/\<date>-\<time>/script.sh* (note that *config.yaml* should contain either `script:` that should be saved as the submission script, or `script_path:` that points to the file that should be saved as the submission script) 
 - save the path to *<local_store>/coderun/\<date>-\<time>/* in the global environment as `$FDP_CONFIG_DIR` so that it can be picked up by the script that is run after this has been completed
 - `local_repo:` must always be given in the *config.yaml* file
   - get the remote repo url from the local repo
