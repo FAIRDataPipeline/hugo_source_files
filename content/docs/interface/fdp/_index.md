@@ -25,8 +25,12 @@ fair push config.yaml
 
 - read (and validate) the *config.yaml* file
 - generate a working *config.yaml* file (see [Working example]({{% ref "/docs/interface/example1" %}}))
-  - globbing (`*` and `**` replaced with all matching objects, all components listed), specific version numbers, and any variables in `run_metadata:`, `register:`, `read:`, and `write:` are replaced with true values
-    - *e.g.* `${{CLI.CONFIG_DIR}}` is replaced by the directory within which the working *config.yaml* file resides, `release_date: ${{CLI.DATETIME}}` is replaced by `release_date: 2021-04-14 11:34:37`, `version: 0.${{CLI.DATE}}.0` is replaced by `version: 0.20210414.0`, `version: ${{PATCH}}` should increment version by patch, and `version: 0.${{CLI.DATETIME-%Y%m%d}}.0` or any variants thereof are replaced by an appropriately formatted string.
+  - globbing (`*` and `**` replaced with all matching objects, all components listed), specific version numbers, and any variables in `run_metadata:`, `register:`, `read:`, and `write:` are replaced with true values, *e.g.*
+    - `${{CLI.CONFIG_DIR}}` is replaced by the directory within which the working *config.yaml* file resides
+    - `release_date: ${{CLI.DATETIME}}` is replaced by `release_date: 2021-04-14 11:34:37`
+    - `version: 0.${{CLI.DATE}}.0` is replaced by `version: 0.20210414.0`
+    - `version: ${{PATCH}}` should increment version by patch; and
+    - `version: 0.${{CLI.DATETIME-%Y%m%d}}.0` or any variants thereof are replaced by an appropriately formatted string.
   - If no version is given, then one should be written such that patch is incremented if the data product already exists, otherwise version should be set to 0.0.1.
   - `register:` is removed and external objects / data products are written in `read:`
 - `local_repo:` must always be given in the *config.yaml* file
