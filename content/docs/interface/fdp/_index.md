@@ -35,9 +35,10 @@ fair push config.yaml
   - get the remote repo url from the local repo, if it's not already provided in the user written *config.yaml* file
   - add these to the working *config.yaml* file
   - note that there are exceptions and the user may reference a script located outside of a repository
-- save the working *config.yaml* file in the local data store (in *<local_store>/coderun/\<date>-\<time>/config.yaml*)
-- save the submission script to the local data store in *<local_store>/coderun/\<date>-\<time>/script.sh* (note that *config.yaml* should contain either `script:` that should be saved as the submission script, or `script_path:` that points to the file that should be saved as the submission script)
-- save the path to *<local_store>/coderun/\<date>-\<time>/* in the global environment as `$FDP_CONFIG_DIR` so that it can be picked up by the script that is run after this has been completed
+- save the working *config.yaml* file in the local data store, in *<local_store>/coderun/\<date>T\<time>/config.yaml*, e.g. *datastore/coderun/20210625T165552/config.yaml*
+- save the submission script to the local data store in *<local_store>/coderun/\<date>T\<time>/script.sh*
+  - note that *config.yaml* should contain either `script:` that should be saved as the submission script, or `script_path:` that points to the file that should be saved as the submission script
+- save the path to *<local_store>/coderun/\<date>T\<time>/* in the global environment as `$FDP_CONFIG_DIR` so that it can be picked up by the script that is run after this has been completed
 - execute the submission script
 
 ## `fair push`
