@@ -1,24 +1,80 @@
 ---
-title: Introduction
+title: "Introduction"
 type: docs
 ---
 
-# SCRC
+# Introduction
 
-## Who are we?
+**This is work in progress.**
 
-The Scottish COVID-19 Response Consortium is formed of [dozens of individuals from over 30 academic and commercial organisations](https://www.gla.ac.uk/research/az/scrc/ourpeople/#members).
+The FAIR Data Pipeline (FDP) is intended to enable tracking of provenance of data used in epidemiological modelling. Pipeline APIs written in C++, Java, Julia, Python and R can be called by modelling software for data ingestion. These interact with a local relational database storing metadata and the local filesystem, and are configured using a yaml file associated with the model run. Local files and metadata can be synchronised with a remote registry via a command line tool (`fair`).
 
-Researchers in these organisations jointly responded to a call by the [Royal Society](https://royalsociety.org/topics-policy/health-and-wellbeing/ramp/) to develop more epidemiological models of COVID-19 spread - [RAPID ASSISTANCE IN MODELLING THE PANDEMIC: RAMP](https://epcced.github.io/ramp/) - in order to develop a more robust and clearer understanding of the impacts of different exit strategies from lockdown. Scientists from several other organisations across the UK and abroad have now joined the consortium to provide additional expertise in specific areas.
+The key benefits of using the FAIR Data Pipeline are:
 
-## Our outputs:
+- Data recorded in a FAIR fashion (metadata on all data and code open and available for inspection)
+- Provenance tracing allows model outputs to be traced to inputs and modelling code
+- Multiple language support
+- Designed to run on a broad range of platforms (including HPC, inside Safe Havens)
+- Designed to be set up and completed online (to down-/up-load data) and run offline (Safe Havens will require this)
+- Open metadata provides knowledge of or access to shared central data for specific domains (e.g. COVID-19 epidemiological modelling)
 
-During and since the initial three months of RAMP work, our major achievements have been:
+## Running Models
 
-- Seven [software epidemiological models](https://scottishcovidresponse.github.io/docs/models/) in four different programming languages and using multiple scientific approaches. These models have been assessed favourably in internal review against a [software checklist](https://github.com/ScottishCovidResponse/modelling-resources/blob/main/software-checklist.md) we developed.
-- Data APIs in five languages (python, Julia, R, Java and C++) that simplify provenance recording, allowing input data to be verified as it is used, and model outputs to be traced back to the model code and input data that were used to produce them.
-- A set of curated, traceable source data useful for epidemiological modelling on COVID-19.
-- A database to hold metadata and index the data.
-- Data processing code in `R` to populate the database.
+To use the FAIR Data Pipeline with a piece of modelling software, you must add a language specific Pipeline API as a dependency and interact with data registered in the pipeline via the methods it presents. Each model run must be configured using a [`config.yml`](docs/interface/_index.md) file which specifies inputs and outputs by metadata.
 
-These are discoverable via our [GitHub organisation](https://github.com/ScottishCovidResponse).
+{{<mermaid align="left">}}
+graph LR;
+    subgraph Local
+        LR[Local Registry]
+        FS[File System]
+    end
+    subgraph Local API
+        API[Pipeline API]
+        CY[config.yml]
+    end
+    subgraph Model
+        M[Model]
+    end
+ 
+    LR -->|read_*| API
+    API-->|write_*,link_*| LR
+    FS-->|read_*| API
+    API-->|write_*| FS
+
+    CY-->API
+
+    API-->|read_*,link_*|M
+    M-->|write_*,link_*|API
+    M-->|link_*|FS
+
+{{< /mermaid >}}
+
+## Getting data
+
+The command line utility `fair` is used to download and upload data and metadata required for and produced by model runs.
+
+{{<mermaid align="left">}}
+graph LR;
+    subgraph Remote
+        RR
+        OS
+        URI
+    end
+    subgraph Local
+        LR
+        FS
+    end
+
+    RR[Remote Registry]-->|fdp pull| LR[Local Registry]
+    LR-->|fdp push| RR
+
+    RR-->OS(Managed Object Store)
+    RR-->URI(Abribtrary URI)
+    LR-->FS(Local Filesystem)
+
+    OS-->|fdp pull| FS
+    URI-->|fdp pull| FS
+    FS-->|fdp push| OS
+    FS-->|fdp push?| URI
+
+{{< /mermaid >}}
