@@ -7,7 +7,7 @@ type: docs
 
 **This is work in progress.**
 
-The FAIR Data Pipeline (FDP) is intended to enable tracking of provenance of data used in epidemiological modelling. Pipeline APIs written in C++, Java, Julia, Python and R can be called by modelling software for data ingestion. These interact with a local relational database storing metadata and the local filesystem, and are configured using a yaml file associated with the model run. Local files and metadata can be synchronised with a remote registry via a command line tool (`fdp`).
+The FAIR Data Pipeline (FDP) is intended to enable tracking of provenance of data used in epidemiological modelling. Pipeline APIs written in C++, Java, Julia, Python and R can be called by modelling software for data ingestion. These interact with a local relational database storing metadata and the local filesystem, and are configured using a yaml file associated with the model run. Local files and metadata can be synchronised with a remote registry via a command line tool (`fair`).
 
 The key benefits of using the FAIR Data Pipeline are:
 
@@ -20,7 +20,7 @@ The key benefits of using the FAIR Data Pipeline are:
 
 ## Running Models
 
-To use the FAIR Data Pipeline with a piece of modelling software, you must add a language specific Pipeline API as a dependency and interact with data registered in the pipeline via the methods it presents. Each model run must be configured using a [`config.yml`](../interface/_index.md) file which specifies inputs and outputs by metadata.
+To use the FAIR Data Pipeline with a piece of modelling software, you must add a language specific Pipeline API as a dependency and interact with data registered in the pipeline via the methods it presents. Each model run must be configured using a [`config.yml`](interface/_index.md) file which specifies inputs and outputs by metadata.
 
 {{<mermaid align="left">}}
 graph LR;
@@ -51,7 +51,7 @@ graph LR;
 
 ## Getting data
 
-The command line utility `fdp` is used to download and upload data and metadata required for and produced by model runs.
+The command line utility `fair` is used to download and upload data and metadata required for and produced by model runs.
 
 {{<mermaid align="left">}}
 graph LR;
