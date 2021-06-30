@@ -32,7 +32,7 @@ fair push config.yaml
 - `local_repo:` must always be given in the *config.yaml* file
   - ensure the repo is clean
   - get the hash of the latest commit
-  - get the remote repo url from the local repo
+  - get the remote repo url from the local repo, if it's not already provided in the user written *config.yaml* file
   - add these to the working *config.yaml* file
   - note that there are exceptions and the user may reference a script located outside of a repository
 - save the working *config.yaml* file in the local data store (in *<local_store>/coderun/\<date>-\<time>/config.yaml*)
