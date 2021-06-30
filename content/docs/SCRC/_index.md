@@ -1,6 +1,6 @@
 ---
+weight: 10
 title: Introduction
-type: docs
 ---
 
 # SCRC
