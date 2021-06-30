@@ -182,7 +182,7 @@ finalise(handle)
 ### `initialise()`
 
 - responsible for reading the working *config.yaml* file
-- registers the working *config.yaml* file and submission script
+- registers the working *config.yaml* file, submission script, and GitHub repo
 - registers a CodeRun (since the CodeRun UUID should be referenced if `${{DPAPI.RUN_ID}}` is specified in a DataProduct name)
 - returns a `handle` containing:
   - the working *config.yaml* file contents
