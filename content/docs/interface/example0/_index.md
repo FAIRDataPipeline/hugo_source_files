@@ -186,9 +186,9 @@ handle <- initialise(config, script)
 data_product <- "test/array"
 component <- "component1/a/s/d/f/s"
 
-read_array(handle = handle,
-           data_product = data_product,
-           component = component)
+dat <- read_array(handle = handle,
+                  data_product = data_product,
+                  component = component)
 
 finalise(handle)
 ```
