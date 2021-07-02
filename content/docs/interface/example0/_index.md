@@ -338,7 +338,7 @@ run_metadata:
     R -f simple_working_examples/write_point_estimate.R ${{CLI.CONFIG_DIR}}
 
 write:
-- data_product: test/distribution/asymptomatic-period
+- data_product: test/estimate/asymptomatic-period
   description: asymptomatic period
 ```
 
@@ -359,7 +359,7 @@ run_metadata:
     R -f simple_working_examples/write_point_estimate.R /Users/SoniaM/datastore/coderun/20210511-231444/
 
 write:
-- data_product: test/distribution/asymptomatic-period
+- data_product: test/estimate/asymptomatic-period
   description: asymptomatic period
   use:
     version: 0.0.1
@@ -375,11 +375,11 @@ config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
 script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
 handle <- initialise(config, script)
 
-input_path <- write_estimate(value = 9,
-                             handle = handle,
-                             data_product = "test/distribution/asymptomatic-period",
-                             component = "asymptomatic-period",
-                             description = "asymptomatic period")
+write_estimate(value = 9,
+               handle = handle,
+               data_product = "test/distribution/asymptomatic-period",
+               component = "asymptomatic-period",
+               description = "asymptomatic period")
 
 finalise(handle)
 ```
@@ -401,7 +401,7 @@ run_metadata:
     R -f simple_working_examples/read_point_estimate.R ${{CLI.CONFIG_DIR}}
 
 read:
-- data_product: test/distribution/asymptomatic-period
+- data_product: test/estimate/asymptomatic-period
 ```
 
 ### Working *config.yaml*
@@ -421,7 +421,7 @@ run_metadata:
     R -f simple_working_examples/read_point_estimate.R /Users/SoniaM/datastore/coderun/20210511-231444/
 
 read:
-- data_product: test/distribution/asymptomatic-period
+- data_product: test/estimate/asymptomatic-period
   use:
     version: 0.0.1
 ```
@@ -439,6 +439,70 @@ handle <- initialise(config, script)
 read_estimate(handle = handle,
               data_product = "test/distribution/asymptomatic-period",
               component = "asymptomatic-period")
+
+finalise(handle)
+```
+
+## Write data product (distribution)
+
+### User written *config.yaml*
+
+```yaml
+run_metadata:
+  description: Write distribution
+  local_data_registry_url: https://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: soniamitchell
+  default_output_namespace: soniamitchell
+  write_data_store: /Users/SoniaM/datastore/
+  local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata/
+  script: |-
+    R -f simple_working_examples/write_distribution.R ${{CLI.CONFIG_DIR}}
+
+write:
+- data_product: test/distribution/symptom-delay
+  description: Estimate of symptom delay
+```
+
+### Working *config.yaml*
+
+```yaml
+run_metadata:
+  description: Write distribution
+  local_data_registry_url: https://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: soniamitchell
+  default_output_namespace: soniamitchell
+  write_data_store: /Users/SoniaM/datastore/
+  local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata/
+  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
+  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
+  script: |-
+    R -f simple_working_examples/write_distribution.R /Users/SoniaM/datastore/coderun/20210511-231444/
+
+write:
+- data_product: test/distribution/symptom-delay
+  description: Estimate of symptom delay
+  use:
+    version: 0.0.1
+```
+
+### Submission script (R)
+
+```r
+library(rFDP)
+
+# Open the connection to the local registry with a given config file
+config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
+script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
+handle <- initialise(config, script)
+
+write_distribution(handle = handle,
+                   data_product = "test/distribution/symptom-delay",
+                   component = "symptom-delay",
+                   distribution = "Gaussian",
+                   parameters = list(mean = -16.08, SD = 30),
+                   description = "symptom delay")
 
 finalise(handle)
 ```
