@@ -1,6 +1,6 @@
 ---
 weight: 20
-title: "FAIR CLI"
+title: "FAIR CLI Summary"
 ---
 
 <span style="font-size:12pt; color:red">Note that this is a living document and the following is subject to change.</span>
