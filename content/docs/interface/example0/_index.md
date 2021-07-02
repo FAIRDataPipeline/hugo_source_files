@@ -100,8 +100,11 @@ run_metadata:
 write:
 - data_product: test/array
   description: test array with simple data
-  version: 0.1.0
+  use:
+    version: 0.1.0
 ```
+
+Note that, although `use:` is reserved for aliasing in the user-written config, for simplicity the CLI will always write `version` here.
 
 ### Submission script (R)
 
@@ -170,7 +173,8 @@ run_metadata:
 
 read:
 - data_product: test/array
-  version: 0.1.0
+  use: 
+    version: 0.1.0
 ```
 
 ### Submission script (R)
@@ -235,7 +239,8 @@ write:
 - data_product: test/csv
   description: test csv file with simple data
   file_type: csv
-  version: 0.0.1
+  use:
+    version: 0.0.1
 ```
 
 ### Submission script (R)
@@ -254,6 +259,64 @@ rownames(df) <- 1:2
 path <- link_write(handle, "test/csv")
 
 write.csv(df, path)
+
+finalise(handle)
+```
+
+## Read data product (csv)
+
+### User written *config.yaml*
+
+```yaml
+run_metadata:
+  description: Read csv file
+  local_data_registry_url: https://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: soniamitchell
+  default_output_namespace: soniamitchell
+  write_data_store: /Users/SoniaM/datastore/
+  local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
+  script: |-
+    R -f simple_working_examples/read_csv.R ${{CLI.CONFIG_DIR}}
+
+read:
+- data_product: test/csv
+```
+
+### Working *config.yaml*
+
+```yaml
+run_metadata:
+  description: Read csv file
+  local_data_registry_url: https://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: soniamitchell
+  default_output_namespace: soniamitchell
+  write_data_store: /Users/SoniaM/datastore/
+  local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
+  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
+  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
+  script: |-
+    R -f simple_working_examples/read_csv.R /Users/SoniaM/datastore/coderun/20210511-231444/
+
+read:
+- data_product: test/csv
+  use:
+    version: 0.0.1
+```
+
+### Submission script (R)
+
+```r
+library(rFDP)
+
+# Open the connection to the local registry with a given config file
+config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
+script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
+handle <- initialise(config, script)
+
+path <- link_read(handle, "test/csv")
+df <- read.csv(path)
 
 finalise(handle)
 ```
@@ -298,7 +361,8 @@ run_metadata:
 write:
 - data_product: test/distribution/asymptomatic-period
   description: asymptomatic period
-  version: 0.0.1
+  use:
+    version: 0.0.1
 ```
 
 ### Submission script (R)
