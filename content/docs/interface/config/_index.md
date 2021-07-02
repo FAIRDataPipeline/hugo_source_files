@@ -91,13 +91,12 @@ run_metadata:
 # `script_path:` can be used instead of `script:`
 
 register:
-- external_object: raw-mortality-data
+- external_object: records/SARS-CoV-2/scotland/human-mortality
   # Who owns the data?
   source_name: Scottish Government Open Data Repository
   source_abbreviation: Scottish Government Open Data Repository
   source_website: https://statistics.gov.scot/
   # Where does the data come from?
-  root_name: Scottish Government Open Data Repository
   root: https://statistics.gov.scot/sparql.csv?query=
   path: |-
     PREFIX qb: <http://purl.org/linked-data/cube#>
@@ -133,7 +132,6 @@ register:
   title: Deaths involving COVID19
   description: Nice description of the dataset
   unique_name: Scottish deaths involving COVID19  # or doi
-  product_name: records/SARS-CoV-2/scotland/human-mortality
   file_type: csv
   release_date: ${{CLI.DATE}}    
   version: 0.${{CLI.DATE}}.0       
@@ -158,7 +156,10 @@ run_metadata:
   default_input_namespace: SCRC
   default_output_namespace: johnsmith
   write_data_store: /datastore/
-
+  local_repo: /Users/johnsmith/git/myproject/
+  script: # Points to the Python script, below (relative to local_repo)
+    python path/submission_script.py {CONFIG_PATH}
+    
 read:
 - data_product: human/population
   use:

@@ -148,7 +148,6 @@ run_metadata:
 
 read:
 - data_product: test/array
-  component: component1/a/s/d/f/s
 ```
 
 ### Working *config.yaml*
@@ -171,7 +170,6 @@ run_metadata:
 
 read:
 - data_product: test/array
-  component: component1/a/s/d/f/s
   version: 0.1.0
 ```
 

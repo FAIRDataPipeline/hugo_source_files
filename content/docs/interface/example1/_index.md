@@ -39,7 +39,6 @@ register:
   source_name: Scottish Government Open Data Repository
   source_abbreviation: Scottish Government Open Data Repository
   source_website: https://statistics.gov.scot/
-  root_name: Scottish Government Open Data Repository database
   root: https://statistics.gov.scot/sparql.csv?query=
   path: |
     PREFIX qb: <http://purl.org/linked-data/cube#>
@@ -116,9 +115,7 @@ run_metadata:
   remote_repo: https://github.com/ScottishCovidResponse/SCRCdata
   script: R -f inst/SCRC/scotgov_management/submission_script.R /Users/SoniaM/datastore/coderun/20210511-231444/
 read:
-- external_object: records/SARS-CoV-2/scotland/cases-and-management
-  doi_or_unique_name: COVID-19 management information
-  title: Data associated with COVID-19
+- data_product: records/SARS-CoV-2/scotland/cases-and-management
   version: 0.20210414.0
 write:
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/ambulance
@@ -160,7 +157,7 @@ script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
 handle <- initialise(config, script)
 
 # Return location of file stored in the pipeline
-input_path <- link_read(handle, "raw-mortality-data")
+input_path <- link_read(handle, "records/SARS-CoV-2/scotland/cases-and-management/mortality")
 
 # Process raw data and write data product
 data <- read.csv(input_path)
