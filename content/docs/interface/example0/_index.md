@@ -102,9 +102,9 @@ run_metadata:
 write:
 - data_product: test/array
   description: test array with simple data
-  public: true
   use:
     version: 0.1.0
+    public: true
 ```
 
 Note that, although `use:` is reserved for aliasing in the user-written config, for simplicity the CLI will always write `version` here.
@@ -244,9 +244,9 @@ write:
 - data_product: test/csv
   description: test csv file with simple data
   file_type: csv
-  public: true
   use:
     version: 0.0.1
+    public: true
 ```
 
 ### Submission script (R)
@@ -368,9 +368,9 @@ run_metadata:
 write:
 - data_product: test/estimate/asymptomatic-period
   description: asymptomatic period
-  public: true
   use:
     version: 0.0.1
+    public: true
 ```
 
 ### Submission script (R)
@@ -493,6 +493,7 @@ write:
   description: Estimate of symptom delay
   use:
     version: 0.0.1
+    public: true
 ```
 
 ### Submission script (R)

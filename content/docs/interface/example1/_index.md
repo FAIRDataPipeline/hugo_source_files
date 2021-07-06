@@ -117,41 +117,50 @@ run_metadata:
 
 read:
 - data_product: records/SARS-CoV-2/scotland/cases-and-management
-  version: 0.20210414.0
+  use:
+    version: 0.20210414.0
 
 write:
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/ambulance
   description: Ambulance data
-  version: 0.20210414.0
-  public: true
+  use:
+    version: 0.20210414.0
+    public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/calls
   description: Calls data
-  version: 0.20210414.0
-  public: true
+  use:
+    version: 0.20210414.0
+    public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/carehomes
   description: Care homes data
-  version: 0.20210414.0
-  public: true
+  use:
+    version: 0.20210414.0
+    public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/hospital
   description: Hospital data
-  version: 0.20210414.0
-  public: true
+  use:
+    version: 0.20210414.0
+    public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/mortality
   description: Mortality data
-  version: 0.20210414.0
-  public: true
+  use:
+    version: 0.20210414.0
+    public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/nhsworkforce
   description: NHS workforce data
-  version: 0.20210414.0
-  public: true
+  use:
+    version: 0.20210414.0
+    public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/schools
   description: Schools data
-  version: 0.20210414.0
-  public: true
+  use:
+    version: 0.20210414.0
+    public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/testing
   description: Testing data
-  version: 0.20210414.0
-  public: true
+  use:
+    version: 0.20210414.0
+    public: true
 ```
 
 ## *submission_script.R*

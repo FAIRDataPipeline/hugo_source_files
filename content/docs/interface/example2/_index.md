@@ -68,20 +68,21 @@ read:
   use:
     namespace: johnsmith
     data_product: scotland/human/population
+    version: 0.1.0
 
 write:
 - data_product: human/outbreak-timeseries
   description: data product description
-  version: 0.1.0
-  public: true
   use:
     data_product: scotland/human/outbreak-timeseries
+    version: 0.1.0
+    public: true
 - data_product: human/outbreak/simulation_run
   description: another data product description
-  version: 0.1.0
-  public: true
   use:
     data_product: human/outbreak/simulation_run-${{DPAPI.RUN_ID}}
+    version: 0.1.0
+    public: true
 ```
 
 ## Read then write a data product component
