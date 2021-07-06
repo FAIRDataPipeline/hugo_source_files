@@ -59,7 +59,6 @@ run_metadata:
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata
   latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
   remote_repo: https://github.com/ScottishCovidResponse/SCRCdata
-  public_repo: true
   script: |- 
     R -f inst/SCRC/scotgov_management/submission_script.R /Users/SoniaM/datastore/coderun/20210511-231444/
 

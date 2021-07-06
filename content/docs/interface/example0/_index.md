@@ -41,7 +41,6 @@ run_metadata:
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
   latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
   remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
-  public_repo: true
   script: |- 
     R -f simple_working_examples/empty_script.R /Users/SoniaM/datastore/coderun/20210511-231444/
 ```
@@ -95,7 +94,6 @@ run_metadata:
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
   latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
   remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
-  public_repo: true
   script: |- 
     R -f simple_working_examples/write_array.R /Users/SoniaM/datastore/coderun/20210511-231444/
 
@@ -171,7 +169,6 @@ run_metadata:
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
   latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
   remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
-  public_repo: true
   script: |- 
     R -f simple_working_examples/read_array.R /Users/SoniaM/datastore/coderun/20210511-231444/
 
@@ -236,7 +233,6 @@ run_metadata:
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
   latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
   remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
-  public_repo: true
   script: |-
     R -f simple_working_examples/write_csv.R /Users/SoniaM/datastore/coderun/20210511-231444/
 
@@ -361,7 +357,6 @@ run_metadata:
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata/
   latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
   remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
-  public_repo: true
   script: |-
     R -f simple_working_examples/write_point_estimate.R /Users/SoniaM/datastore/coderun/20210511-231444/
 

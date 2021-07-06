@@ -32,14 +32,13 @@ fair push config.yaml
     - `version: ${{PATCH}}` should increment version by patch; and
     - `version: 0.${{CLI.DATETIME-%Y%m%d}}.0` or any variants thereof are replaced by an appropriately formatted string.
   - if no version is given, then one should be written such that patch is incremented if the data product already exists, otherwise version should be set to 0.0.1.
-  - `register:` is removed and external objects / data products are written in `read:`
-  - add `latest_commit:` and `remote_repo:` to `run_metadata:` (see below)
+  - `register:` is removed and `external_object`s are written to `read:` as `data_product`s
   - populate `public:` field in `write:` sections (default is `true`)
 - `local_repo:` must always be given in the *config.yaml* file
   - ensure the repo is clean
-  - get the hash of the latest commit
-  - get the remote repo url from the local repo, if it's not already provided in the user written *config.yaml* file
-  - add these to the working *config.yaml* file
+  - get the hash of the latest commit and add to the working *config.yaml* file in `run_metadata: latest_commit:`
+  - if `run_metadata: remote_repo:` is `false`, then `fair push` should copy the repo to the file store
+  - if `run_metadata: remote_repo:` is absent or doesn't contain a URL, then `fair run` should try to get the remote repo url from the local repo
   - note that there are exceptions and the user may reference a script located outside of a repository
 - save the working *config.yaml* file in the local data store, in *<local_store>/coderun/\<date>T\<time>/config.yaml*, e.g. *datastore/coderun/20210625T165552/config.yaml*
 - save the submission script to the local data store in *<local_store>/coderun/\<date>T\<time>/script.sh*
