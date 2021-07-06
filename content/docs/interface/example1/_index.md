@@ -69,7 +69,6 @@ register:
   release_date: ${{CLI.DATETIME}}
   version: 0.${{CLI.DATE}}.0
   primary: True
-  accessibility: open
 
 write:
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/ambulance
@@ -114,34 +113,53 @@ run_metadata:
   latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
   remote_repo: https://github.com/ScottishCovidResponse/SCRCdata
   script: R -f inst/SCRC/scotgov_management/submission_script.R /Users/SoniaM/datastore/coderun/20210511-231444/
+
 read:
 - data_product: records/SARS-CoV-2/scotland/cases-and-management
-  version: 0.20210414.0
+  use:
+    version: 0.20210414.0
+
 write:
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/ambulance
   description: Ambulance data
-  version: 0.20210414.0
+  use:
+    version: 0.20210414.0
+    public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/calls
   description: Calls data
-  version: 0.20210414.0
+  use:
+    version: 0.20210414.0
+    public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/carehomes
   description: Care homes data
-  version: 0.20210414.0
+  use:
+    version: 0.20210414.0
+    public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/hospital
   description: Hospital data
-  version: 0.20210414.0
+  use:
+    version: 0.20210414.0
+    public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/mortality
   description: Mortality data
-  version: 0.20210414.0
+  use:
+    version: 0.20210414.0
+    public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/nhsworkforce
   description: NHS workforce data
-  version: 0.20210414.0
+  use:
+    version: 0.20210414.0
+    public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/schools
   description: Schools data
-  version: 0.20210414.0
+  use:
+    version: 0.20210414.0
+    public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/testing
   description: Testing data
-  version: 0.20210414.0
+  use:
+    version: 0.20210414.0
+    public: true
 ```
 
 ## *submission_script.R*

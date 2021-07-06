@@ -102,6 +102,7 @@ write:
   description: test array with simple data
   use:
     version: 0.1.0
+    public: true
 ```
 
 Note that, although `use:` is reserved for aliasing in the user-written config, for simplicity the CLI will always write `version` here.
@@ -241,6 +242,7 @@ write:
   file_type: csv
   use:
     version: 0.0.1
+    public: true
 ```
 
 ### Submission script (R)
@@ -363,6 +365,7 @@ write:
   description: asymptomatic period
   use:
     version: 0.0.1
+    public: true
 ```
 
 ### Submission script (R)
@@ -485,6 +488,7 @@ write:
   description: Estimate of symptom delay
   use:
     version: 0.0.1
+    public: true
 ```
 
 ### Submission script (R)
