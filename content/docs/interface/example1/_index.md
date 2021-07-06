@@ -39,7 +39,6 @@ register:
   source_name: Scottish Government Open Data Repository
   source_abbreviation: Scottish Government Open Data Repository
   source_website: https://statistics.gov.scot/
-  root_name: Scottish Government Open Data Repository database
   root: https://statistics.gov.scot/sparql.csv?query=
   path: |
     PREFIX qb: <http://purl.org/linked-data/cube#>
@@ -168,7 +167,7 @@ script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
 handle <- initialise(config, script)
 
 # Return location of file stored in the pipeline
-input_path <- link_read(handle, "raw-mortality-data")
+input_path <- link_read(handle, "records/SARS-CoV-2/scotland/cases-and-management/mortality")
 
 # Process raw data and write data product
 data <- read.csv(input_path)

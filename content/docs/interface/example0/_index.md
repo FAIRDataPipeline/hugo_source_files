@@ -102,9 +102,12 @@ run_metadata:
 write:
 - data_product: test/array
   description: test array with simple data
-  version: 0.1.0
   public: true
+  use:
+    version: 0.1.0
 ```
+
+Note that, although `use:` is reserved for aliasing in the user-written config, for simplicity the CLI will always write `version` here.
 
 ### Submission script (R)
 
@@ -151,7 +154,6 @@ run_metadata:
 
 read:
 - data_product: test/array
-  component: component1/a/s/d/f/s
 ```
 
 ### Working *config.yaml*
@@ -175,8 +177,8 @@ run_metadata:
 
 read:
 - data_product: test/array
-  component: component1/a/s/d/f/s
-  version: 0.1.0
+  use: 
+    version: 0.1.0
 ```
 
 ### Submission script (R)
@@ -192,9 +194,9 @@ handle <- initialise(config, script)
 data_product <- "test/array"
 component <- "component1/a/s/d/f/s"
 
-read_array(handle = handle,
-           data_product = data_product,
-           component = component)
+dat <- read_array(handle = handle,
+                  data_product = data_product,
+                  component = component)
 
 finalise(handle)
 ```
@@ -242,8 +244,9 @@ write:
 - data_product: test/csv
   description: test csv file with simple data
   file_type: csv
-  version: 0.0.1
   public: true
+  use:
+    version: 0.0.1
 ```
 
 ### Submission script (R)
@@ -266,13 +269,71 @@ write.csv(df, path)
 finalise(handle)
 ```
 
+## Read data product (csv)
+
+### User written *config.yaml*
+
+```yaml
+run_metadata:
+  description: Read csv file
+  local_data_registry_url: https://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: soniamitchell
+  default_output_namespace: soniamitchell
+  write_data_store: /Users/SoniaM/datastore/
+  local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
+  script: |-
+    R -f simple_working_examples/read_csv.R ${{CLI.CONFIG_DIR}}
+
+read:
+- data_product: test/csv
+```
+
+### Working *config.yaml*
+
+```yaml
+run_metadata:
+  description: Read csv file
+  local_data_registry_url: https://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: soniamitchell
+  default_output_namespace: soniamitchell
+  write_data_store: /Users/SoniaM/datastore/
+  local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
+  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
+  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
+  script: |-
+    R -f simple_working_examples/read_csv.R /Users/SoniaM/datastore/coderun/20210511-231444/
+
+read:
+- data_product: test/csv
+  use:
+    version: 0.0.1
+```
+
+### Submission script (R)
+
+```r
+library(rFDP)
+
+# Open the connection to the local registry with a given config file
+config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
+script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
+handle <- initialise(config, script)
+
+path <- link_read(handle, "test/csv")
+df <- read.csv(path)
+
+finalise(handle)
+```
+
 ## Write data product (point estimate)
 
 ### User written *config.yaml*
 
 ```yaml
 run_metadata:
-  description: Register a file in the pipeline
+  description: Write point estimate
   local_data_registry_url: https://localhost:8000/api/
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: soniamitchell
@@ -283,7 +344,7 @@ run_metadata:
     R -f simple_working_examples/write_point_estimate.R ${{CLI.CONFIG_DIR}}
 
 write:
-- data_product: test/distribution/asymptomatic-period
+- data_product: test/estimate/asymptomatic-period
   description: asymptomatic period
 ```
 
@@ -291,7 +352,7 @@ write:
 
 ```yaml
 run_metadata:
-  description: Register a file in the pipeline
+  description: Write point estimate
   local_data_registry_url: https://localhost:8000/api/
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: soniamitchell
@@ -305,10 +366,11 @@ run_metadata:
     R -f simple_working_examples/write_point_estimate.R /Users/SoniaM/datastore/coderun/20210511-231444/
 
 write:
-- data_product: test/distribution/asymptomatic-period
+- data_product: test/estimate/asymptomatic-period
   description: asymptomatic period
-  version: 0.0.1
   public: true
+  use:
+    version: 0.0.1
 ```
 
 ### Submission script (R)
@@ -321,11 +383,193 @@ config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
 script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
 handle <- initialise(config, script)
 
-input_path <- write_estimate(value = 9,
-                             handle = handle,
-                             data_product = "test/distribution/asymptomatic-period",
-                             component = "asymptomatic-period",
-                             description = "asymptomatic period")
+write_estimate(value = 9,
+               handle = handle,
+               data_product = "test/distribution/asymptomatic-period",
+               component = "asymptomatic-period",
+               description = "asymptomatic period")
+
+finalise(handle)
+```
+
+## Read data product (point estimate)
+
+### User written *config.yaml*
+
+```yaml
+run_metadata:
+  description: Read point estimate
+  local_data_registry_url: https://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: soniamitchell
+  default_output_namespace: soniamitchell
+  write_data_store: /Users/SoniaM/datastore/
+  local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata/
+  script: |-
+    R -f simple_working_examples/read_point_estimate.R ${{CLI.CONFIG_DIR}}
+
+read:
+- data_product: test/estimate/asymptomatic-period
+```
+
+### Working *config.yaml*
+
+```yaml
+run_metadata:
+  description: Read point estimate
+  local_data_registry_url: https://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: soniamitchell
+  default_output_namespace: soniamitchell
+  write_data_store: /Users/SoniaM/datastore/
+  local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata/
+  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
+  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
+  script: |-
+    R -f simple_working_examples/read_point_estimate.R /Users/SoniaM/datastore/coderun/20210511-231444/
+
+read:
+- data_product: test/estimate/asymptomatic-period
+  use:
+    version: 0.0.1
+```
+
+### Submission script (R)
+
+```r
+library(rFDP)
+
+# Open the connection to the local registry with a given config file
+config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
+script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
+handle <- initialise(config, script)
+
+read_estimate(handle = handle,
+              data_product = "test/distribution/asymptomatic-period",
+              component = "asymptomatic-period")
+
+finalise(handle)
+```
+
+## Write data product (distribution)
+
+### User written *config.yaml*
+
+```yaml
+run_metadata:
+  description: Write distribution
+  local_data_registry_url: https://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: soniamitchell
+  default_output_namespace: soniamitchell
+  write_data_store: /Users/SoniaM/datastore/
+  local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata/
+  script: |-
+    R -f simple_working_examples/write_distribution.R ${{CLI.CONFIG_DIR}}
+
+write:
+- data_product: test/distribution/symptom-delay
+  description: Estimate of symptom delay
+```
+
+### Working *config.yaml*
+
+```yaml
+run_metadata:
+  description: Write distribution
+  local_data_registry_url: https://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: soniamitchell
+  default_output_namespace: soniamitchell
+  write_data_store: /Users/SoniaM/datastore/
+  local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata/
+  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
+  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
+  script: |-
+    R -f simple_working_examples/write_distribution.R /Users/SoniaM/datastore/coderun/20210511-231444/
+
+write:
+- data_product: test/distribution/symptom-delay
+  description: Estimate of symptom delay
+  use:
+    version: 0.0.1
+```
+
+### Submission script (R)
+
+```r
+library(rFDP)
+
+# Open the connection to the local registry with a given config file
+config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
+script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
+handle <- initialise(config, script)
+
+write_distribution(handle = handle,
+                   data_product = "test/distribution/symptom-delay",
+                   component = "symptom-delay",
+                   distribution = "Gaussian",
+                   parameters = list(mean = -16.08, SD = 30),
+                   description = "symptom delay")
+
+finalise(handle)
+```
+
+## Read data product (distribution)
+
+### User written *config.yaml*
+
+```yaml
+run_metadata:
+  description: Read distribution
+  local_data_registry_url: https://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: soniamitchell
+  default_output_namespace: soniamitchell
+  write_data_store: /Users/SoniaM/datastore/
+  local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata/
+  script: |-
+    R -f simple_working_examples/read_distribution.R ${{CLI.CONFIG_DIR}}
+
+read:
+- data_product: test/distribution/symptom-delay
+```
+
+### Working *config.yaml*
+
+```yaml
+run_metadata:
+  description: Read distribution
+  local_data_registry_url: https://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: soniamitchell
+  default_output_namespace: soniamitchell
+  write_data_store: /Users/SoniaM/datastore/
+  local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata/
+  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
+  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
+  script: |-
+    R -f simple_working_examples/read_distribution.R /Users/SoniaM/datastore/coderun/20210511-231444/
+
+read:
+- data_product: test/distribution/symptom-delay
+  use:
+    version: 0.0.1
+```
+
+### Submission script (R)
+
+```r
+library(rFDP)
+
+# Open the connection to the local registry with a given config file
+config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
+script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
+handle <- initialise(config, script)
+
+read_distribution(handle = handle,
+                  data_product = "test/distribution/symptom-delay",
+                  component = "symptom-delay")
 
 finalise(handle)
 ```
