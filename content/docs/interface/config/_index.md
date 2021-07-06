@@ -55,6 +55,7 @@ write:
 - external_object: beautiful_figure
   unique_name: My amazing figure
   version: ${{CLI.MINOR}}
+  public: false
 ```
 
 - `run_metadata:` provides metadata for the run:
@@ -72,6 +73,7 @@ write:
   - If a write is carried out to a data product where no such `data_product:` entry exists, then a new data product is created with that name in the local namespace, or the patch version of an existing data product is suitably incremented. The level of incrementation or version number can be explicitly defined by `version:`.
   - If a write is carried out to an object that is not a data product and no such `external_object:` entry exists, then a new object is created with no associated external object or data product, and an issue is raised with the object to note the absence of an appropriate reference, referencing the name given in the write API call.
   - `version:` can be specified explicitly (*e.g.* `0.1.0` or `0.20210414.0`), by reference (*e.g.* `0.${{CLI.DATE}}.0`, meaning `0.20210414.0`), or by increment (*i.e.* `${{CLI.MAJOR}}`, `${{CLI.MINOR}}`, or `${{CLI.PATCH}}`). If an object already exists and no version is specified, it will be incremented by patch, by default.
+  - `public:` can be specified for data products in `write:` and is taken to be `true` when absent
 
 ## Extended inputs and outputs
 

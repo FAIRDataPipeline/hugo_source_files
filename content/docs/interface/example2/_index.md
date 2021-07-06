@@ -35,9 +35,11 @@ read:
 
 write:
 - data_product: human/outbreak-timeseries
+  description: data product description
   use:
     data_product: scotland/human/outbreak-timeseries
 - data_product: human/outbreak/simulation_run
+  description: another data product description
   use:
     data_product: human/outbreak/simulation_run-${{DPAPI.RUN_ID}}
 ```
@@ -57,6 +59,7 @@ run_metadata:
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata
   latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
   remote_repo: https://github.com/ScottishCovidResponse/SCRCdata
+  public_repo: true
   script: |- 
     R -f inst/SCRC/scotgov_management/submission_script.R /Users/SoniaM/datastore/coderun/20210511-231444/
 
@@ -68,48 +71,17 @@ read:
 
 write:
 - data_product: human/outbreak-timeseries
+  description: data product description
+  version: 0.1.0
+  public: true
   use:
     data_product: scotland/human/outbreak-timeseries
 - data_product: human/outbreak/simulation_run
+  description: another data product description
+  version: 0.1.0
+  public: true
   use:
     data_product: human/outbreak/simulation_run-${{DPAPI.RUN_ID}}
-```
-
-## Read and write an external object
-
-A script to read and write an external object (*i.e.* something not in a core data pipeline format) in R. First, the yaml file, that gives the `doi_or_unique_name` and `title` of the external objects being read and written, and the aliases that will be used in the submission script:
-
-### User written *config.yaml*
-
-```yaml
-run_metadata: 
-  description: A simple example using external objects
-  local_data_registry_url: https://localhost:8000/api/
-  remote_data_registry_url: https://data.scrc.uk/api/
-  default_input_namespace: SCRC 
-  default_output_namespace: johnsmith
-  write_data_store: /datastore/
-  local_repo: /Users/johnsmith/git/myproject/
-  script: # Points to the R script, below (relative to local_repo)
-    R -f path/submission_script.R ${{CLI.CONFIG_DIR}}
-
-read: 
-- external_object: time-series
-  unique_name: An exciting time series
-  title: Table 1
-
-write: 
-- external_object: revised-time-series
-  unique_name: An new, revised, time series
-  title: Table 1
-  file_type: csv
-  primary: True
-```
-
-### Working *config.yaml*
-
-```yaml
-...
 ```
 
 ## Read then write a data product component

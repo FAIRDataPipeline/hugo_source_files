@@ -31,8 +31,10 @@ fair push config.yaml
     - `version: 0.${{CLI.DATE}}.0` is replaced by `version: 0.20210414.0`
     - `version: ${{PATCH}}` should increment version by patch; and
     - `version: 0.${{CLI.DATETIME-%Y%m%d}}.0` or any variants thereof are replaced by an appropriately formatted string.
-  - If no version is given, then one should be written such that patch is incremented if the data product already exists, otherwise version should be set to 0.0.1.
+  - if no version is given, then one should be written such that patch is incremented if the data product already exists, otherwise version should be set to 0.0.1.
   - `register:` is removed and external objects / data products are written in `read:`
+  - add `latest_commit:` and `remote_repo:` to `run_metadata:` (see below)
+  - populate `public:` field in `write:` sections (default is `true`)
 - `local_repo:` must always be given in the *config.yaml* file
   - ensure the repo is clean
   - get the hash of the latest commit
