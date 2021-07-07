@@ -1,31 +1,15 @@
 ---
-weight: 20
-title: "FAIR-CLI Repository"
+weight: 30
+title: "FAIR CLI outline"
 ---
 
-# FAIR Data Pipeline Command Line Interface
+# `fair` CLI outline
 
 | **DISCLAIMER:**                                                                                                                                                                                                                                                                                                                                                                    |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | The following document is largely conceptual and therefore does *not* represent a manual for the final interface. Statements within the following are likely to change, further details of possible changes are given throughout. Please either open an issue or pull request on the [source repository](https://github.com/FAIRDataPipeline/FAIR-CLI) raising any changes/issues. |
 
-**Table of Contents**
-   * [Installation](#installation)
-   * [Structure](#structure)
-      * [Global and Local Directories](#global-and-local-directories)
-      * [Data Directory](#data-directory)
-      * [Sessions Directory](#sessions-directory)
-      * [Logs Directory](#logs-directory)
-      * [Staging File](#staging-file)
-      * [config.yaml](#configyaml)
-   * [Registry Interaction](#registry-interaction) 
-   * [Command Line Usage](#command-line-usage)
-      * [init](#init)
-      * [run](#run)
-      * [registry](#registry)
-      * [log](#log)
-      * [view](#view)
-   * [Template Variables](#template-variables)
+
 
 FAIR-CLI forms the main interface for synchronising changes between your local and shared remote FAIR Data Pipeline registries, it is also used to instantiate model runs/data submissions to the pipeline.
 
