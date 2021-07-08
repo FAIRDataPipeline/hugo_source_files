@@ -1,3 +1,5 @@
+# Uses cases
+
 [Use Case 1. Uploading a new dataset using script/config file](#use-case-1.-pre-process-and-upload-a-new-dataset-using-scriptconfig-file)
 
 [Use Case 2. Uploading a new dataset via a GUI](#use-case-2.-uploading-a-new-dataset-via-a-gui)
