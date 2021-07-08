@@ -25,8 +25,6 @@ below:
 8.  Use case: **View meta data --** I want to extract meta data about a
     particular dataset or model code
 
-Source: Glenn Marion
-
 Actor: Data/code producer (5 & 6). Data/software user (7 & 8)
 
 Benefit: Results are linked to any known issues with their dependencies,

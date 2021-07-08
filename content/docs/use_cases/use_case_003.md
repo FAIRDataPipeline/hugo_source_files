@@ -8,8 +8,6 @@ usefulness of dataset for their purposes
 visualise a dataset programmatically in the pipeline to determine if it
 is suitable for their application.
 
-**Example of Actor (real person): Jess Enright**
-
 **Preconditions:**
 
 -   Dataset actor is interested in is available via data pipeline

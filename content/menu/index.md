@@ -25,6 +25,7 @@ headless: true
     - [File API]({{< relref "/docs/API/python/file_api" >}})
     - [Terminology]({{< relref "/docs/API/python/terminology" >}})
 - [Jargon buster]({{< relref "/docs/jargon_buster" >}})
+- [Use Cases]({{< relref "/docs/use_cases" >}})
   
 <br />
 

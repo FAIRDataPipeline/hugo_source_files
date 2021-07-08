@@ -20,8 +20,6 @@ below:
     these to the data pipeline/registry tracking data dependencies
     (parameter inference)
 
-Source: Glenn Marion
-
 Actor: Researcher undertaking significant inference or analysis exercise
 couple with model simulation where repeated sampling and recording is
 required
@@ -34,7 +32,7 @@ stoarge capacity seem very important considerations
 **Questions:**
 
 -   We don't really have a way of doing write-then-read at the moment -
-    would this be a good reason to adopt Martin's local SQLite (or
+    would this be a good reason to adopt local SQLite (or
     other) registry?
 
 -   How do we think about multiple runs with potentially thousands of
