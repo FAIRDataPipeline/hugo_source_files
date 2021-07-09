@@ -3,43 +3,6 @@ weight: 7
 title: "Uses cases"
 bookCollapseSection: true
 ---
-
-# Uses cases
-
-[Use Case 1. Uploading a new dataset using script/config file](#use-case-1.-pre-process-and-upload-a-new-dataset-using-scriptconfig-file)
-
-[Use Case 2. Uploading a new dataset via a GUI](#use-case-2.-uploading-a-new-dataset-via-a-gui)
-
-[Use Case 3. QuickStart Exploratory Dataset Use/Analysis](#use-case-3.-quickstart-exploratory-dataset-useanalysis)
-
-[Use Case 4. Model run](#use-case-4.-model-run)
-
-[Use Case 5. Parameter inference coupled with model simulation](#use-case-5.-parameter-inference-coupled-with-model-simulation)
-
-[Use Case 6. Flag and Track issues in data and model/analysis-code](#use-case-6.-flag-and-track-issues-in-data-and-modelanalysis-code)
-
-[Use Case 7. Production of a pipeline validated policy briefing](#use-case-7.-production-of-a-pipeline-validated-policy-briefing)
-
-[Use Case 8. Finding and assessing alternative datasets from registry](#use-case-8.-finding-and-assessing-alternative-datasets-from-registry)
-
-[Use Case 9. Review of current status of a pipeline validated output](#use-case-9.-review-of-current-status-of-a-pipeline-validated-output)
-
-[Use Case 10. Retrospective assessment of status, when generated, of a pipeline validated output](#use-case-10.-retrospective-assessment-of-status-when-generated-of-a-pipeline-validated-output)
-
-[Use Case 11. Understanding of local data](#use-case-11.-understanding-of-local-data)
-
-[Use Case 12. Actor wants to understand provenance of reported results](#use-case-12.-actor-wants-to-understand-provenance-of-reported-results)
-
-[Use Case 13. Actor wants to identify changes between model outputs](#use-case-13.-actor-wants-to-identify-changes-between-model-outputs)
-
-[Use Case 14. From a screen on the visualisation platform, the user wants to follow a link to a provenance report for the underlying data and processing](#use-case-14.-from-a-screen-on-the-visualisation-platform-the-user-wants-to-follow-a-link-to-a-provenance-report-for-the-underlying-data-and-processing)
-
-[Use Case 15. Initial quick look at dataset visualisations online](#use-case-15.-initial-quick-look-at-dataset-visualisations-online)
-
-[Use Case 16. Actor wants to do a model run inside a safe haven](#use-case-16.-actor-wants-to-do-a-model-run-inside-a-safe-haven)
-
-[Use Case 17. Actor wants to run a model with some non-publicly accessible data](#use-case-17.-actor-wants-to-run-a-model-with-some-non-publicly-accessible-data)
-
 Use Case 1. (Pre-process and) upload a new dataset using script/config file
 ===========================================================================
 
@@ -81,7 +44,7 @@ what formats are acceptable?)
 -   System generates report summarising upload, including date and hash,
     etc
 
-**Postconditions: **
+**Postconditions:**
 
 -   Datasets are now in registry with metadata - both the raw dataset
     and the processed dataset
@@ -91,8 +54,7 @@ what formats are acceptable?)
 -   A response code from the API confirms that the upload has completed
     successfully
 
-**\
-**
+
 
 Use Case 2. Uploading a new dataset via a GUI
 =============================================
@@ -130,7 +92,7 @@ what formats are acceptable?)
 -   System generates report summarising upload, including date and hash,
     etc
 
-**Postconditions: **
+**Postconditions:**
 
 -   Dataset is now in registry with metadata
 
@@ -155,9 +117,6 @@ what formats are acceptable?)
 -   Reproducing registry from scripts -- how to maintain if GUI route
     supported?
 
-**\
-**
-
 Use Case 3. QuickStart Exploratory Dataset Use/Analysis
 =======================================================
 
@@ -168,9 +127,7 @@ usefulness of dataset for their purposes
 visualise a dataset programmatically in the pipeline to determine if it
 is suitable for their application.
 
-**Example of Actor (real person): Jess Enright**
-
-**Preconditions: **
+**Preconditions:**
 
 -   Dataset actor is interested in is available via data pipeline
 
@@ -178,7 +135,7 @@ is suitable for their application.
     by the pipeline, an interest in data, ability to visualise data
     within their language of choice
 
-**Basic flow: **
+**Basic flow:**
 
 -   Actor searches for a data resource, system's search ability provides
     a link to the data and a pointer to a description. Actor decides to
@@ -237,7 +194,7 @@ and upload of results to registry and data stores
 **Actor:** A modelling or data scientist who wants to programmatically
 run an analysis and add the results to the pipeline
 
-**Preconditions: **
+**Preconditions:**
 
 -   Dataset(s) actor is interested in is available via data pipeline
 
@@ -245,7 +202,7 @@ run an analysis and add the results to the pipeline
     by the pipeline, an interest in data, ability to visualise data
     within their language of choice
 
-**Basic flow: **
+**Basic flow:**
 
 -   Actor searches for data resource(s), system's search ability
     provides a link to the data and a pointer to a description. Actor
@@ -313,8 +270,6 @@ below:
     these to the data pipeline/registry tracking data dependencies
     (parameter inference)
 
-Source: Glenn Marion
-
 Actor: Researcher undertaking significant inference or analysis exercise
 couple with model simulation where repeated sampling and recording is
 required
@@ -327,7 +282,7 @@ stoarge capacity seem very important considerations
 Questions:
 
 -   We don't really have a way of doing write-then-read at the moment -
-    would this be a good reason to adopt Martin's local SQLite (or
+    would this be a good reason to adopt local SQLite (or
     other) registry?
 
 -   How do we think about multiple runs with potentially thousands of
@@ -347,21 +302,19 @@ look at downstream outputs.
 This requires application of four further **component use cases** shown
 below:
 
-5.  Use case: **Flag data as problematic --** an error or revision of
+1.  Use case: **Flag data as problematic --** an error or revision of
     data is uncovered. How do I flag this in data pipeline/registry?
 
-6.  Use case: **Flag model/analysis code as problematic --** a
+2.  Use case: **Flag model/analysis code as problematic --** a
     model/analysis code error is detected or the code revised. How do I
     flag this in data pipeline/registry?
 
-7.  Use case: **Track issues --** I am looking at the output of some
+3.  Use case: **Track issues --** I am looking at the output of some
     analysis/model. How do I see issues flagged in ancestral data or
     model/analyisis?
 
-8.  Use case: **View meta data --** I want to extract meta data about a
+4.  Use case: **View meta data --** I want to extract meta data about a
     particular dataset or model code
-
-Source: Glenn Marion
 
 Actor: Data/code producer (5 & 6). Data/software user (7 & 8)
 
@@ -382,8 +335,7 @@ and potential users are aware of any known issues
     (eg scorecards completed, data quality assessments) but should not
     rely on that being done for every object in the chain.
 
-**\
-**
+
 
 Use Case 7. Production of a pipeline validated policy briefing
 ==============================================================
@@ -448,8 +400,7 @@ a valid model code release registered.
 -   Could provenance reports and QA info be generated for any "object"
     in the registry?
 
-**\
-**
+
 
 Use Case 8. Finding and assessing alternative datasets from registry
 ====================================================================
@@ -482,8 +433,7 @@ registry
 **Questions:** Do we want to flag up data status/issues via web
 interface and also during programmatic access?
 
-**\
-**
+
 
 Use Case 9. Review of current status of a pipeline validated output
 ===================================================================
@@ -575,8 +525,7 @@ then this would be possible.
 How important is it that this is easy / convenient vs "possible by
 digging into the database"?
 
-**\
-**
+
 
 Use Case 11. Understanding of local data
 ========================================
@@ -615,8 +564,7 @@ registry.
 **Notes:** Possible a tool for data import to the registry that
 calculates checksums could be run over the directory
 
-**\
-**
+
 
 Use Case 12. Actor wants to understand provenance of reported results
 =====================================================================
@@ -661,8 +609,7 @@ generates a diff between the provenances
 This requires use case 12, plus a mechanism for displaying a
 comprehensible diff.
 
-**\
-**
+
 
 Use Case 14. From a screen on the visualisation platform, the user wants to follow a link to a provenance report for the underlying data and processing
 =======================================================================================================================================================
@@ -688,8 +635,7 @@ that is traced in report.
 Links directly from data pipeline to visualisation infrastructure, no
 programming
 
-**\
-**
+
 
 Use Case 16. Actor wants to do a model run inside a safe haven
 ==============================================================
