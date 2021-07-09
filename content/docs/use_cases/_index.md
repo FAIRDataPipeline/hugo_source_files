@@ -1,3 +1,9 @@
+---
+weight: 7
+title: "Uses cases"
+bookCollapseSection: true
+---
+
 # Uses cases
 
 [Use Case 1. Uploading a new dataset using script/config file](#use-case-1.-pre-process-and-upload-a-new-dataset-using-scriptconfig-file)
