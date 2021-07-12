@@ -34,6 +34,7 @@ run_metadata:
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata
   script: |- 
     R -f inst/SCRC/scotgov_management/submission_script.R ${{CLI.CONFIG_DIR}}
+
 register:
 - external_object: records/SARS-CoV-2/scotland/cases-and-management
   source_name: Scottish Government Open Data Repository
@@ -106,7 +107,7 @@ run_metadata:
   description: Register a file in the pipeline
   local_data_registry_url: https://localhost:8000/api/
   remote_data_registry_url: https://data.scrc.uk/api/
-  default_input_namespace: SCRC
+  default_input_namespace: soniamitchell
   default_output_namespace: soniamitchell
   write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata
@@ -117,48 +118,66 @@ run_metadata:
 read:
 - data_product: records/SARS-CoV-2/scotland/cases-and-management
   use:
+    data_product: records/SARS-CoV-2/scotland/cases-and-management
     version: 0.20210414.0
+    namespace: soniamitchell
 
 write:
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/ambulance
-  description: Ambulance data
   use:
+    data_product: records/SARS-CoV-2/scotland/cases-and-management/ambulance
+    description: Ambulance data
     version: 0.20210414.0
+    namespace: soniamitchell
     public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/calls
-  description: Calls data
   use:
+    data_product: records/SARS-CoV-2/scotland/cases-and-management/calls
+    description: Calls data
     version: 0.20210414.0
+    namespace: soniamitchell
     public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/carehomes
-  description: Care homes data
   use:
+    data_product: records/SARS-CoV-2/scotland/cases-and-management/carehomes
+    description: Care homes data
     version: 0.20210414.0
+    namespace: soniamitchell
     public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/hospital
-  description: Hospital data
   use:
+    data_product: records/SARS-CoV-2/scotland/cases-and-management/hospital
+    description: Hospital data
     version: 0.20210414.0
+    namespace: soniamitchell
     public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/mortality
-  description: Mortality data
   use:
+    data_product: records/SARS-CoV-2/scotland/cases-and-management/mortality
+    description: Mortality data
     version: 0.20210414.0
+    namespace: soniamitchell
     public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/nhsworkforce
-  description: NHS workforce data
   use:
+    data_product: records/SARS-CoV-2/scotland/cases-and-management/nhsworkforce
+    description: NHS workforce data
     version: 0.20210414.0
+    namespace: soniamitchell
     public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/schools
-  description: Schools data
   use:
+    data_product: records/SARS-CoV-2/scotland/cases-and-management/schools
+    description: Schools data
     version: 0.20210414.0
+    namespace: soniamitchell
     public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/testing
-  description: Testing data
   use:
+    data_product: records/SARS-CoV-2/scotland/cases-and-management/testing
+    description: Testing data
     version: 0.20210414.0
+    namespace: soniamitchell
     public: true
 ```
 
@@ -196,55 +215,64 @@ finalise(handle)
 
 ### `initialise()`
 
-- responsible for reading the working *config.yaml* file
+*responsible for reading the working config.yaml file*
+
 - registers the working *config.yaml* file, submission script, and GitHub repo
 - registers a CodeRun (since the CodeRun UUID should be referenced if `${{DPAPI.RUN_ID}}` is specified in a DataProduct name)
 - returns a `handle` containing:
   - the working *config.yaml* file contents
   - the object id for this file
   - the object id for the submission script file
+  - the object id for the CodeRun
+
+Note that since, StorageLocation has a uniqueness constraint on `path`, `hash`, `public`, and `storage_root`, files with the same `hash` in the same `storage_root` and `public` flag should generate new Object entries that point to the same `path`. Likewise, files with the same `hash` in the same `storage_root` and `public` flag should not be duplicated in the data store.
 
 ### `link_read()`
 
-- responsible for returning the path of an external object in the local data store
+*responsible for returning the path of an external object in the local data store*
+
 - updates `handle` with file path (if not already present) and useful metadata
 - returns file path
 
 ### `read_array()`
 
-- responsible for reading the correct data product, which at this point has been downloaded from the remote data store by `fair pull`
+*responsible for reading the correct data product, which at this point has been downloaded from the remote data store by `fair pull`*
+
 - reads a specified version of the data
 - updates `handle`
 
 ### `link_write()`
 
-- returns a path to write external objects to
-- updates `handle`
+- updates `handle` with useful metadata
+- returns a path to write to
 
 ### `write_array()`
 
-- responsible for writing an array as a component to an hdf5 file
+*responsible for writing an array as a component to an hdf5 file*
+
+- writes component to the hdf5 file
 - updates `handle`
   - if this is the first component to be written, update `handle` with storage location
   - if this is not the first component to be written, reference the storage location from the `handle`
   - if the component is already recorded in the handle, return the index of this handle reference invisibly
-- writes component to the hdf5 file
 
-### `issue_with_component()`
+### `raise_issue()`
 
-- **this is very much a work in progress**
-- find the input or output reference (in the handle) that the issue is associated with
-- note that issues can also be associated with scripts, etc. (I've not gone near this yet)
-- record issue metadata in the handle
-- NOTE that in the above example, `issue_with_component()` takes an `index` that references an object recorded in the handle, alternatively it may take a `dataproduct`, `component`, and `version` as identifiers
-- NOTE that `issue_with_component()` is but one of a series of functions including `inssue_with_dataproduct()`, `issue_with_externalobject()`, and `issue_with_script()`; it might make more sense for you to write a generic `raise_issue()` function depending on language constraints
+*responsible for writing issue related metadata to the handle*
+
+- records issue and data product / component related metadata in the handle
+- note that where an issue is associated with an entire object, the `whole_object` component is referenced; the `whole_object` component is generated automatically whenever a new Object is created
+- data products or components may be referenced explicitly or via an index (invisibly output from `write_array()` for example)
+- multiple components or data products may be linked to a single issue
 
 ### `finalise()`
 
-- renames any hdf5 files as *<hash>.h5*
-- renames any data products (storage directory) if variables are present, *e.g.* for `human/outbreak/simulation_run-${{DPAPI.RUN_ID}}`, `${{DPAPI.RUN_ID}}` is replaced with the CodeRun UUID
+- renames data products with their hash
+  - until this point, we've arbitrarily named each file with its date and time of creation *e.g. 20210712-172757.h5*
+  - this is renamed as *b03bbbe1205b3de70b1ae7573cf11c8b2555d2ed.h5*
+- renames data products if variables are present, *e.g.* for `human/outbreak/simulation_run-${{DPAPI.RUN_ID}}`, `${{DPAPI.RUN_ID}}` is replaced with the CodeRun UUID
 - records metadata (*e.g.* location, components, various descriptions, issues) in the data registry
-- records the code run in the data registry
+- updates the code run in the data registry
 
 ## *submission_script.py*
 

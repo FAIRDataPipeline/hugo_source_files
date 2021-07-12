@@ -65,22 +65,24 @@ run_metadata:
 read:
 - data_product: human/population
   use:
-    namespace: johnsmith
     data_product: scotland/human/population
     version: 0.1.0
+    namespace: johnsmith
 
 write:
 - data_product: human/outbreak-timeseries
-  description: data product description
   use:
     data_product: scotland/human/outbreak-timeseries
+    description: data product description
     version: 0.1.0
+    namespace: soniamitchell
     public: true
 - data_product: human/outbreak/simulation_run
-  description: another data product description
   use:
     data_product: human/outbreak/simulation_run-${{DPAPI.RUN_ID}}
+    description: another data product description
     version: 0.1.0
+    namespace: soniamitchell
     public: true
 ```
 
