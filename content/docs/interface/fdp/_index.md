@@ -1,5 +1,5 @@
 ---
-weight: 20
+weight: 50
 title: "FAIR CLI functionality"
 ---
 
@@ -25,7 +25,45 @@ fair push config.yaml
 
 - read (and validate) the *config.yaml* file
 - generate a working *config.yaml* file (see [Working example]({{% ref "/docs/interface/example1" %}}))
-  - globbing (`*` and `**` replaced with all matching objects, all components listed), specific version numbers, and any variables in `run_metadata:`, `register:`, `read:`, and `write:` are replaced with true values, *e.g.*
+  - globbing is used to interpret `*` and `**` as all matching objects, with all components listed, and the original string returned, *e.g.* if `real/data/1@v.0.0.1` and `real/data/thing/1@v.0.0.1` already exist in the registry, the user-written config:
+  
+    ```yaml
+    write:
+    - data_product: real/data/**
+      description: general description for all data products
+      use:
+        namespace: someone
+        version: ${{CLI.MINOR}}
+    ```
+
+    should return:
+  
+    ```yaml
+    write:
+    - data_product: real/data/1
+      use:
+        data_product: real/data/1
+        description: general description for all data products
+        version: 0.1.0
+        namespace: someone
+        public: TRUE
+    - data_product: real/data/thing/1
+      use:
+        data_product: real/data/thing/1
+        description: general description for all data products
+        version: 0.1.0
+        namespace: someone
+        public: TRUE
+    - data_product: real/data/**
+      use:
+        data_product: real/data/**
+        description: general description for all data products
+        version: 0.0.1
+        namespace: someone
+        public: TRUE
+    ```
+
+  - specific version numbers and any variables in `run_metadata:`, `register:`, `read:`, and `write:` are replaced with true values, *e.g.*
     - `${{CLI.CONFIG_DIR}}` is replaced by the directory within which the working *config.yaml* file resides
     - `release_date: ${{CLI.DATETIME}}` is replaced by `release_date: 2021-04-14 11:34:37`
     - `version: 0.${{CLI.DATE}}.0` is replaced by `version: 0.20210414.0`
