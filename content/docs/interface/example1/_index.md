@@ -1,5 +1,5 @@
 ---
-weight: 50
+weight: 30
 title: "Full working example (with descriptions of Data Pipeline API functionality)"
 ---
 
