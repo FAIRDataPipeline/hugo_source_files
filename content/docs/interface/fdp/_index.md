@@ -67,7 +67,7 @@ fair push config.yaml
     - `${{CLI.CONFIG_DIR}}` is replaced by the directory within which the working *config.yaml* file resides
     - `release_date: ${{CLI.DATETIME}}` is replaced by `release_date: 2021-04-14 11:34:37`
     - `version: 0.${{CLI.DATE}}.0` is replaced by `version: 0.20210414.0`
-    - `version: ${{PATCH}}` should increment version by patch; and
+    - `version: ${{CLI.PATCH}}` should increment version by patch; and
     - `version: 0.${{CLI.DATETIME-%Y%m%d}}.0` or any variants thereof are replaced by an appropriately formatted string.
   - if no version is given, then one should be written such that patch is incremented if the data product already exists, otherwise version should be set to 0.0.1.
   - `register:` is removed and `external_object`s are written to `read:` as `data_product`s
