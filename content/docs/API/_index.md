@@ -99,7 +99,11 @@ If the component is represented as samples, return the samples.
 
 ## HDF5 files
 
-<span style="font-size:14pt; color:red">Note that the following is subject to change. For example, we may want to add all of the metadata as attributes.</span>
+<span style="font-size:12pt; color:red">Note that the following is subject to change. For example, we may want to add all of the metadata as attributes.</span>
+
+An HDF5 file can be either a table or an array. A table is always 2-dimentional and might typically be used when each column contains different classes of data (*e.g.* integers and strings). Conversely, all elements in an array should be the same class, though the array itself might be 1-dimensional, 2-dimensional, or more (*e.g.* a 3-dimensional array comprising population counts, with rows as area, columns as age, and a third dimension representing gender).
+
+You should create a single HDF5 file for a single dataset. Unless you have a dataset that really should have been generated as multiple datasets in the first place (*e.g.* testing data mixed with carehome data), in which case use your own judgement.
 
 HDF5 files contain structured data, encoded as either an “array”, or a “table”, both of which are described in more detail below.
 
