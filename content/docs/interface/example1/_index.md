@@ -262,8 +262,8 @@ Note that since, StorageLocation has a uniqueness constraint on `path`, `hash`, 
 
 - records issue and data product / component related metadata in the handle
 - note that where an issue is associated with an entire object, the `whole_object` component is referenced; the `whole_object` component is generated automatically whenever a new Object is created
-- data products or components may be referenced explicitly or via an index (invisibly output from `write_array()` for example)
-- multiple components or data products may be linked to a single issue
+- components or whole data products may be referenced by name or via a reference (for instance returned by `write_array()`)
+- multiple components or data products may be linked to a single issue, either via two functions - one to raise issues and one to attach them - or via arguments to `raise_issue()` that allow multiple components to be attached
 
 ### `finalise()`
 
