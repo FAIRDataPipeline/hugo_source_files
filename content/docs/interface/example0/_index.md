@@ -11,7 +11,7 @@ This page gives simple examples of the **user written** *config.yaml* file along
 
 ## Empty code run
 
-### User written *config.yaml*
+#### User written *config.yaml*
 
 ```yaml
 run_metadata:
@@ -26,7 +26,7 @@ run_metadata:
     R -f simple_working_examples/empty_script.R ${{CONFIG_DIR}}
 ```
 
-### Working *config.yaml*
+#### Working *config.yaml*
 
 `fair run` should create a working *config.yaml* file, which is read by the Data Pipeline API. In this example, the working *config.yaml* file is pretty much identical to the original *config.yaml* file, only `${{CONFIG_DIR}}` is replaced by the directory in which the working *config.yaml* file resides.
 
@@ -45,7 +45,7 @@ run_metadata:
     R -f simple_working_examples/empty_script.R /Users/SoniaM/datastore/coderun/20210511-231444/
 ```
 
-### Submission script (R)
+#### Submission script (R)
 
 ```r
 library(rFDP)
@@ -60,7 +60,7 @@ finalise(handle)
 
 ## Write data product (HDF5)
 
-### User written *config.yaml*
+#### User written *config.yaml*
 
 ```yaml
 run_metadata:
@@ -79,7 +79,7 @@ write:
   description: test array with simple data
 ```
 
-### Working *config.yaml*
+#### Working *config.yaml*
 
 `fdp run` should create a working *config.yaml* file, which is read by the Data Pipeline API. In this example, the working *config.yaml* file is pretty much identical to the original *config.yaml* file, only `${{CONFIG_DIR}}` is replaced by the directory in which the working *config.yaml* file resides.
 
@@ -107,7 +107,7 @@ write:
 
 Note that, although `use:` is reserved for aliasing in the user-written config, for simplicity the CLI will always write `version` here.
 
-### Submission script (R)
+#### Submission script (R)
 
 ```r
 library(rFDP)
@@ -136,7 +136,7 @@ finalise(handle)
 
 ## Read data product (HDF5)
 
-### User written *config.yaml*
+#### User written *config.yaml*
 
 ```yaml
 run_metadata:
@@ -154,7 +154,7 @@ read:
 - data_product: test/array
 ```
 
-### Working *config.yaml*
+#### Working *config.yaml*
 
 `fdp run` should create a working *config.yaml* file, which is read by the Data Pipeline API. In this example, the working *config.yaml* file is pretty much identical to the original *config.yaml* file, only `${{CONFIG_DIR}}` is replaced by the directory in which the working *config.yaml* file resides.
 
@@ -178,7 +178,7 @@ read:
     version: 0.1.0
 ```
 
-### Submission script (R)
+#### Submission script (R)
 
 ```r
 library(rFDP)
@@ -200,7 +200,7 @@ finalise(handle)
 
 ## Write data product (csv)
 
-### User written *config.yaml*
+#### User written *config.yaml*
 
 ```yaml
 run_metadata:
@@ -220,7 +220,7 @@ write:
   file_type: csv
 ```
 
-### Working *config.yaml*
+#### Working *config.yaml*
 
 ```yaml
 run_metadata:
@@ -245,7 +245,7 @@ write:
     public: true
 ```
 
-### Submission script (R)
+#### Submission script (R)
 
 ```r
 library(rFDP)
@@ -267,7 +267,7 @@ finalise(handle)
 
 ## Read data product (csv)
 
-### User written *config.yaml*
+#### User written *config.yaml*
 
 ```yaml
 run_metadata:
@@ -285,7 +285,7 @@ read:
 - data_product: test/csv
 ```
 
-### Working *config.yaml*
+#### Working *config.yaml*
 
 ```yaml
 run_metadata:
@@ -307,7 +307,7 @@ read:
     version: 0.0.1
 ```
 
-### Submission script (R)
+#### Submission script (R)
 
 ```r
 library(rFDP)
@@ -325,7 +325,7 @@ finalise(handle)
 
 ## Write data product (point estimate)
 
-### User written *config.yaml*
+#### User written *config.yaml*
 
 ```yaml
 run_metadata:
@@ -344,7 +344,7 @@ write:
   description: asymptomatic period
 ```
 
-### Working *config.yaml*
+#### Working *config.yaml*
 
 ```yaml
 run_metadata:
@@ -368,7 +368,7 @@ write:
     public: true
 ```
 
-### Submission script (R)
+#### Submission script (R)
 
 ```r
 library(rFDP)
@@ -389,7 +389,7 @@ finalise(handle)
 
 ## Read data product (point estimate)
 
-### User written *config.yaml*
+#### User written *config.yaml*
 
 ```yaml
 run_metadata:
@@ -407,7 +407,7 @@ read:
 - data_product: test/estimate/asymptomatic-period
 ```
 
-### Working *config.yaml*
+#### Working *config.yaml*
 
 ```yaml
 run_metadata:
@@ -429,7 +429,7 @@ read:
     version: 0.0.1
 ```
 
-### Submission script (R)
+#### Submission script (R)
 
 ```r
 library(rFDP)
@@ -448,7 +448,7 @@ finalise(handle)
 
 ## Write data product (distribution)
 
-### User written *config.yaml*
+#### User written *config.yaml*
 
 ```yaml
 run_metadata:
@@ -467,7 +467,7 @@ write:
   description: Estimate of symptom delay
 ```
 
-### Working *config.yaml*
+#### Working *config.yaml*
 
 ```yaml
 run_metadata:
@@ -491,7 +491,7 @@ write:
     public: true
 ```
 
-### Submission script (R)
+#### Submission script (R)
 
 ```r
 library(rFDP)
@@ -513,7 +513,7 @@ finalise(handle)
 
 ## Read data product (distribution)
 
-### User written *config.yaml*
+#### User written *config.yaml*
 
 ```yaml
 run_metadata:
@@ -531,7 +531,7 @@ read:
 - data_product: test/distribution/symptom-delay
 ```
 
-### Working *config.yaml*
+#### Working *config.yaml*
 
 ```yaml
 run_metadata:
@@ -553,7 +553,7 @@ read:
     version: 0.0.1
 ```
 
-### Submission script (R)
+#### Submission script (R)
 
 ```r
 library(rFDP)
