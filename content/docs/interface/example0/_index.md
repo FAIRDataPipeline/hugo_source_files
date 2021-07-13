@@ -99,11 +99,9 @@ run_metadata:
 
 write:
 - data_product: test/array
-  use:
-    data_product: test/array
-    description: test array with simple data
+  description: test array with simple data
+  use:    
     version: 0.1.0
-    namespace: soniamitchell
     public: true
 ```
 
@@ -177,9 +175,7 @@ run_metadata:
 read:
 - data_product: test/array
   use: 
-    data_product: test/array
     version: 0.1.0
-    namespace: soniamitchell
 ```
 
 ### Submission script (R)
@@ -242,12 +238,10 @@ run_metadata:
 
 write:
 - data_product: test/csv
-  use:
-    data_product: test/csv
-    description: test csv file with simple data
+  description: test csv file with simple data
+  file_type: csv
+  use:    
     version: 0.0.1
-    namespace: soniamitchell
-    file_type: csv
     public: true
 ```
 
@@ -310,9 +304,7 @@ run_metadata:
 read:
 - data_product: test/csv
   use:
-    data_product: test/csv
     version: 0.0.1
-    namespace: soniamitchell
 ```
 
 ### Submission script (R)
@@ -370,11 +362,9 @@ run_metadata:
 
 write:
 - data_product: test/estimate/asymptomatic-period
-  use:
-    data_product: test/estimate/asymptomatic-period
-    description: asymptomatic period
+  description: asymptomatic period
+  use:    
     version: 0.0.1
-    namespace: soniamitchell
     public: true
 ```
 
@@ -436,9 +426,7 @@ run_metadata:
 read:
 - data_product: test/estimate/asymptomatic-period
   use:
-    data_product: test/estimate/asymptomatic-period
     version: 0.0.1
-    namespace: soniamitchell
 ```
 
 ### Submission script (R)
@@ -497,11 +485,9 @@ run_metadata:
 
 write:
 - data_product: test/distribution/symptom-delay
-  use:
-    data_product: test/distribution/symptom-delay
-    description: Estimate of symptom delay
+  description: Estimate of symptom delay
+  use:    
     version: 0.0.1
-    namespace: soniamitchell
     public: true
 ```
 
@@ -564,9 +550,7 @@ run_metadata:
 read:
 - data_product: test/distribution/symptom-delay
   use:
-    data_product: test/distribution/symptom-delay
     version: 0.0.1
-    namespace: soniamitchell
 ```
 
 ### Submission script (R)

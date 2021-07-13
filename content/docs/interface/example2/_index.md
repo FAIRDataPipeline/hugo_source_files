@@ -71,45 +71,15 @@ read:
 
 write:
 - data_product: human/outbreak-timeseries
+  description: data product description
   use:
     data_product: scotland/human/outbreak-timeseries
-    description: data product description
     version: 0.1.0
-    namespace: soniamitchell
     public: true
 - data_product: human/outbreak/simulation_run
+  description: another data product description
   use:
-    data_product: human/outbreak/simulation_run-${{RUN_ID}}
-    description: another data product description
+    data_product: human/outbreak/simulation_run-${{RUN_ID}}    
     version: 0.1.0
-    namespace: soniamitchell
     public: true
-```
-
-## Read then write a data product component
-
-Now that the pipeline is populated, one of the simplest possible use cases is just to read in a value, calculate a new value from it, and write out the new value. Again, we need to write a *config.yaml* file:
-
-### User written *config.yaml*
-
-```yaml
-run_metadata: 
-  description: A simple example reading and writing data products
-  default_input_namespace: SCRC
-  local_repo: /Users/johnsmith/git/myproject
-  script: | # addresses are relative to local_repo
-    julia -f path/submission_script.jl ${{CONFIG_DIR}}
-
-read:
-- data_product: human/infection/SARS-CoV-2
-
-write:
-- data_product: human/infection/SARS-CoV-2/doubled
-  component: doubled-infectious-period
-```
-
-### Working *config.yaml*
-
-```yaml
-...
 ```
