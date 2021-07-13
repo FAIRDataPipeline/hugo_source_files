@@ -18,7 +18,7 @@ The package is not yet registered and must be added via the package manager Pkg:
 
 ``` julia
 using Pkg
-Pkg.add(url="https://github.com/ScottishCovidResponse/DataRegistryUtils.jl")
+Pkg.add(url="https://github.com/FAIRDataPipeline/DataRegistryUtils.jl")
 ```
 
 ## Usage
@@ -29,5 +29,5 @@ See the [package documentation][docs] for instructions and examples.
 
 See the package's [code repo][repo].
 
-[docs]: https://scottishcovidresponse.github.io/DataRegistryUtils.jl/stable/
-[repo]: https://github.com/ScottishCovidResponse/DataRegistryUtils.jl
+[docs]: https://FAIRDataPipeline.github.io/DataRegistryUtils.jl/stable/
+[repo]: https://github.com/FAIRDataPipeline/DataRegistryUtils.jl
