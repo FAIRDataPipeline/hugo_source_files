@@ -569,3 +569,23 @@ read_distribution(handle = handle,
 
 finalise(handle)
 ```
+
+## Attach issue to component
+
+## Attach issue to whole data product
+
+## Attach issue to config
+
+## Attach issue to submission script
+
+## Attach issue to GitHub repository
+
+## Attach issue to external object
+This is not something we want to do.
+## Attach issue to code run
+This might be something we want to do in the future.
+
+## Delete DataProduct (optionally) if identical to previous version
+
+## Delete CodeRun (optionally) if nothing happened
+*That is, if no output was created and no issue was raised*
