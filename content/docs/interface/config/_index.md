@@ -138,13 +138,14 @@ register:
   release_date: ${{DATE}}    
   version: 0.${{DATE}}.0       
   primary: True
-  accessibility: open        # Other option is "closed"
   
 write:
 - data_product: records/SARS-CoV-2/scotland/human-mortality
   description: human mortality data
   version: 0.${{DATE}}.0
 ```
+
+- `register:` will take exactly one of `unique_name:` or `doi:`.
 
 ## Flexible inputs and outputs
 
