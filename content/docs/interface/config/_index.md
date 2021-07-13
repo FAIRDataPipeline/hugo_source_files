@@ -1,11 +1,11 @@
 ---
 weight: 10
-title: "User written config file"
+title: "config.yaml fields"
 ---
 
-<span style="font-size:12pt; color:red">Note that this is a living document and the following is subject to change. Fields may be missing or named incorrectly!</span>
+# *config.yaml* fields
 
-# User written *config.yaml* file
+<span style="font-size:12pt; color:red">Note that this is a living document and the following is subject to change.</span>
 
 The Data Pipeline API hinges on a *config.yaml* file, which lets users specify metadata to be used during file lookup for read or write, and configure overall API behaviour. This user written *config.yaml* is translated into a working config file by `FAIR run`, which is then taken as input by the Data Pipeline API.
 

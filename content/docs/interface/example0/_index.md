@@ -1,9 +1,9 @@
 ---
 weight: 20
-title: "Simple working examples"
+title: "DPAPI examples"
 ---
 
-# Simple working examples (with Data Pipeline API functionality)
+# DPAPI examples
 
 <span style="font-size:12pt; color:red">Note that this is a living document and the following is subject to change. </span>
 

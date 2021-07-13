@@ -1,6 +1,6 @@
 ---
 weight: 50
-title: "FAIR CLI outline"
+title: "FAIR CLI readme"
 ---
 
 # `fair` CLI outline

@@ -1,11 +1,11 @@
 ---
 weight: 40
-title: "FAIR CLI functionality"
+title: "FAIR CLI functions"
 ---
 
-<span style="font-size:12pt; color:red">Note that this is a living document and the following is subject to change.</span>
+# `fair` CLI functions
 
-# `fair` CLI functionality
+<span style="font-size:12pt; color:red">Note that this is a living document and the following is subject to change.</span>
 
 A simple example of how the data pipline should run from the command line:
 

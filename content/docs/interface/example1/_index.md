@@ -1,9 +1,9 @@
 ---
 weight: 30
-title: "Full working example (with descriptions of Data Pipeline API functionality)"
+title: "DPAPI functions"
 ---
 
-# Full working example (with Data Pipeline API functionality)
+# DPAPI functions
 
 <span style="font-size:12pt; color:red">Note that this is a living document and the following is subject to change. </span>
 
