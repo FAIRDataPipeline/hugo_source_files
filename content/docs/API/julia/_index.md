@@ -4,7 +4,7 @@ weight: 20
 
 # DataRegistryUtils.jl
 
-The `DataRegistryUtils.jl` package contains functions used to interface with the SCRC data pipeline (*e.g.* to upload metadata to the registry or download data products from the Boydorr server) in Julia.
+The `DataRegistryUtils.jl` package contains functions used to interface with the FAIR data pipeline in Julia.
 
 ## Features
 - Conveniently download Data Products from the SCRC [Data Registry](https://data.scrc.uk/).
