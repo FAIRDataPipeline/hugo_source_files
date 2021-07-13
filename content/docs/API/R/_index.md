@@ -2,7 +2,7 @@
 weight: 10
 ---
 
-# SCRCdataAPI
+# rFDP
 
 The `rFDP` package contains functions used to interface with the FAIR data pipeline in R.
 
