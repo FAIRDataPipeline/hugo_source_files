@@ -25,7 +25,7 @@ fair push config.yaml
 
 - read (and validate) the *config.yaml* file
 - generate a working *config.yaml* file (see [Working example]({{% ref "/docs/interface/example1" %}}))
-  - globbing is used to interpret `*` (one level) and `**` (recursive) as all matching objects as well as the original string returned, *e.g.* if `real/data/1` version 0.0.1 and `real/data/thing/1` version 0.0.1 already exist in the registry, the user-written config:
+  - globbing is used to interpret `*` as all matching objects as well as the original string returned, *e.g.* if `real/data/1` version 0.0.1 and `real/data/thing/1` version 0.0.1 already exist in the registry, the user-written config:
   
     ```yaml
     write:
