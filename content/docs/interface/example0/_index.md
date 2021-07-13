@@ -23,12 +23,12 @@ run_metadata:
   write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
   script: |- 
-    R -f simple_working_examples/empty_script.R ${{CLI.CONFIG_DIR}}
+    R -f simple_working_examples/empty_script.R ${{CONFIG_DIR}}
 ```
 
 ### Working *config.yaml*
 
-`fair run` should create a working *config.yaml* file, which is read by the Data Pipeline API. In this example, the working *config.yaml* file is pretty much identical to the original *config.yaml* file, only `${{CLI.CONFIG_DIR}}` is replaced by the directory in which the working *config.yaml* file resides.
+`fair run` should create a working *config.yaml* file, which is read by the Data Pipeline API. In this example, the working *config.yaml* file is pretty much identical to the original *config.yaml* file, only `${{CONFIG_DIR}}` is replaced by the directory in which the working *config.yaml* file resides.
 
 ```yaml
 run_metadata:
@@ -72,7 +72,7 @@ run_metadata:
   write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
   script: |- 
-    R -f simple_working_examples/write_array.R ${{CLI.CONFIG_DIR}}
+    R -f simple_working_examples/write_array.R ${{CONFIG_DIR}}
 
 write:
 - data_product: test/array
@@ -81,7 +81,7 @@ write:
 
 ### Working *config.yaml*
 
-`fdp run` should create a working *config.yaml* file, which is read by the Data Pipeline API. In this example, the working *config.yaml* file is pretty much identical to the original *config.yaml* file, only `${{CLI.CONFIG_DIR}}` is replaced by the directory in which the working *config.yaml* file resides.
+`fdp run` should create a working *config.yaml* file, which is read by the Data Pipeline API. In this example, the working *config.yaml* file is pretty much identical to the original *config.yaml* file, only `${{CONFIG_DIR}}` is replaced by the directory in which the working *config.yaml* file resides.
 
 ```yaml
 run_metadata:
@@ -150,7 +150,7 @@ run_metadata:
   write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
   script: |- 
-    R -f simple_working_examples/read_array.R ${{CLI.CONFIG_DIR}}
+    R -f simple_working_examples/read_array.R ${{CONFIG_DIR}}
 
 read:
 - data_product: test/array
@@ -158,7 +158,7 @@ read:
 
 ### Working *config.yaml*
 
-`fdp run` should create a working *config.yaml* file, which is read by the Data Pipeline API. In this example, the working *config.yaml* file is pretty much identical to the original *config.yaml* file, only `${{CLI.CONFIG_DIR}}` is replaced by the directory in which the working *config.yaml* file resides.
+`fdp run` should create a working *config.yaml* file, which is read by the Data Pipeline API. In this example, the working *config.yaml* file is pretty much identical to the original *config.yaml* file, only `${{CONFIG_DIR}}` is replaced by the directory in which the working *config.yaml* file resides.
 
 ```yaml
 run_metadata:
@@ -216,7 +216,7 @@ run_metadata:
   write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
   script: |-
-    R -f simple_working_examples/write_csv.R ${{CLI.CONFIG_DIR}}
+    R -f simple_working_examples/write_csv.R ${{CONFIG_DIR}}
 
 write:
 - data_product: test/csv
@@ -285,7 +285,7 @@ run_metadata:
   write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
   script: |-
-    R -f simple_working_examples/read_csv.R ${{CLI.CONFIG_DIR}}
+    R -f simple_working_examples/read_csv.R ${{CONFIG_DIR}}
 
 read:
 - data_product: test/csv
@@ -345,7 +345,7 @@ run_metadata:
   write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata/
   script: |-
-    R -f simple_working_examples/write_point_estimate.R ${{CLI.CONFIG_DIR}}
+    R -f simple_working_examples/write_point_estimate.R ${{CONFIG_DIR}}
 
 write:
 - data_product: test/estimate/asymptomatic-period
@@ -411,7 +411,7 @@ run_metadata:
   write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata/
   script: |-
-    R -f simple_working_examples/read_point_estimate.R ${{CLI.CONFIG_DIR}}
+    R -f simple_working_examples/read_point_estimate.R ${{CONFIG_DIR}}
 
 read:
 - data_product: test/estimate/asymptomatic-period
@@ -472,7 +472,7 @@ run_metadata:
   write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata/
   script: |-
-    R -f simple_working_examples/write_distribution.R ${{CLI.CONFIG_DIR}}
+    R -f simple_working_examples/write_distribution.R ${{CONFIG_DIR}}
 
 write:
 - data_product: test/distribution/symptom-delay
@@ -539,7 +539,7 @@ run_metadata:
   write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata/
   script: |-
-    R -f simple_working_examples/read_distribution.R ${{CLI.CONFIG_DIR}}
+    R -f simple_working_examples/read_distribution.R ${{CONFIG_DIR}}
 
 read:
 - data_product: test/distribution/symptom-delay

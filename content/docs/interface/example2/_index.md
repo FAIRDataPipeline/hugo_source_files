@@ -25,7 +25,7 @@ run_metadata:
   write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata
   script: |- 
-    R -f inst/SCRC/scotgov_management/submission_script.R ${{CLI.CONFIG_DIR}}
+    R -f inst/SCRC/scotgov_management/submission_script.R ${{CONFIG_DIR}}
 
 read:
 - data_product: human/population
@@ -41,12 +41,12 @@ write:
 - data_product: human/outbreak/simulation_run
   description: another data product description
   use:
-    data_product: human/outbreak/simulation_run-${{DPAPI.RUN_ID}}
+    data_product: human/outbreak/simulation_run-${{RUN_ID}}
 ```
 
 ### Working *config.yaml*
 
-`fair run` should create a working *config.yaml* file, which is read by the Data Pipeline API. In this example, the working *config.yaml* file is pretty much identical to the original *config.yaml* file, only `${{CLI.CONFIG_DIR}}` is replaced by the directory in which the working *config.yaml* file resides.
+`fair run` should create a working *config.yaml* file, which is read by the Data Pipeline API. In this example, the working *config.yaml* file is pretty much identical to the original *config.yaml* file, only `${{CONFIG_DIR}}` is replaced by the directory in which the working *config.yaml* file resides.
 
 ```yaml
 run_metadata:
@@ -79,7 +79,7 @@ write:
     public: true
 - data_product: human/outbreak/simulation_run
   use:
-    data_product: human/outbreak/simulation_run-${{DPAPI.RUN_ID}}
+    data_product: human/outbreak/simulation_run-${{RUN_ID}}
     description: another data product description
     version: 0.1.0
     namespace: soniamitchell
@@ -98,7 +98,7 @@ run_metadata:
   default_input_namespace: SCRC
   local_repo: /Users/johnsmith/git/myproject
   script: | # addresses are relative to local_repo
-    julia -f path/submission_script.jl ${{CLI.CONFIG_DIR}}
+    julia -f path/submission_script.jl ${{CONFIG_DIR}}
 
 read:
 - data_product: human/infection/SARS-CoV-2
