@@ -91,6 +91,7 @@ run_metadata:
   default_input_namespace: soniamitchell
   default_output_namespace: soniamitchell
   write_data_store: /Users/SoniaM/datastore/
+  public: true
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
   latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
   remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
@@ -102,10 +103,11 @@ write:
   description: test array with simple data
   use:    
     version: 0.1.0
-    public: true
 ```
 
 Note that, although `use:` is reserved for aliasing in the user-written config, for simplicity the CLI will always write `version` here.
+
+Note also that by default, the CLI will write `public: true` to `run_metadata:`. The user is however free to specify `public: false` for individual writes.
 
 #### Submission script (R)
 
@@ -230,6 +232,7 @@ run_metadata:
   default_input_namespace: soniamitchell
   default_output_namespace: soniamitchell
   write_data_store: /Users/SoniaM/datastore/
+  public: true
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
   latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
   remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
@@ -242,7 +245,6 @@ write:
   file_type: csv
   use:    
     version: 0.0.1
-    public: true
 ```
 
 #### Submission script (R)
@@ -354,6 +356,7 @@ run_metadata:
   default_input_namespace: soniamitchell
   default_output_namespace: soniamitchell
   write_data_store: /Users/SoniaM/datastore/
+  public: true
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata/
   latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
   remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
@@ -365,7 +368,6 @@ write:
   description: asymptomatic period
   use:    
     version: 0.0.1
-    public: true
 ```
 
 #### Submission script (R)
@@ -477,6 +479,7 @@ run_metadata:
   default_input_namespace: soniamitchell
   default_output_namespace: soniamitchell
   write_data_store: /Users/SoniaM/datastore/
+  public: true
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata/
   latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
   remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
@@ -488,7 +491,6 @@ write:
   description: Estimate of symptom delay
   use:    
     version: 0.0.1
-    public: true
 ```
 
 #### Submission script (R)
@@ -635,6 +637,7 @@ run_metadata:
   default_input_namespace: soniamitchell
   default_output_namespace: soniamitchell
   write_data_store: /Users/SoniaM/datastore/
+  public: true
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata
   latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
   remote_repo: https://github.com/ScottishCovidResponse/SCRCdata
@@ -654,11 +657,9 @@ write:
   use:
     data_product: scotland/human/outbreak-timeseries
     version: 0.1.0
-    public: true
 - data_product: human/outbreak/simulation_run
   description: another data product description
   use:
     data_product: human/outbreak/simulation_run-${{RUN_ID}}    
     version: 0.1.0
-    public: true
 ```

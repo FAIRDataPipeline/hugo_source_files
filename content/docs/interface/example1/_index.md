@@ -110,6 +110,7 @@ run_metadata:
   default_input_namespace: soniamitchell
   default_output_namespace: soniamitchell
   write_data_store: /Users/SoniaM/datastore/
+  public: true
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata
   latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
   remote_repo: https://github.com/ScottishCovidResponse/SCRCdata
@@ -127,42 +128,34 @@ write:
   description: Ambulance data
   use:
     version: 0.20210414.0
-    public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/calls
   description: Calls data
   use:
     version: 0.20210414.0
-    public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/carehomes
   description: Care homes data
   use:
     version: 0.20210414.0
-    public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/hospital
   description: Hospital data
   use:
     version: 0.20210414.0
-    public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/mortality
   description: Mortality data
   use:
     version: 0.20210414.0
-    public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/nhsworkforce
   description: NHS workforce data
   use:
     version: 0.20210414.0
-    public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/schools
   description: Schools data
   use:
     version: 0.20210414.0
-    public: true
 - data_product: records/SARS-CoV-2/scotland/cases-and-management/testing
   description: Testing data
   use:
     version: 0.20210414.0
-    public: true
 ```
 
 ## *submission_script.R*
