@@ -589,3 +589,76 @@ This might be something we want to do in the future.
 
 ## Delete CodeRun (optionally) if nothing happened
 *That is, if no output was created and no issue was raised*
+
+## CodeRun with aliases (`use` block example)
+
+#### User written *config.yaml*
+
+```yaml
+run_metadata:
+  description: A test model
+  local_data_registry_url: https://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: SCRC
+  default_output_namespace: soniamitchell
+  write_data_store: /Users/SoniaM/datastore/
+  local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata
+  script: |- 
+    R -f inst/SCRC/scotgov_management/submission_script.R ${{CONFIG_DIR}}
+
+read:
+- data_product: human/population
+  use:
+    namespace: johnsmith
+    data_product: scotland/human/population
+
+write:
+- data_product: human/outbreak-timeseries
+  description: data product description
+  use:
+    data_product: scotland/human/outbreak-timeseries
+- data_product: human/outbreak/simulation_run
+  description: another data product description
+  use:
+    data_product: human/outbreak/simulation_run-${{RUN_ID}}
+```
+
+#### Working *config.yaml*
+
+`fair run` should create a working *config.yaml* file, which is read by the Data Pipeline API. In this example, the working *config.yaml* file is pretty much identical to the original *config.yaml* file, only `${{CONFIG_DIR}}` is replaced by the directory in which the working *config.yaml* file resides.
+
+```yaml
+run_metadata:
+  description: A test model
+  local_data_registry_url: https://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: soniamitchell
+  default_output_namespace: soniamitchell
+  write_data_store: /Users/SoniaM/datastore/
+  local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata
+  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
+  remote_repo: https://github.com/ScottishCovidResponse/SCRCdata
+  script: |- 
+    R -f inst/SCRC/scotgov_management/submission_script.R /Users/SoniaM/datastore/coderun/20210511-231444/
+
+read:
+- data_product: human/population
+  use:
+    data_product: scotland/human/population
+    version: 0.1.0
+    namespace: johnsmith
+
+write:
+- data_product: human/outbreak-timeseries
+  description: data product description
+  use:
+    data_product: scotland/human/outbreak-timeseries
+    version: 0.1.0
+    public: true
+- data_product: human/outbreak/simulation_run
+  description: another data product description
+  use:
+    data_product: human/outbreak/simulation_run-${{RUN_ID}}    
+    version: 0.1.0
+    public: true
+```
