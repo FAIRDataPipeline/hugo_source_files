@@ -46,21 +46,18 @@ fair push config.yaml
         description: general description for all data products
         version: 0.1.0
         namespace: someone
-        public: TRUE
     - data_product: real/data/thing/1
       use:
         data_product: real/data/thing/1
         description: general description for all data products
         version: 0.1.0
         namespace: someone
-        public: TRUE
     - data_product: real/data/**
       use:
         data_product: real/data/**
         description: general description for all data products
         version: 0.0.1
         namespace: someone
-        public: TRUE
     ```
 
   - specific version numbers and any variables in `run_metadata:`, `register:`, `read:`, and `write:` are replaced with true values, *e.g.*
@@ -71,7 +68,8 @@ fair push config.yaml
     - `version: 0.${{DATETIME-%Y%m%d}}.0` or any variants thereof are replaced by an appropriately formatted string.
   - if no version is given, then one should be written such that patch is incremented if the data product already exists, otherwise version should be set to 0.0.1.
   - `register:` is removed and `external_object`s are written to `read:` as `data_product`s
-  - populate `public:` field in `write:` sections (default is `true`)
+  - populate `public:` field in `run_metadata:` section (default is `true`)
+  - populate `version:` field in `use:` section of whether the user-written config contained the field or not
 - `local_repo:` must always be given in the *config.yaml* file
   - ensure the repo is clean
   - get the hash of the latest commit and add to the working *config.yaml* file in `run_metadata: latest_commit:`
