@@ -110,11 +110,11 @@ run_metadata:
   default_input_namespace: soniamitchell
   default_output_namespace: soniamitchell
   write_data_store: /Users/SoniaM/datastore/
-  public: true
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata
+  script: R -f inst/SCRC/scotgov_management/submission_script.R /Users/SoniaM/datastore/coderun/20210511-231444/
+  public: true
   latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
   remote_repo: https://github.com/ScottishCovidResponse/SCRCdata
-  script: R -f inst/SCRC/scotgov_management/submission_script.R /Users/SoniaM/datastore/coderun/20210511-231444/
 
 read:
 - data_product: records/SARS-CoV-2/scotland/cases-and-management
