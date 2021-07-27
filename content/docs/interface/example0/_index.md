@@ -39,10 +39,10 @@ run_metadata:
   default_output_namespace: soniamitchell
   write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
-  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
-  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
   script: |- 
     R -f simple_working_examples/empty_script.R /Users/SoniaM/datastore/coderun/20210511-231444/
+  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
+  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
 ```
 
 #### Submission script (R)
@@ -91,12 +91,12 @@ run_metadata:
   default_input_namespace: soniamitchell
   default_output_namespace: soniamitchell
   write_data_store: /Users/SoniaM/datastore/
-  public: true
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
-  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
-  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
   script: |- 
     R -f simple_working_examples/write_array.R /Users/SoniaM/datastore/coderun/20210511-231444/
+  public: true
+  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
+  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
 
 write:
 - data_product: test/array
@@ -169,10 +169,10 @@ run_metadata:
   default_output_namespace: soniamitchell
   write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
-  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
-  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
   script: |- 
     R -f simple_working_examples/read_array.R /Users/SoniaM/datastore/coderun/20210511-231444/
+  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
+  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
 
 read:
 - data_product: test/array
@@ -231,13 +231,13 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: soniamitchell
   default_output_namespace: soniamitchell
-  write_data_store: /Users/SoniaM/datastore/
-  public: true
+  write_data_store: /Users/SoniaM/datastore/ 
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
-  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
-  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
   script: |-
     R -f simple_working_examples/write_csv.R /Users/SoniaM/datastore/coderun/20210511-231444/
+  public: true
+  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
+  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
 
 write:
 - data_product: test/csv
@@ -298,10 +298,10 @@ run_metadata:
   default_output_namespace: soniamitchell
   write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/FAIRDataPipeline/FDP_validation/
-  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
-  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
   script: |-
     R -f simple_working_examples/read_csv.R /Users/SoniaM/datastore/coderun/20210511-231444/
+  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
+  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
 
 read:
 - data_product: test/csv
@@ -356,12 +356,12 @@ run_metadata:
   default_input_namespace: soniamitchell
   default_output_namespace: soniamitchell
   write_data_store: /Users/SoniaM/datastore/
-  public: true
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata/
-  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
-  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
   script: |-
     R -f simple_working_examples/write_point_estimate.R /Users/SoniaM/datastore/coderun/20210511-231444/
+  public: true
+  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
+  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
 
 write:
 - data_product: test/estimate/asymptomatic-period
@@ -420,10 +420,10 @@ run_metadata:
   default_output_namespace: soniamitchell
   write_data_store: /Users/SoniaM/datastore/
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata/
-  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
-  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
   script: |-
     R -f simple_working_examples/read_point_estimate.R /Users/SoniaM/datastore/coderun/20210511-231444/
+  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
+  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
 
 read:
 - data_product: test/estimate/asymptomatic-period
@@ -479,12 +479,12 @@ run_metadata:
   default_input_namespace: soniamitchell
   default_output_namespace: soniamitchell
   write_data_store: /Users/SoniaM/datastore/
-  public: true
   local_repo: /Users/Soniam/Desktop/git/SCRC/SCRCdata/
-  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
-  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
   script: |-
     R -f simple_working_examples/write_distribution.R /Users/SoniaM/datastore/coderun/20210511-231444/
+  public: true
+  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
+  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
 
 write:
 - data_product: test/distribution/symptom-delay
@@ -548,6 +548,8 @@ run_metadata:
   remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
   script: |-
     R -f simple_working_examples/read_distribution.R /Users/SoniaM/datastore/coderun/20210511-231444/
+  latest_commit: 221bfe8b52bbfb3b2dbdc23037b7dd94b49aaa70
+  remote_repo: https://github.com/FAIRDataPipeline/FDP_validation
 
 read:
 - data_product: test/distribution/symptom-delay
@@ -574,18 +576,458 @@ finalise(handle)
 
 ## Attach issue to component
 
+#### User written *config.yaml*
+
+```yaml
+run_metadata:
+  description: Register a file in the pipeline
+  local_data_registry_url: http://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: username
+  default_output_namespace: username
+  write_data_store: test_datastore/
+  local_repo: local_repo
+  script: |-
+    R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
+write:
+- data_product: findme/test/array_42d2d9ddb5089a9ec8bd750d9e2f828fb338ccba
+  description: a test array
+  version: 0.1.0
+```
+
+#### Working *config.yaml*
+```yaml
+run_metadata:
+  description: Register a file in the pipeline
+  local_data_registry_url: http://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: username
+  default_output_namespace: username
+  write_data_store: test_datastore/
+  local_repo: local_repo
+  script: |-
+    R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
+  public: true
+  latest_commit: e3c0ebdf5ae079bd72f601ec5eefdf998c4fc8ec
+  remote_repo: https://github.com/fake_org/fake_repo
+read: []
+write:
+- data_product: findme/test/array_372d59a28a42325161316fb4d6232ca98529b388
+  description: a test array
+  use:
+    version: 0.1.0
+```
+
+#### Submission script (R)
+
+In R, we can attach issues to components in different ways. If there's a more elegant way to do this, please tell me!
+
+Attach an issue on the fly by referencing an index in the handle:
+
+```R
+library(rFDP)
+
+# Initialise Code Run
+config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
+script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
+handle <- initialise(config, script)
+
+df <- data.frame(a = 1:2, b = 3:4)
+rownames(df) <- 1:2
+
+component_id <- write_array(array = as.matrix(df),
+                            handle = handle,
+                            data_product = "test/array",
+                            component = "component1/a/s/d/f/s",
+                            description = "Some description",
+                            dimension_names = list(rowvalue = rownames(df),
+                                                   colvalue = colnames(df)),
+                            dimension_values = list(NA, 10),
+                            dimension_units = list(NA, "km"),
+                            units = "s")
+
+issue <- "some issue"
+severity <- 7
+
+raise_issue(index = component_id,
+            handle = handle,
+            issue = issue,
+            severity = severity)
+
+finalise(handle)
+```
+
+Attaching an issue to a data product that already exists in the data registry by referencing it explicitly:
+
+```R
+library(rFDP)
+
+# Initialise Code Run
+config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
+script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
+handle <- initialise(config, script)
+
+issue <- "some issue"
+severity <- 7
+
+raise_issue(handle = handle,
+            data_product = "test/array",
+            component = "component1/a/s/d/f/s",
+            version = "0.1.0",
+            namespace = "username",
+            issue = issue,
+            severity = severity)
+
+finalise(handle)
+```
+
+Attaching an issue to multiple components at the same time:
+
+```R
+raise_issue(index = c(component_id1, component_id2),
+            handle = handle,
+            issue = issue,
+            severity = severity)
+```
+
+or
+
+```R
+raise_issue(handle = handle,
+            data_product = data_product,
+            component = c(component, component2),
+            version = version,
+            namespace = namespace,
+            issue = issue,
+            severity = severity)
+```
+
 ## Attach issue to whole data product
+
+#### User written *config.yaml*
+
+```yaml
+run_metadata:
+  description: Register a file in the pipeline
+  local_data_registry_url: http://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: username
+  default_output_namespace: username
+  write_data_store: test_datastore/
+  local_repo: local_repo
+  script: |-
+    R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
+write:
+- data_product: findme/test/array2_efbe696bf4b0e84df1efafab856257d0523fc17b
+  description: a test array
+  version: 0.1.0
+  file_type: csv
+```
+
+#### Working *config.yaml*
+
+```yaml
+run_metadata:
+  description: Register a file in the pipeline
+  local_data_registry_url: http://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: username
+  default_output_namespace: username
+  write_data_store: test_datastore/
+  local_repo: local_repo
+  script: |-
+    R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
+  public: true
+  latest_commit: 40725b40252fd55ba355f7ed66f5a42387f1674f
+  remote_repo: https://github.com/fake_org/fake_repo
+read: []
+write:
+- data_product: findme/test/array2_efbe696bf4b0e84df1efafab856257d0523fc17b
+  description: a test array
+  file_type: csv
+  use:
+    version: 0.1.0
+```
+
+#### Submission script (R)
+
+In R, we can attach issues to data products in different ways. If there's a more elegant way to do this, please tell me!
+
+Attach an issue on the fly by referencing an index in the handle:
+
+```R
+library(rFDP)
+
+# Initialise Code Run
+config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
+script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
+handle <- initialise(config, script)
+
+df <- data.frame(a = 1:2, b = 3:4)
+rownames(df) <- 1:2
+
+index <- write_array(array = as.matrix(df),
+                     handle = handle,
+                     data_product = "test/array",
+                     component = "component1/a/s/d/f/s",
+                     description = "Some description",
+                     dimension_names = list(rowvalue = rownames(df),
+                                            colvalue = colnames(df)))
+
+write_array(array = as.matrix(df),
+            handle = handle,
+            data_product = "test/array",
+            component = "component2",
+            description = "Some description",
+            dimension_names = list(rowvalue = rownames(df),
+                                   colvalue = colnames(df)))
+
+issue <- "some issue"
+severity <- 7
+
+raise_issue(index = index,
+            handle = handle,
+            issue = issue,
+            severity = severity,
+            whole_object = TRUE)
+
+finalise(handle)
+```
+
+Attaching an issue to a data product that already exists in the data registry by referencing it explicitly:
+
+```R
+library(rFDP)
+
+# Initialise Code Run
+config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
+script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
+handle <- initialise(config, script)
+
+issue <- "some issue"
+severity <- 7
+
+raise_issue(handle = handle,
+            data_product = "test/array",
+            version = "0.1.0",
+            namespace = "username",
+            issue = issue,
+            severity = severity)
+
+finalise(handle)
+```
+
+Attaching an issue to multiple data products at the same time:
+
+```R
+raise_issue(index = c(index1, index2),
+            handle = handle,
+            issue = issue,
+            severity = severity,
+            whole_object = TRUE)
+```
+
+or
+
+```R
+raise_issue(handle = handle,
+            data_product = c(data_product, data_product2),
+            version = version,
+            namespace = namespace,
+            issue = issue,
+            severity = severity)
+```
 
 ## Attach issue to config
 
+#### User written *config.yaml*
+
+```yaml
+run_metadata:
+  description: Register a file in the pipeline
+  local_data_registry_url: http://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: username
+  default_output_namespace: username
+  write_data_store: test_datastore/
+  local_repo: local_repo
+  script: |-
+    R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
+read:
+- data_product: findme/test/array2b_5b1acbdd0b7a83ebaf5aba717a26ab0a4a081964
+  version: 0.1.0
+```
+
+#### Working *config.yaml*
+
+```yaml
+run_metadata:
+  description: Register a file in the pipeline
+  local_data_registry_url: http://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: username
+  default_output_namespace: username
+  write_data_store: test_datastore/
+  local_repo: local_repo
+  script: |-
+    R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
+  latest_commit: 0d98e732b77e62a6cd390c6aec655f260f5f9b33
+  remote_repo: https://github.com/fake_org/fake_repo
+read:
+- data_product: findme/test/array2b_5b1acbdd0b7a83ebaf5aba717a26ab0a4a081964
+  use:
+    version: 0.1.0
+write: []
+```
+
+#### Submission script (R)
+
+```R
+library(rFDP)
+
+# Initialise Code Run
+config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
+script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
+handle <- initialise(config, script)
+
+issue <- "issue with config"
+severity <- 7
+
+raise_issue_config(handle = handle,
+                   issue = config_issue,
+                   severity = config_severity)
+
+finalise(handle)
+```
+
 ## Attach issue to submission script
 
+#### User written *config.yaml*
+
+```yaml
+run_metadata:
+  description: Register a file in the pipeline
+  local_data_registry_url: http://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: username
+  default_output_namespace: username
+  write_data_store: test_datastore/
+  local_repo: local_repo
+  script: |-
+    R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
+read:
+- data_product: findme/test/array2b_5b1acbdd0b7a83ebaf5aba717a26ab0a4a081964
+  version: 0.1.0
+```
+
+#### Working *config.yaml*
+
+```yaml
+run_metadata:
+  description: Register a file in the pipeline
+  local_data_registry_url: http://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: username
+  default_output_namespace: username
+  write_data_store: test_datastore/
+  local_repo: local_repo
+  script: |-
+    R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
+  latest_commit: 358f64c4044f3b3f761865ee8e9f4375cf41d155
+  remote_repo: https://github.com/fake_org/fake_repo
+read:
+- data_product: findme/test/array2b_5b1acbdd0b7a83ebaf5aba717a26ab0a4a081964
+  use:
+    version: 0.1.0
+write: []
+```
+
+#### Submission script (R)
+
+```R
+library(rFDP)
+
+# Initialise Code Run
+config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
+script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
+handle <- initialise(config, script)
+
+issue <- "issue with script"
+severity <- 7
+
+raise_issue_script(handle = handle,
+                   issue = script_issue,
+                   severity = script_severity)
+
+finalise(handle)
+```
+
 ## Attach issue to GitHub repository
+
+#### User written *config.yaml*
+
+```yaml
+run_metadata:
+  description: Register a file in the pipeline
+  local_data_registry_url: http://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: username
+  default_output_namespace: username
+  write_data_store: test_datastore/
+  local_repo: local_repo
+  script: |-
+    R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
+read:
+- data_product: findme/test/array2b_5b1acbdd0b7a83ebaf5aba717a26ab0a4a081964
+  version: 0.1.0
+```
+
+#### Working *config.yaml*
+
+```yaml
+run_metadata:
+  description: Register a file in the pipeline
+  local_data_registry_url: http://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: username
+  default_output_namespace: username
+  write_data_store: test_datastore/
+  local_repo: local_repo
+  script: |-
+    R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
+  latest_commit: 6b23ec822bfd7ea5f419c70ce18fb73b59c90754
+  remote_repo: https://github.com/fake_org/fake_repo
+read:
+- data_product: findme/test/array2b_5b1acbdd0b7a83ebaf5aba717a26ab0a4a081964
+  use:
+    version: 0.1.0
+write: []
+```
+
+#### Submission script (R)
+
+```R
+library(rFDP)
+
+# Initialise Code Run
+config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
+script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
+handle <- initialise(config, script)
+
+issue <- "issue with repo"
+severity <- 7
+
+raise_issue_repo(handle = handle,
+                 issue = repo_issue,
+                 severity = repo_severity)
+
+finalise(handle)
+```
 
 ## Attach issue to external object
 This is not something we want to do.
 ## Attach issue to code run
-This might be something we want to do in the future.
+This might be something we want to do in the future, but not now.
 
 ## Delete DataProduct (optionally) if identical to previous version
 
