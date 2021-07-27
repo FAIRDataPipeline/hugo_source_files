@@ -585,7 +585,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R ${{CONFIG_DIR}}
@@ -603,7 +603,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
@@ -713,7 +713,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R ${{CONFIG_DIR}}
@@ -733,7 +733,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
@@ -849,7 +849,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R ${{CONFIG_DIR}}
@@ -867,7 +867,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
@@ -911,7 +911,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R ${{CONFIG_DIR}}
@@ -929,7 +929,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
@@ -973,7 +973,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R ${{CONFIG_DIR}}
@@ -991,7 +991,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
@@ -1104,4 +1104,222 @@ write:
   use:
     data_product: human/outbreak/simulation_run-${{RUN_ID}}    
     version: 0.1.0
+```
+
+## CodeRun with read globbing
+
+This example makes use of globbing in the `read:` block.
+
+First we need to populate your local registry with something to read:
+
+#### User written *config.yaml*
+
+```yaml
+run_metadata:
+  description: Register a file in the pipeline
+  local_data_registry_url: http://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: username
+  default_output_namespace: username
+  write_data_store: /Users/username/datastore/
+  local_repo: local_repo
+  script: |-
+    R -f simple_working_examples/input_globbing.R ${{CONFIG_DIR}}
+write:
+- data_product: real/data/1d06c1840618f1cd0ff29177b34fa68df939a9a8/1
+  description: A csv file
+  file_type: csv
+- data_product: real/data/1d06c1840618f1cd0ff29177b34fa68df939a9a8/thing/1
+  description: A csv file
+  file_type: csv
+```
+
+#### Working *config.yaml*
+
+```yaml
+run_metadata:
+  description: Register a file in the pipeline
+  local_data_registry_url: http://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: username
+  default_output_namespace: username
+  write_data_store: /Users/username/datastore/
+  local_repo: local_repo
+  script: |-
+    R -f simple_working_examples/input_globbing.R /Users/SoniaM/datastore/coderun/20210511-231444/
+  public: yes
+  latest_commit: 064e900b691e80058357a344f02cf73de0166fab
+  remote_repo: https://github.com/fake_org/fake_repo
+read: []
+write:
+- data_product: real/data/1d06c1840618f1cd0ff29177b34fa68df939a9a8/1
+  description: A csv file
+  file_type: csv
+  use:
+    version: 0.0.1
+- data_product: real/data/1d06c1840618f1cd0ff29177b34fa68df939a9a8/thing/1
+  description: A csv file
+  file_type: csv
+  use:
+    version: 0.0.1
+```
+
+Now that our local registry is populated, we can try globbing:
+
+#### User written *config.yaml*
+
+```yaml
+run_metadata:
+  description: Register a file in the pipeline
+  local_data_registry_url: http://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: username
+  default_output_namespace: username
+  write_data_store: /Users/username/datastore/
+  local_repo: local_repo
+  script: |-
+    R -f simple_working_examples/input_globbing.R ${{CONFIG_DIR}}
+read:
+- data_product: real/data/1d06c1840618f1cd0ff29177b34fa68df939a9a8/*
+```
+
+#### Working *config.yaml*
+
+```yaml
+run_metadata:
+  description: Register a file in the pipeline
+  local_data_registry_url: http://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: username
+  default_output_namespace: username
+  write_data_store: /Users/username/datastore/
+  local_repo: local_repo
+  script: |-
+    R -f simple_working_examples/input_globbing.R /Users/SoniaM/datastore/coderun/20210511-231444/
+  latest_commit: b9e2187b3796f06ca33f92c3a82863215917ed0e
+  remote_repo: https://github.com/fake_org/fake_repo
+read:
+- data_product: real/data/1d06c1840618f1cd0ff29177b34fa68df939a9a8/thing/1
+  use:
+    version: 0.0.1
+- data_product: real/data/1d06c1840618f1cd0ff29177b34fa68df939a9a8/1
+  use:
+    version: 0.0.1
+write: []
+```
+
+## CodeRun with write globbing
+
+This example makes use of globbing in the `write:` block.
+
+First we need to populate your local registry with some data:
+
+#### User written *config.yaml*
+
+```yaml
+run_metadata:
+  description: Register a file in the pipeline
+  local_data_registry_url: http://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: username
+  default_output_namespace: username
+  write_data_store: /Users/username/datastore/
+  local_repo: local_repo
+  script: |-
+    R -f simple_working_examples/output_globbing.R ${{CONFIG_DIR}}
+write:
+- data_product: real/data/e8d7af00c8f8e24c2790e2a32241bc1bfc8cf011/1
+  description: A csv file
+  file_type: csv
+- data_product: real/data/e8d7af00c8f8e24c2790e2a32241bc1bfc8cf011/thing/1
+  description: A csv file
+  file_type: csv
+```
+
+#### Working *config.yaml*
+
+```yaml
+run_metadata:
+  description: Register a file in the pipeline
+  local_data_registry_url: http://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: username
+  default_output_namespace: username
+  write_data_store: /Users/username/datastore/
+  local_repo: local_repo
+  script: |-
+    R -f simple_working_examples/output_globbing.R /Users/SoniaM/datastore/coderun/20210511-231444/
+  public: yes
+  latest_commit: 2a8688677321b99e3a2545ce020992d136334b71
+  remote_repo: https://github.com/fake_org/fake_repo
+read: []
+write:
+- data_product: real/data/e8d7af00c8f8e24c2790e2a32241bc1bfc8cf011/1
+  description: A csv file
+  file_type: csv
+  use:
+    version: 0.0.1
+- data_product: real/data/e8d7af00c8f8e24c2790e2a32241bc1bfc8cf011/thing/1
+  description: A csv file
+  file_type: csv
+  use:
+    version: 0.0.1
+```
+
+Now that our local registry is populated, we can try globbing:
+
+#### User written *config.yaml*
+
+```yaml
+run_metadata:
+  description: Register a file in the pipeline
+  local_data_registry_url: http://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: username
+  default_output_namespace: username
+  write_data_store: /Users/username/datastore/
+  local_repo: local_repo
+  script: |-
+    R -f simple_working_examples/output_globbing.R ${{CONFIG_DIR}}
+write:
+- data_product: real/data/e8d7af00c8f8e24c2790e2a32241bc1bfc8cf011/*
+  description: A csv file
+  file_type: csv
+  use:
+    version: ${{MAJOR}}
+```
+
+#### Working *config.yaml*
+
+````yaml
+run_metadata:
+  description: Register a file in the pipeline
+  local_data_registry_url: http://localhost:8000/api/
+  remote_data_registry_url: https://data.scrc.uk/api/
+  default_input_namespace: username
+  default_output_namespace: username
+  write_data_store: /Users/username/datastore/
+  local_repo: local_repo
+  script: |-
+    R -f simple_working_examples/output_globbing.R /Users/SoniaM/datastore/coderun/20210511-231444/
+  public: yes
+  latest_commit: f95815976cd4d93c062f94a48525fcec88b6ef34
+  remote_repo: https://github.com/fake_org/fake_repo
+read: []
+write:
+- data_product: real/data/e8d7af00c8f8e24c2790e2a32241bc1bfc8cf011/*
+  description: A csv file
+  file_type: csv
+  use:
+    version: 1.0.0
+- data_product: real/data/e8d7af00c8f8e24c2790e2a32241bc1bfc8cf011/thing/1
+  description: A csv file
+  file_type: csv
+  use:
+    version: 1.0.0
+- data_product: real/data/e8d7af00c8f8e24c2790e2a32241bc1bfc8cf011/1
+  description: A csv file
+  file_type: csv
+  use:
+    version: 1.0.0
 ```
