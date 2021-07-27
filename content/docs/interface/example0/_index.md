@@ -585,7 +585,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R ${{CONFIG_DIR}}
@@ -603,7 +603,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
@@ -713,7 +713,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R ${{CONFIG_DIR}}
@@ -733,7 +733,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
@@ -849,7 +849,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R ${{CONFIG_DIR}}
@@ -867,7 +867,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
@@ -911,7 +911,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R ${{CONFIG_DIR}}
@@ -929,7 +929,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
@@ -973,7 +973,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R ${{CONFIG_DIR}}
@@ -991,7 +991,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
@@ -1121,7 +1121,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/input_globbing.R ${{CONFIG_DIR}}
@@ -1143,7 +1143,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/input_globbing.R /Users/SoniaM/datastore/coderun/20210511-231444/
@@ -1175,7 +1175,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/input_globbing.R ${{CONFIG_DIR}}
@@ -1192,7 +1192,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/input_globbing.R /Users/SoniaM/datastore/coderun/20210511-231444/
@@ -1223,7 +1223,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/output_globbing.R ${{CONFIG_DIR}}
@@ -1245,7 +1245,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/output_globbing.R /Users/SoniaM/datastore/coderun/20210511-231444/
@@ -1277,7 +1277,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/output_globbing.R ${{CONFIG_DIR}}
@@ -1298,7 +1298,7 @@ run_metadata:
   remote_data_registry_url: https://data.scrc.uk/api/
   default_input_namespace: username
   default_output_namespace: username
-  write_data_store: test_datastore/
+  write_data_store: /Users/username/datastore/
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/output_globbing.R /Users/SoniaM/datastore/coderun/20210511-231444/
