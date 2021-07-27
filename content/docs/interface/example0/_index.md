@@ -1321,5 +1321,5 @@ write:
   description: A csv file
   file_type: csv
   use:
-    version: 1.0.1
+    version: 1.0.0
 ```
