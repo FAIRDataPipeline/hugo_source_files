@@ -1316,7 +1316,7 @@ write:
   description: A csv file
   file_type: csv
   use:
-    version: 1.0.1
+    version: 1.0.0
 - data_product: real/data/e8d7af00c8f8e24c2790e2a32241bc1bfc8cf011/1
   description: A csv file
   file_type: csv
