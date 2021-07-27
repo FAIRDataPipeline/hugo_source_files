@@ -588,7 +588,7 @@ run_metadata:
   write_data_store: test_datastore/
   local_repo: local_repo
   script: |-
-    R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
+    R -f simple_working_examples/attach_issue.R ${{CONFIG_DIR}}
 write:
 - data_product: findme/test/array_42d2d9ddb5089a9ec8bd750d9e2f828fb338ccba
   description: a test array
@@ -716,7 +716,7 @@ run_metadata:
   write_data_store: test_datastore/
   local_repo: local_repo
   script: |-
-    R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
+    R -f simple_working_examples/attach_issue.R ${{CONFIG_DIR}}
 write:
 - data_product: findme/test/array2_efbe696bf4b0e84df1efafab856257d0523fc17b
   description: a test array
@@ -852,7 +852,7 @@ run_metadata:
   write_data_store: test_datastore/
   local_repo: local_repo
   script: |-
-    R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
+    R -f simple_working_examples/attach_issue.R ${{CONFIG_DIR}}
 read:
 - data_product: findme/test/array2b_5b1acbdd0b7a83ebaf5aba717a26ab0a4a081964
   version: 0.1.0
@@ -914,7 +914,7 @@ run_metadata:
   write_data_store: test_datastore/
   local_repo: local_repo
   script: |-
-    R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
+    R -f simple_working_examples/attach_issue.R ${{CONFIG_DIR}}
 read:
 - data_product: findme/test/array2b_5b1acbdd0b7a83ebaf5aba717a26ab0a4a081964
   version: 0.1.0
@@ -976,7 +976,7 @@ run_metadata:
   write_data_store: test_datastore/
   local_repo: local_repo
   script: |-
-    R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
+    R -f simple_working_examples/attach_issue.R ${{CONFIG_DIR}}
 read:
 - data_product: findme/test/array2b_5b1acbdd0b7a83ebaf5aba717a26ab0a4a081964
   version: 0.1.0
