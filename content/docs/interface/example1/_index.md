@@ -245,9 +245,9 @@ Note that since, StorageLocation has a uniqueness constraint on `path`, `hash`, 
 
 ### `finalise()`
 
-- renames data products with their hash
-  - until this point, we've arbitrarily named each file with its date and time of creation *e.g. 20210712-172757.h5*
-  - this is renamed as *b03bbbe1205b3de70b1ae7573cf11c8b2555d2ed.h5*
+- renames files with their hash
+  - until this point, we've arbitrarily named each file *e.g. dat-{random_hash}.{extension}*
+  - this is renamed as *b03bbbe1205b3de70b1ae7573cf11c8b2555d2ed.{extension}*
 - renames data products if variables are present, *e.g.* for `human/outbreak/simulation_run-${{RUN_ID}}`, `${{RUN_ID}}` is replaced with the CodeRun UUID
 - records metadata (*e.g.* location, components, various descriptions, issues) in the data registry
 - updates the code run in the data registry
