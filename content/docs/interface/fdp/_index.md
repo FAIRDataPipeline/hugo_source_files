@@ -29,7 +29,7 @@ fair push config.yaml
   
     ```yaml
     write:
-    - data_product: real/data/**
+    - data_product: real/data/*
       description: general description for all data products
       use:
         namespace: someone
@@ -52,9 +52,9 @@ fair push config.yaml
         description: general description for all data products
         version: 0.1.0
         namespace: someone
-    - data_product: real/data/**
+    - data_product: real/data/*
       use:
-        data_product: real/data/**
+        data_product: real/data/*
         description: general description for all data products
         version: 0.0.1
         namespace: someone
