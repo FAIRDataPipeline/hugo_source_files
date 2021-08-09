@@ -590,9 +590,8 @@ run_metadata:
   script: |-
     R -f simple_working_examples/attach_issue.R ${{CONFIG_DIR}}
 write:
-- data_product: findme/test/array_42d2d9ddb5089a9ec8bd750d9e2f828fb338ccba
+- data_product: test/array/issues/component
   description: a test array
-  version: 0.1.0
 ```
 
 #### Working *config.yaml*
@@ -612,7 +611,7 @@ run_metadata:
   remote_repo: https://github.com/fake_org/fake_repo
 read: []
 write:
-- data_product: findme/test/array_372d59a28a42325161316fb4d6232ca98529b388
+- data_product: test/array/issues/component
   description: a test array
   use:
     version: 0.1.0
@@ -637,7 +636,7 @@ rownames(df) <- 1:2
 
 component_id <- write_array(array = as.matrix(df),
                             handle = handle,
-                            data_product = "test/array",
+                            data_product = "test/array/issues/component",
                             component = "component1/a/s/d/f/s",
                             description = "Some description",
                             dimension_names = list(rowvalue = rownames(df),
@@ -671,7 +670,7 @@ issue <- "some issue"
 severity <- 7
 
 raise_issue(handle = handle,
-            data_product = "test/array",
+            data_product = "test/array/issues/component",
             component = "component1/a/s/d/f/s",
             version = "0.1.0",
             namespace = "username",
@@ -694,10 +693,10 @@ or
 
 ```R
 raise_issue(handle = handle,
-            data_product = data_product,
-            component = c(component, component2),
-            version = version,
-            namespace = namespace,
+            data_product = "test/array/issues/component",
+            component = c("component1/a/s/d/f/s", "component2/a/s/d/f/s"),
+            version = "0.1.0",
+            namespace = "username",
             issue = issue,
             severity = severity)
 ```
@@ -718,9 +717,8 @@ run_metadata:
   script: |-
     R -f simple_working_examples/attach_issue.R ${{CONFIG_DIR}}
 write:
-- data_product: findme/test/array2_efbe696bf4b0e84df1efafab856257d0523fc17b
+- data_product: "test/array/issues/whole"
   description: a test array
-  version: 0.1.0
   file_type: csv
 ```
 
@@ -742,7 +740,7 @@ run_metadata:
   remote_repo: https://github.com/fake_org/fake_repo
 read: []
 write:
-- data_product: findme/test/array2_efbe696bf4b0e84df1efafab856257d0523fc17b
+- data_product: test/array/issues/whole
   description: a test array
   file_type: csv
   use:
@@ -768,7 +766,7 @@ rownames(df) <- 1:2
 
 index <- write_array(array = as.matrix(df),
                      handle = handle,
-                     data_product = "test/array",
+                     data_product = "test/array/issues/whole",
                      component = "component1/a/s/d/f/s",
                      description = "Some description",
                      dimension_names = list(rowvalue = rownames(df),
@@ -776,8 +774,8 @@ index <- write_array(array = as.matrix(df),
 
 write_array(array = as.matrix(df),
             handle = handle,
-            data_product = "test/array",
-            component = "component2",
+            data_product = "test/array/issues/whole",
+            component = "component2/a/s/d/f/s",
             description = "Some description",
             dimension_names = list(rowvalue = rownames(df),
                                    colvalue = colnames(df)))
@@ -808,7 +806,7 @@ issue <- "some issue"
 severity <- 7
 
 raise_issue(handle = handle,
-            data_product = "test/array",
+            data_product = "test/array/issues/whole",
             version = "0.1.0",
             namespace = "username",
             issue = issue,
@@ -831,9 +829,9 @@ or
 
 ```R
 raise_issue(handle = handle,
-            data_product = c(data_product, data_product2),
-            version = version,
-            namespace = namespace,
+            data_product = c("test/array/issues/whole", "test/array/issues/whole/2"),
+            version = c("0.1.0", "0.1.0"),
+            namespace = "username",
             issue = issue,
             severity = severity)
 ```
@@ -853,9 +851,6 @@ run_metadata:
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R ${{CONFIG_DIR}}
-read:
-- data_product: findme/test/array2b_5b1acbdd0b7a83ebaf5aba717a26ab0a4a081964
-  version: 0.1.0
 ```
 
 #### Working *config.yaml*
@@ -873,10 +868,7 @@ run_metadata:
     R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
   latest_commit: 0d98e732b77e62a6cd390c6aec655f260f5f9b33
   remote_repo: https://github.com/fake_org/fake_repo
-read:
-- data_product: findme/test/array2b_5b1acbdd0b7a83ebaf5aba717a26ab0a4a081964
-  use:
-    version: 0.1.0
+read: []
 write: []
 ```
 
@@ -890,8 +882,8 @@ config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
 script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
 handle <- initialise(config, script)
 
-issue <- "issue with config"
-severity <- 7
+config_issue <- "issue with config"
+config_severity <- 7
 
 raise_issue_config(handle = handle,
                    issue = config_issue,
@@ -915,9 +907,6 @@ run_metadata:
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R ${{CONFIG_DIR}}
-read:
-- data_product: findme/test/array2b_5b1acbdd0b7a83ebaf5aba717a26ab0a4a081964
-  version: 0.1.0
 ```
 
 #### Working *config.yaml*
@@ -935,10 +924,7 @@ run_metadata:
     R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
   latest_commit: 358f64c4044f3b3f761865ee8e9f4375cf41d155
   remote_repo: https://github.com/fake_org/fake_repo
-read:
-- data_product: findme/test/array2b_5b1acbdd0b7a83ebaf5aba717a26ab0a4a081964
-  use:
-    version: 0.1.0
+read: []
 write: []
 ```
 
@@ -952,8 +938,8 @@ config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
 script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
 handle <- initialise(config, script)
 
-issue <- "issue with script"
-severity <- 7
+script_issue <- "issue with script"
+script_severity <- 7
 
 raise_issue_script(handle = handle,
                    issue = script_issue,
@@ -977,9 +963,6 @@ run_metadata:
   local_repo: local_repo
   script: |-
     R -f simple_working_examples/attach_issue.R ${{CONFIG_DIR}}
-read:
-- data_product: findme/test/array2b_5b1acbdd0b7a83ebaf5aba717a26ab0a4a081964
-  version: 0.1.0
 ```
 
 #### Working *config.yaml*
@@ -997,10 +980,7 @@ run_metadata:
     R -f simple_working_examples/attach_issue.R /Users/SoniaM/datastore/coderun/20210511-231444/
   latest_commit: 6b23ec822bfd7ea5f419c70ce18fb73b59c90754
   remote_repo: https://github.com/fake_org/fake_repo
-read:
-- data_product: findme/test/array2b_5b1acbdd0b7a83ebaf5aba717a26ab0a4a081964
-  use:
-    version: 0.1.0
+read: []
 write: []
 ```
 
@@ -1014,8 +994,8 @@ config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
 script <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "script.sh")
 handle <- initialise(config, script)
 
-issue <- "issue with repo"
-severity <- 7
+repo_issue <- "issue with repo"
+repo_severity <- 7
 
 raise_issue_repo(handle = handle,
                  issue = repo_issue,
