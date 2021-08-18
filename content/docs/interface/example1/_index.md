@@ -37,9 +37,9 @@ run_metadata:
 
 register:
 - external_object: records/SARS-CoV-2/scotland/cases-and-management
-  source_name: Scottish Government Open Data Repository
-  source_abbreviation: Scottish Government Open Data Repository
-  source_website: https://statistics.gov.scot/
+  namespace_name: Scottish Government Open Data Repository
+  namespace_full_name: Scottish Government Open Data Repository
+  namespace_website: https://statistics.gov.scot/
   root: https://statistics.gov.scot/sparql.csv?query=
   path: |
     PREFIX qb: <http://purl.org/linked-data/cube#>
