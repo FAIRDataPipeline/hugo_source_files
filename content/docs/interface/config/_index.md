@@ -95,9 +95,9 @@ run_metadata:
 register:
 - external_object: records/SARS-CoV-2/scotland/human-mortality
   # Who owns the data?
-  source_name: Scottish Government Open Data Repository
-  source_abbreviation: Scottish Government Open Data Repository
-  source_website: https://statistics.gov.scot/
+  namespace_name: open_data_scotland_repository
+  namespace_full_name: Scottish Government Open Data Repository
+  namespace_website: https://statistics.gov.scot/
   # Where does the data come from?
   root: https://statistics.gov.scot/sparql.csv?query=
   path: |-
@@ -133,19 +133,20 @@ register:
   # Metadata
   title: Deaths involving COVID19
   description: Nice description of the dataset
-  unique_name: Scottish deaths involving COVID19  # or doi
+  unique_name: Scottish deaths involving COVID19  
+  alternate_identifier_type: ods_name
   file_type: csv
-  release_date: ${{DATE}}    
+  release_date: ${{DATETIME}}    
   version: 0.${{DATE}}.0       
   primary: True
   
 write:
-- data_product: records/SARS-CoV-2/scotland/human-mortality
+- data_product: records/SARS-CoV-2/scotland/human-mortality/results
   description: human mortality data
   version: 0.${{DATE}}.0
 ```
 
-- `register:` will take exactly one of `unique_name:` or `doi:`.
+- `register:` will take exactly one of `unique_name:` and `alternate_identifier_type`, or `identifier:`.
 
 ## Flexible inputs and outputs
 

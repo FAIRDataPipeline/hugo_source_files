@@ -1031,7 +1031,7 @@ run_metadata:
     R -f inst/SCRC/scotgov_management/submission_script.R ${{CONFIG_DIR}}
 
 read:
-- data_product: human/population
+- data_product: test/data/alias
   use:
     namespace: johnsmith
     data_product: scotland/human/population
