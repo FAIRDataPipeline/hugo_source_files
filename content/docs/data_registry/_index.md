@@ -56,7 +56,7 @@ This will install the registry and all the related files will be stored in `C:\U
 To run the server, run the `C:\Users\<username>\.fair\registry\scripts\start_fair_registry_windows.bat` script, this will spawn the server in a new window.
 Navigate to http://localhost:8000 in you browser to check the server is up and running. A token will be automatically generated in `C:\Users\<username>\.fair\registry\token`.
 
-To stop the server switch to the server window and press control + break or run: `taskkill /IM Python.exe /F`. However this will kill **all** Python scripts.
+To stop the server switch to the server window and press control + break or run: `C:\Users\<username>\.fair\registry\scripts\stop_fair_registry_windows.bat`.
 
 ### Default Credentials
 

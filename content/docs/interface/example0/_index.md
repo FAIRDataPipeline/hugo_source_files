@@ -48,7 +48,7 @@ run_metadata:
 #### Submission script (R)
 
 ```r
-library(rFDP)
+library(rDataPipeline)
 
 # Initialise Code Run
 config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
@@ -112,7 +112,7 @@ Note also that by default, the CLI will write `public: true` to `run_metadata:`.
 #### Submission script (R)
 
 ```r
-library(rFDP)
+library(rDataPipeline)
 
 # Initialise Code Run
 config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
@@ -183,7 +183,7 @@ read:
 #### Submission script (R)
 
 ```r
-library(rFDP)
+library(rDataPipeline)
 
 # Open the connection to the local registry with a given config file
 config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
@@ -250,7 +250,7 @@ write:
 #### Submission script (R)
 
 ```r
-library(rFDP)
+library(rDataPipeline)
 
 # Open the connection to the local registry with a given config file
 config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
@@ -312,7 +312,7 @@ read:
 #### Submission script (R)
 
 ```r
-library(rFDP)
+library(rDataPipeline)
 
 # Open the connection to the local registry with a given config file
 config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
@@ -373,7 +373,7 @@ write:
 #### Submission script (R)
 
 ```r
-library(rFDP)
+library(rDataPipeline)
 
 # Open the connection to the local registry with a given config file
 config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
@@ -434,7 +434,7 @@ read:
 #### Submission script (R)
 
 ```r
-library(rFDP)
+library(rDataPipeline)
 
 # Open the connection to the local registry with a given config file
 config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
@@ -496,7 +496,7 @@ write:
 #### Submission script (R)
 
 ```r
-library(rFDP)
+library(rDataPipeline)
 
 # Open the connection to the local registry with a given config file
 config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
@@ -560,7 +560,7 @@ read:
 #### Submission script (R)
 
 ```r
-library(rFDP)
+library(rDataPipeline)
 
 # Open the connection to the local registry with a given config file
 config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
@@ -624,7 +624,7 @@ In R, we can attach issues to components in different ways. If there's a more el
 Attach an issue on the fly by referencing an index in the handle:
 
 ```R
-library(rFDP)
+library(rDataPipeline)
 
 # Initialise Code Run
 config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
@@ -659,7 +659,7 @@ finalise(handle)
 Attaching an issue to a data product that already exists in the data registry by referencing it explicitly:
 
 ```R
-library(rFDP)
+library(rDataPipeline)
 
 # Initialise Code Run
 config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
@@ -754,7 +754,7 @@ In R, we can attach issues to data products in different ways. If there's a more
 Attach an issue on the fly by referencing an index in the handle:
 
 ```R
-library(rFDP)
+library(rDataPipeline)
 
 # Initialise Code Run
 config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
@@ -795,7 +795,7 @@ finalise(handle)
 Attaching an issue to a data product that already exists in the data registry by referencing it explicitly:
 
 ```R
-library(rFDP)
+library(rDataPipeline)
 
 # Initialise Code Run
 config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
@@ -875,7 +875,7 @@ write: []
 #### Submission script (R)
 
 ```R
-library(rFDP)
+library(rDataPipeline)
 
 # Initialise Code Run
 config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
@@ -931,7 +931,7 @@ write: []
 #### Submission script (R)
 
 ```R
-library(rFDP)
+library(rDataPipeline)
 
 # Initialise Code Run
 config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
@@ -987,7 +987,7 @@ write: []
 #### Submission script (R)
 
 ```R
-library(rFDP)
+library(rDataPipeline)
 
 # Initialise Code Run
 config <- file.path(Sys.getenv("FDP_CONFIG_DIR"), "config.yaml")
@@ -1031,7 +1031,7 @@ run_metadata:
     R -f inst/SCRC/scotgov_management/submission_script.R ${{CONFIG_DIR}}
 
 read:
-- data_product: human/population
+- data_product: test/data/alias
   use:
     namespace: johnsmith
     data_product: scotland/human/population
