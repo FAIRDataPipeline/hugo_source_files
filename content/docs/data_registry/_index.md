@@ -1,6 +1,7 @@
 ---
-weight: 3
+weight: 2
 title: "FAIR Data Registry"
+bookCollapseSection: true
 ---
 
 # Local FAIR data registry
@@ -21,11 +22,11 @@ To install and run the local registry on windows the following dependencies are 
 
   - [Chocolatey](https://chocolatey.org/)
     
-    Once Chocolatety is installed the following dependencies can be installed using chocolatey:
+Once Chocolatety is installed the following dependencies can be installed using chocolatey:
     
       - [Python 3](https://community.chocolatey.org/packages/python/3.9.7)
-      - [CURL](https://community.chocolatey.org/packages/curl)
-      - [GIT](https://community.chocolatey.org/packages/git)
+      - [Curl](https://community.chocolatey.org/packages/curl)
+      - [Git](https://community.chocolatey.org/packages/git)
 
 ### Install local registry (Linux / MAC OS)
 
@@ -37,9 +38,27 @@ To initialise a local registry, run the following command from your terminal:
 
 This will install the registry and all the related files will be stored in `~/.fair`.
 
-To run the server, run the `~/.fair/registry/scripts/start_fair_registry` script, then navigate to http://localhost:8000 in your browser to check that the server is up and running. A token will be automatically generated in `~/.fair/registry/token`.
+To run the server, run the script:
 
-To stop the server, run the `~/.fair/registry/scripts/stop_fair_registry` script.
+```
+~/.fair/registry/scripts/start_fair_registry
+```
+
+Then, navigate to http://localhost:8000 in your browser to check that the server is up and running. A token will be automatically generated in `~/.fair/registry/token`.
+
+To stop the server, run the script:
+
+```
+~/.fair/registry/scripts/stop_fair_registry
+```
+
+#### Install specific branch
+
+If you need to install a specific branch from the [registry repository](https://github.com/FAIRDataPipeline/data-registry), you can replace `<branch_name>` with the branch in question in the following command:
+
+```
+curl -fsSL https://data.scrc.uk/static/localregistry.sh | /bin/bash -s -- -b <branch_name>
+```
 
 ### Install local registry (Windows)
 
