@@ -26,7 +26,7 @@ pygmentsUseClasses = true
   weight = 10
 
 [[menu.after]]
-  name = "Data Registry"
+  name = "Remote Data Registry"
   url = "https://data.scrc.uk/"
   weight = 20
 
