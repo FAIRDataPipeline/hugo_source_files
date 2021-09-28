@@ -133,19 +133,20 @@ register:
   # Metadata
   title: Deaths involving COVID19
   description: Nice description of the dataset
-  unique_name: Scottish deaths involving COVID19  # or doi
+  unique_name: Scottish deaths involving COVID19  
+  alternate_identifier_type: ods_name
   file_type: csv
   release_date: ${{DATETIME}}
   version: 0.${{DATE}}.0       
   primary: True
   
 write:
-- data_product: records/SARS-CoV-2/scotland/human-mortality
+- data_product: records/SARS-CoV-2/scotland/human-mortality/results
   description: human mortality data
   version: 0.${{DATE}}.0
 ```
 
-- `register:` will take exactly one of `unique_name:` or `doi:`.
+- `register:` will take exactly one of `unique_name:` and `alternate_identifier_type`, or `identifier:`.
 
 ## Flexible inputs and outputs
 

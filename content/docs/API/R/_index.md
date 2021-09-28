@@ -4,13 +4,13 @@ weight: 10
 
 # rFDP
 
-The `rFDP` package contains functions used to interface with the FAIR data pipeline in R.
+The `rDataPipeline` package contains functions used to interface with the FAIR Data Pipeline in R.
 
 To install it, run:
 
 ``` R
 install.packages("devtools")
-devtools::install_github("FAIRDataPipeline/rFDP")
+devtools::install_github("FAIRDataPipeline/rDataPipeline")
 ```
 
-To view the package documentation, go [here](https://FAIRDataPipeline.github.io/rFDP/index.html).
+To view the package documentation, go [here](https://FAIRDataPipeline.github.io/rDataPipeline/index.html).
