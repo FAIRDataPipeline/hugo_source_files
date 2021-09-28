@@ -86,7 +86,7 @@ an `ExternalObject`, where the `DataProduct` is a `specializationOf` an
 
 ### An example of a basic provenance diagram
 
-![](prov_example_1.jpeg)
+![Basic provenance diagram](/docs/data_registry/prov_example_1.jpeg)
 
 And this is an example of the XML that is produced:
 
@@ -149,4 +149,4 @@ In turn the `CodeRun` would have a relationship of `wasStartedBy` with an
 `CodeRepoRelease` and one or more `DataProducts`
 
 ### An example of a provenance diagram
-![](prov_example_2.jpeg)
+![Provenance diagram example](/docs/data_registry/prov_example_2.jpeg)
