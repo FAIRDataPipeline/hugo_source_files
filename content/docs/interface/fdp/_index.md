@@ -62,7 +62,7 @@ fair push config.yaml
 
   - specific version numbers and any variables in `run_metadata:`, `register:`, `read:`, and `write:` are replaced with true values, *e.g.*
     - `${{CONFIG_DIR}}` is replaced by the directory within which the working *config.yaml* file resides
-    - `release_date: ${{DATETIME}}` is replaced by `release_date: 2021-04-14 11:34:37`
+    - `release_date: ${{DATETIME}}` is replaced by `release_date: 2021-04-14T11:34:37` which is a valid form for the registry.
     - `version: 0.${{DATE}}.0` is replaced by `version: 0.20210414.0`
     - `version: ${{PATCH}}` should increment version by patch; and
     - `version: 0.${{DATETIME-%Y%m%d}}.0` or any variants thereof are replaced by an appropriately formatted string.

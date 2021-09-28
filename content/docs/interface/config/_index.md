@@ -95,7 +95,7 @@ run_metadata:
 register:
 - external_object: records/SARS-CoV-2/scotland/human-mortality
   # Who owns the data?
-  namespace_name: open_data_scotland_repository
+  namespace_name: Scottish Government Open Data Repository
   namespace_full_name: Scottish Government Open Data Repository
   namespace_website: https://statistics.gov.scot/
   # Where does the data come from?
@@ -136,7 +136,7 @@ register:
   unique_name: Scottish deaths involving COVID19  
   alternate_identifier_type: ods_name
   file_type: csv
-  release_date: ${{DATETIME}}    
+  release_date: ${{DATETIME}}
   version: 0.${{DATE}}.0       
   primary: True
   
