@@ -20,8 +20,8 @@ In addition, the following entities provide extra capabilities:
 - **QualityControlled**: Marks that the associated `Object` has been quality controlled.
 
 Entities related to users and authors:
-- **Author**
-- **UserAuthor**
+- **Author**: Authors that can be associated with an `Object` usually for use with `ExternalObject`s to record paper authors, etc.
+- **UserAuthor**: A combination of an `Author` associated with a particular user.
 
 Finally, the schema also includes some entities that are used internally:
 - **Object**: Core traceability object used to represent any data object such `DataProduct`, `CodeRepoRelease`, etc. 
