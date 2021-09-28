@@ -123,3 +123,14 @@ If you need to access the python/Django commands, still within the VM, you can a
  export DJANGO_SETTINGS_MODULE=drams.vagrant-settings
  python manage.py --help
  ```
+
+ For example, you can use the following command to add some example data:
+ ```
+ python manage.py add_example_data
+ ```
+
+ Note that if you want to remove the VM, you can run the command:
+
+ ```
+  vagrant destroy
+  ```
