@@ -27,16 +27,19 @@ For the data representation, the schema also supports categorising datasets by u
 
 ## FAIR research objects
 
-In addition, the following entities provide extra capabilities:
+The schema also represents FAIR objects, which are associated with **DataProduct**s, **CodeRun**s and so on. 
 
+![FAIR object](/docs/data_registry/FAIRdataregistry-fairobject.jpg)
+
+The Object is associated with:
 - **Licence**: Licence that can be associated with an `Object` in case the code or data source has a specific licence that needs to be recorded.
 - **CodeRepoRelease**: Information marking that an `Object` is an official release of a model code.
 - **StorageLocation**: The location of an item relative to a `StorageRoot`.
 - **StorageRoot**: The root location of a storage cache where model files are stored.
 - **QualityControlled**: Marks that the associated `Object` has been quality controlled.
-- **Keyword** 
+- **Keyword**: Keywords that can be associated with an `Object` usually for use with `ExternalObject`s to record paper keywords, and so on.
 
-Entities related to users and authors:
+The object is also associated with entities related to users and authors:
 - **Author**: Authors that can be associated with an `Object` usually for use with `ExternalObject`s to record paper authors, etc.
 - **UserAuthor**: A combination of an `Author` associated with a particular user.
 
