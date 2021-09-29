@@ -14,7 +14,7 @@ The documentation for the registry is available [here](https://data.scrc.uk/docs
 There are a few alternative ways to install a local FAIR data registry and we describe the different options below.
 ### Dependencies
 
-The registry relies on the [```graphviz```](https://www.graphviz.org) package to produce the schema visualisation, so you will need to follow [graphviz installation process](https://www.graphviz.org/download/) for your system before initialising a local registry.
+The registry relies on the [```graphviz```](https://www.graphviz.org) package to produce the [schema visualisation](/docs/data_registry/schema/#schema-diagram) and the [provenance report](/docs/data_registry/prov_report), so you will need to follow [graphviz installation process](https://www.graphviz.org/download/) for your system before initialising a local registry.
 
 #### Windows Dependencies
 
