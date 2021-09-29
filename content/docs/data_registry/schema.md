@@ -43,12 +43,12 @@ The object is also associated with entities related to users and authors:
 - **Author**: Authors that can be associated with an `Object` usually for use with `ExternalObject`s to record paper authors, etc.
 - **UserAuthor**: A combination of an `Author` associated with a particular user.
 
-## Internal provenance
+### Internal provenance
 
 Finally, the schema also includes some entities that are used internally:
 - **BaseModel**: Base model for all objects in the database. Used to defined common fields and functionality to keep internal provenance information such as when it was last updated and by whom.
 
-### Schema Diagram
+## Schema Diagram
 
 The whole [schema diagram](https://data.scrc.uk/static/images/schema.svg) can be accessed on the remote data registry. We are also including the image here, which you can open in a new tab to see it full scale:
 
