@@ -50,6 +50,11 @@ https://data.scrc.uk/api/prov-report/3/
 * dpi
 
     * **\<float>**: a float used to define the dpi for the `JPEG` and `SVG` images
+* depth
+
+    * **\<integer>**: an integer used to determine how many levels of code runs to include,
+    the default is 1
+
 
 ## Prefixes
 
