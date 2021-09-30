@@ -83,7 +83,7 @@ By default the local registry creates a superuser for the admin console with the
 
 ### Using Vagrant in a local VM
 
-An alternative to run the local registry without worrying about dependencies is to rely on [Vagrant](https://www.vagrantup.com/) and a virtualisation engine such as VirtualBox.
+An alternative to run the local registry without worrying about dependencies is to rely on [Vagrant](https://www.vagrantup.com/) and a virtualisation engine such as [VirtualBox](https://www.virtualbox.org/).
 
 The FAIR data registry codebase provides a [Vagrantfile](https://github.com/FAIRDataPipeline/data-registry/blob/main/Vagrantfile) with the details on how to configure and provision a local virtual machine to run the data registry.
 
