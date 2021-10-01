@@ -1,11 +1,11 @@
 # FDP_hugo
 
-The [FAIR Data Pipeline website](https://fairdatapipeline.github.io) contains information related to datasets, the data pipeline, and various other technical documents associated with the SCRC project.
+The [FAIR Data Pipeline website](https://www.fairdatapipeline.org/) contains information related to datasets, the data pipeline, and various other technical documents associated with the SCRC project.
 
-* [ScottishCovidResponse/ScottishCovidResponse.github.io](https://github.com/FAIRDataPipeline/FAIRDataPipeline.github.io) contains website source files.
+* [FairDataPipeline/www.fairdatapipeline.org](https://github.com/FAIRDataPipeline/www.fairdatapipeline.org) contains website source files.
 
-* [ScottishCovidResponse/hugo_source_files](https://github.com/FAIRDataPipeline/FDP_hugo) contains Hugo source files 
-  * When pushes are made to this repository, a GitHub actions workflow automatically deploys source files to ScottishCovidResponse/ScottishCovidResponse.github.io
+* [FAIRDataPipeline/FDP_hugo](https://github.com/FAIRDataPipeline/FDP_hugo) contains Hugo source files 
+  * When pushes are made to this repository, a GitHub actions workflow automatically deploys source files to FAIRDataPipeline/www.fairdatapipeline.org
 
 * [ScottishCovidResponse/hugo-book](https://github.com/ScottishCovidResponse/hugo-book) contains Hugo theme files
   * This theme is based on the Hugo [Book](https://github.com/alex-shpak/hugo-book) theme, with the search bar from the Jekyll [Just the Docs](https://github.com/pmarsceill/just-the-docs) theme, and some extra tweaks

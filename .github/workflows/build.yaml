@@ -20,5 +20,5 @@ jobs:
       uses: benmatselby/hugo-deploy-gh-pages@master
       env:
         HUGO_EXTENDED: true
-        TARGET_REPO: FAIRDataPipeline/FAIRDataPipeline.github.io
+        TARGET_REPO: FAIRDataPipeline/www.fairdatapipeline.org
         TOKEN: ${{ secrets.FDP_HUGO }}

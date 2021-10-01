@@ -13,4 +13,4 @@ install.packages("devtools")
 devtools::install_github("FAIRDataPipeline/rDataPipeline")
 ```
 
-To view the package documentation, go [here](https://FAIRDataPipeline.github.io/rDataPipeline/index.html).
+To view the package documentation, go [here](https://www.fairdatapipeline.org/rDataPipeline/index.html).
