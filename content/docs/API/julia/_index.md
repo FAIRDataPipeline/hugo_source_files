@@ -29,5 +29,5 @@ See the [package documentation][docs] for instructions and examples.
 
 See the package's [code repo][repo].
 
-[docs]: https://FAIRDataPipeline.github.io/DataPipeline.jl/stable/
+[docs]: https://www.fairdatapipeline.org/DataPipeline.jl/stable/
 [repo]: https://github.com/FAIRDataPipeline/DataPipeline.jl
