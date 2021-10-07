@@ -27,11 +27,11 @@ graph LR;
     end
     subgraph Local API
         API[Pipeline API]
-        CY[/config.yml/]
+        CY[config.yml]
     end
     subgraph localhost
-        LR[(Registry)]
-        FS[/File Store/]
+        LR[Registry]
+        FS[File Store]
     end
     subgraph Model
         MC[Model code]
@@ -47,12 +47,12 @@ graph LR;
 
     LR --> |read/link_*| API
     API --> |read/link_*| MC
-    
+
     API --> |write_*| FS
     FS  --> |read_*| API
 
-    MC -...-> |from link_write|FS
-    FS -...-> |from link_read|MC
+    MC --> |from link_write|FS
+    FS --> |from link_read|MC
 
 {{< /mermaid >}}
 
