@@ -46,8 +46,8 @@ graph LR;
     API --> |write_*| FS
     FS  --> |read_*| API
 
-    MC -...-> |from link_write|FS
-    FS -...-> |from link_read|MC
+    MC ----> |"(from link_write)"|FS
+    FS ----> |"(from link_read)"|MC
 
 {{< /mermaid >}}
 
