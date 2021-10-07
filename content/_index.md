@@ -21,29 +21,33 @@ The key benefits of using the FAIR Data Pipeline are:
 To use the FAIR Data Pipeline with a piece of modelling software, you must add a language specific Pipeline API as a dependency and interact with data registered in the pipeline via the methods it presents. Each model run must be configured using a [`config.yml`](docs/interface/_index.md) file which specifies inputs and outputs by metadata.
 
 {{<mermaid align="left">}}
-graph LR;
-    subgraph Local
-        LR[Local Registry]
-        FS[File System]
+flowchart LR;
+    subgraph CLI
+        fair
     end
     subgraph Local API
         API[Pipeline API]
-        CY[config.yml]
+        CY[/config.yml/]
+    end
+    subgraph localhost
+        LR[(Registry)]
+        FS[/File Store/]
     end
     subgraph Model
-        M[Model]
+        MC[Model code]
     end
  
-    LR -->|read_*| API
-    API-->|write_*,link_*| LR
-    FS-->|read_*| API
-    API-->|write_*| FS
+    fair --> CY --> API
 
-    CY-->API
+    fair --> MC
 
-    API-->|read_*,link_*|M
-    M-->|write_*,link_*|API
-    M-->|link_*|FS
+    MC --> |read/write/link_*| API --> |read/write/link_*| LR
+    LR --> |read/link_*| API --> |read/link_*| MC
+    API --> |write_*| FS
+    FS  --> |read_*| API
+
+    MC -...-> |"(from link_write)"|FS
+    FS -...-> |"(from link_read)"|MC
 
 {{< /mermaid >}}
 
@@ -67,7 +71,7 @@ graph LR;
     LR-->|fair push| RR
 
     RR-->OS(Managed Object Store)
-    RR-->URI(Abribtrary URI)
+    RR-->URI(Arbitrary URI)
     LR-->FS(Local Filesystem)
 
     OS-->|fair pull| FS
