@@ -46,15 +46,15 @@ graph LR;
     API --> |write_*| FS
     FS  --> |read_*| API
 
-    MC ----> |"(from link_write)"|FS
-    FS ----> |"(from link_read)"|MC
+    MC -...-> |"(from link_write)"|FS
+    FS -...-> |"(from link_read)"|MC
 ```
 
 ## Getting data
 
 The command line utility `fair` is used to download and upload data and metadata required for and produced by model runs.
 
-{{<mermaid align="left">}}
+```mermaid
 graph LR;
     subgraph Remote
         RR
@@ -77,5 +77,4 @@ graph LR;
     URI-->|fair pull| FS
     FS-->|fair push| OS
     FS-->|fair push| URI
-
-{{< /mermaid >}}
+```
