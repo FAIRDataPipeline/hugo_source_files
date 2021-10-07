@@ -20,7 +20,7 @@ The key benefits of using the FAIR Data Pipeline are:
 
 To use the FAIR Data Pipeline with a piece of modelling software, you must add a language specific Pipeline API as a dependency and interact with data registered in the pipeline via the methods it presents. Each model run must be configured using a [`config.yml`](docs/interface/_index.md) file which specifies inputs and outputs by metadata.
 
-{{<mermaid align="left">}}
+```mermaid
 graph LR;
     subgraph CLI
         fair
@@ -48,8 +48,7 @@ graph LR;
 
     MC ----> |"(from link_write)"|FS
     FS ----> |"(from link_read)"|MC
-
-{{< /mermaid >}}
+```
 
 ## Getting data
 
