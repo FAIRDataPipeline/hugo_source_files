@@ -23,7 +23,7 @@ headless: true
     - [Terminology]({{< relref "/docs/API/python/terminology" >}})
 - [Jargon buster]({{< relref "/docs/jargon_buster" >}})
 - [Use Cases]({{< relref "/docs/use_cases" >}})
-- [Software Status]({{< relref "/docs/software_status" >}})
+- [Repository Status]({{< relref "/docs/repository_status" >}})
   
 <br />
 
