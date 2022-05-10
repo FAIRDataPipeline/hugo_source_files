@@ -29,16 +29,16 @@ Work in progress. All blank cells are TBDs. Idea is not to duplicate the softwar
 | --- | --- |
 | FAIR-CLI | Docs in readme and in `docs` folder, doscstrings not currently used to build docs. |
 | data-registry | User docs on Hugo site. Dev docs in docs folder of repo. |
-| cppDataPipeline | | | |
-| DataPipeline.jl | | | |
-| javaDataPipeline | | | |
-| pyDataPipeline | | | |
-| rDataPipeline | | | |
-| cppSimpleModel | | | |
-| *Julia example?* | | | |
-| javaSimpleModel | | | |
-| pySimpleModel | | | |
-| rSimpleModel | | | |
+| cppDataPipeline | Automated docs built to website <https://www.fairdatapipeline.org/cppDataPipeline/> |
+| DataPipeline.jl | Automated docs built to website <https://www.fairdatapipeline.org/DataPipeline.jl/stable/>, also <https://www.fairdatapipeline.org/docs/API/julia/> |
+| javaDataPipeline | User docs <https://www.fairdatapipeline.org/docs/API/Java/> |
+| pyDataPipeline | Automated docs built to website <https://www.fairdatapipeline.org/pyDataPipeline/>, also <https://www.fairdatapipeline.org/docs/API/python/> |
+| rDataPipeline | Automated docs built to website <https://www.fairdatapipeline.org/rDataPipeline/>, also <https://www.fairdatapipeline.org/docs/API/R/> |
+| cppSimpleModel | <https://github.com/FAIRDataPipeline/cppSimpleModel#readme> |
+| *Julia example?* | |
+| javaSimpleModel | <https://github.com/FAIRDataPipeline/cppSimpleModel#readme> |
+| pySimpleModel | <https://github.com/FAIRDataPipeline/pySimpleModel#readme> |
+| rSimpleModel | <https://github.com/FAIRDataPipeline/rSimpleModel#readme> |
 
 # Status
 
