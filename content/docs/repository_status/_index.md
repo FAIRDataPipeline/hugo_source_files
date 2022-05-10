@@ -32,12 +32,12 @@ Note: static analyusis may nto be available or appropriate for all languages.
 | data-registry | User docs on Hugo site. Dev docs in docs folder of repo. |
 | cppDataPipeline | Automated docs built to website <https://www.fairdatapipeline.org/cppDataPipeline/> |
 | DataPipeline.jl | Automated docs built to website <https://www.fairdatapipeline.org/DataPipeline.jl/stable/>, also <https://www.fairdatapipeline.org/docs/API/julia/> |
-| javaDataPipeline | User docs <https://www.fairdatapipeline.org/docs/API/Java/> |
+| javaDataPipeline |  Automated docs built to website <https://www.fairdatapipeline.org/javaDataPipeline/>, also user docs <https://www.fairdatapipeline.org/docs/API/Java/> |
 | pyDataPipeline | Automated docs built to website <https://www.fairdatapipeline.org/pyDataPipeline/>, also <https://www.fairdatapipeline.org/docs/API/python/> |
 | rDataPipeline | Automated docs built to website <https://www.fairdatapipeline.org/rDataPipeline/>, also <https://www.fairdatapipeline.org/docs/API/R/> |
 | cppSimpleModel | <https://github.com/FAIRDataPipeline/cppSimpleModel#readme> |
 | *Julia example?* | |
-| javaSimpleModel | <https://github.com/FAIRDataPipeline/cppSimpleModel#readme> |
+| javaSimpleModel |<https://github.com/FAIRDataPipeline/javaSimpleModel#readme> |
 | pySimpleModel | <https://github.com/FAIRDataPipeline/pySimpleModel#readme> |
 | rSimpleModel | <https://github.com/FAIRDataPipeline/rSimpleModel#readme> |
 
