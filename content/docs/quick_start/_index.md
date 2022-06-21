@@ -7,20 +7,19 @@ bookCollapseSection: false
 The FAIR Data Pipeline needs three components to be installed on your computer in order to run. These are:
 
 - Command Line Interface (CLI)
-- Data Registry
+- (Local) Data Registry
 - A Modelling API (in whatever programming language you want to use)
 
-## Install the Command Line Interface and Data Registry
-
-The best way to install the Data Registry is via the CLI.
-
-### Prerequisites
+## Prerequisites
 
 The CLI needs to be installed using `pip` (the package installer for Python), which means you will need a Python distribution (![PyPI - Python Version](https://img.shields.io/pypi/pyversions/fair-cli)) installed on your computer. You will also need to [install Graphviz](https://graphviz.org/).
 
-### Installation
+## Install the Command Line Interface (CLI)
 
 - Follow [Instructions to install the CLI](https://github.com/FAIRDataPipeline/FAIR-CLI#installation) in the [CLI GitHub repository](https://github.com/FAIRDataPipeline/FAIR-CLI).
+
+## Install the (Local) Data Registry
+
 - Follow the instructions to [install the Data Registry via the CLI](https://github.com/FAIRDataPipeline/FAIR-CLI#registry).
 
 ## Select and install a Modelling API
