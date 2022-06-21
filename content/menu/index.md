@@ -5,9 +5,6 @@ headless: true
 <br />
 
 - [Introduction]({{< relref "/docs/introduction" >}})
-
-- [Quick Start]({{< relref "/docs/quick_start" >}})
-
 - [API Interface]({{< relref "/docs/interface" >}})
   - [config.yaml fields]({{< relref "/docs/interface/config" >}})
   - [DPAPI examples]({{< relref "/docs/interface/example0" >}})

@@ -38,6 +38,6 @@ Example models using the FAIR Data Pipeline are provided in each of the supporte
 
 - [C++](https://github.com/FAIRDataPipeline/cppSimpleModel)
 - [Java](https://github.com/FAIRDataPipeline/javaSimpleModel)
-- Julia (The Julia example is installed along with the Julia Modelling API)
+- Julia (The Juila example is installed along with the Julia Modelling API)
 - [Python](https://github.com/FAIRDataPipeline/pySimpleModel)
 - [R](https://github.com/FAIRDataPipeline/rSimpleModel)
