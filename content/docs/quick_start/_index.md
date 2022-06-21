@@ -16,7 +16,7 @@ The best way to install the Data Registry is via the CLI.
 
 ### Prerequisites
 
-The CLI needs to be installed using `pip` (the package installer for Python), which means you will need a Python distribution (![PyPI - Python Version](https://img.shields.io/pypi/pyversions/fair-cli)) installed on your computer. You will also need to [install Graphviz](https://graphviz.org/).
+The CLI needs to be installed using `pip` (the package installer for Python), which means you will need a Python distribution installed on your computer. You will also need to [install Graphviz](https://graphviz.org/).
 
 ### Installation
 
