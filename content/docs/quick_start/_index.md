@@ -20,8 +20,7 @@ The CLI needs to be installed using `pip` (the package installer for Python), wh
 
 ### Installation
 
-- Follow [Instructions to install the CLI](https://github.com/FAIRDataPipeline/FAIR-CLI#installation) in the [CLI GitHub repository](https://github.com/FAIRDataPipeline/FAIR-CLI).
-- Follow the instructions to [install the Data Registry via the CLI](https://github.com/FAIRDataPipeline/FAIR-CLI#registry).
+[Instructions to install the CLI](https://github.com/FAIRDataPipeline/FAIR-CLI#installation) are in the [CLI GitHub repository](https://github.com/FAIRDataPipeline/FAIR-CLI), where there are also instructions on how to [install the Data Registry via the CLI](https://github.com/FAIRDataPipeline/FAIR-CLI#registry).
 
 ## Select and install a Modelling API
 
