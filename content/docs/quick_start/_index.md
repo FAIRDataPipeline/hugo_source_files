@@ -27,7 +27,7 @@ The CLI needs to be installed using `pip` (the package installer for Python), wh
 Installation instructions for the Modelling APIs are in their respective GitHub repositories:
 
 - [C++](https://github.com/FAIRDataPipeline/cppDataPipeline#installation)
-- Java (*ToDo: Find link*)
+- [Java](https://github.com/FAIRDataPipeline/javaSimpleModel#installation-of-dependencies)
 - [Julia](https://github.com/FAIRDataPipeline/DataPipeline.jl#installation)
 - [Python](https://github.com/FAIRDataPipeline/pyDataPipeline#installation)
 - [R](https://github.com/FAIRDataPipeline/rDataPipeline#installation)
