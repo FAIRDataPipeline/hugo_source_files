@@ -19,6 +19,7 @@ jobs:
     - name: Hugo Deploy GitHub Pages
       uses: benmatselby/hugo-deploy-gh-pages@master
       env:
+        HUGO_VERSION: 0.107.0
         HUGO_EXTENDED: true
         TARGET_REPO: FAIRDataPipeline/fairdatapipeline.github.io
         TOKEN: ${{ secrets.FDP_HUGO }}
