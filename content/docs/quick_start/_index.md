@@ -12,7 +12,7 @@ The FAIR Data Pipeline needs three components to be installed on your computer i
 
 ## Prerequisites
 
-The CLI needs to be installed using `pip` (the package installer for Python), which means you will need a Python distribution (![PyPI - Python Version](https://img.shields.io/pypi/pyversions/fair-cli)) installed on your computer. You will also need to [install Graphviz](https://graphviz.org/), if you would like to view provenance reports.
+The CLI needs to be installed using `pip` (the package installer for Python), which means you will need a Python distribution (![PyPI - Python Version](https://img.shields.io/pypi/pyversions/fair-cli)) installed on your computer. You will also need to [install Graphviz](https://graphviz.org/), if you would like to view provenance reports in the web interface.
 
 ## Install the Command Line Interface (CLI)
 
