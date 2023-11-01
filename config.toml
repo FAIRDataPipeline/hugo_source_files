@@ -27,7 +27,7 @@ pygmentsUseClasses = true
 
 [[menu.after]]
   name = "Remote Data Registry"
-  url = "https://data.scrc.uk/"
+  url = "https://data.fairdatapipeline.org/"
   weight = 20
 
 [params]

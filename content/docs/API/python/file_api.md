@@ -23,7 +23,7 @@ data_directory: .
 access_log: access-{run_id}.yaml 
 run_metadata: 
   description: A test model 
-  data_registry_url: https://data.scrc.uk/api/ 
+  data_registry_url: https://data.fairdatapipeline.org/api/ 
   default_input_namespace: SCRC 
   default_output_namespace: model_test 
   submission_script: model.py 

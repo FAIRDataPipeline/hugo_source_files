@@ -7,7 +7,7 @@ weight: 1
 # Local FAIR data registry
 
 
-The documentation for the registry is available [here](https://data.scrc.uk/docs/), and is the same for the local and remote registry.
+The documentation for the registry is available [here](https://data.fairdatapipeline.org/docs/), and is the same for the local and remote registry.
 
 ## Installation
 
@@ -33,7 +33,7 @@ Once Chocolatety is installed the following dependencies can be installed using 
 To initialise a local registry, run the following command from your terminal:
 
 ```
-/bin/bash -c "$(curl -fsSL https://data.scrc.uk/static/localregistry.sh)"
+/bin/bash -c "$(curl -fsSL https://data.fairdatapipeline.org/static/localregistry.sh)"
 ```
 
 This will install the registry and all the related files will be stored in `~/.fair`.
@@ -57,7 +57,7 @@ To stop the server, run the script:
 If you need to install a specific branch from the [registry repository](https://github.com/FAIRDataPipeline/data-registry), you can replace `<branch_name>` with the branch in question in the following command:
 
 ```
-curl -fsSL https://data.scrc.uk/static/localregistry.sh | /bin/bash -s -- -b <branch_name>
+curl -fsSL https://data.fairdatapipeline.org/static/localregistry.sh | /bin/bash -s -- -b <branch_name>
 ```
 
 ### Install local registry (Windows)
@@ -65,7 +65,7 @@ curl -fsSL https://data.scrc.uk/static/localregistry.sh | /bin/bash -s -- -b <br
 To initialise a local registry on windows, run the following commands from command prompt
 
 ```
-curl https://data.scrc.uk/static/localregistry.bat > localregistry.bat
+curl https://data.fairdatapipeline.org/static/localregistry.bat > localregistry.bat
 
 localregistry.bat
 ```

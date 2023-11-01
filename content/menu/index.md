@@ -8,12 +8,10 @@ headless: true
 
 - [Quick Start]({{< relref "/docs/quick_start" >}})
 
-- [API Interface]({{< relref "/docs/interface" >}})
-  - [config.yaml fields]({{< relref "/docs/interface/config" >}})
-  - [DPAPI examples]({{< relref "/docs/interface/example0" >}})
-  - [DPAPI functions]({{< relref "/docs/interface/example1" >}})
-  - [FAIR CLI functions]({{< relref "/docs/interface/fdp" >}})
-  - [FAIR CLI readme]({{< relref "/docs/interface/fair_cli_dev" >}})
+- [FAIR Command Line Interface]({{< relref "/docs/cli" >}})
+  - [FAIR CLI functions]({{< relref "/docs/cli/cli_functions" >}})
+  - [FAIR CLI readme]({{< relref "/docs/cli/cli_readme" >}})
+  - [FAIR CLI config.yaml fields]({{< relref "/docs/interface/config" >}})
   
 - [Local registry]({{< relref "/docs/local_registry" >}})
 - [Notes on synchronisation]({{< relref "/docs/sync_notes" >}})

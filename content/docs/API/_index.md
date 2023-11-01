@@ -1,6 +1,6 @@
 ---
 weight: 6
-title: "Modelling API"
+title: "Modelling APIs"
 bookCollapseSection: true
 ---
 

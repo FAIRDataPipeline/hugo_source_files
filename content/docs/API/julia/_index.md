@@ -7,7 +7,7 @@ weight: 20
 The `DataPipeline.jl` package contains functions used to interface with the FAIR Data Pipeline in Julia.
 
 ## Features
-- Conveniently download Data Products from the SCRC [Data Registry](https://data.scrc.uk/).
+- Conveniently download Data Products from the SCRC [Data Registry](https://data.fairdatapipeline.org/).
 - File hash-based version checking: new data is downloaded only when necessary.
 - A SQLite layer for convenient pre-processing (typically aggregation, and the joining of disparate datasets based on common identifiers.)
 - Easily register model code or realisations (i.e. 'runs') with a single line of code.
