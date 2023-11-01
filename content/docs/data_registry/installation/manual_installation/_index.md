@@ -1,14 +1,3 @@
----
-title: "Installation Instructions"
-weight: 1
----
-
-
-# Local FAIR data registry
-
-
-The documentation for the registry is available [here](https://data.fairdatapipeline.org/docs/), and is the same for the local and remote registry.
-
 ## Installation
 
 There are a few alternative ways to install a local FAIR data registry and we describe the different options below.

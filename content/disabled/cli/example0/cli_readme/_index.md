@@ -1,15 +1,9 @@
 ---
-weight: 1
-title: "FAIR CLI readme"
+weight: 2
+title: "FAIR CLI Readme"
 ---
 
-# `fair` CLI outline
-
-| **DISCLAIMER:**                                                                                                                                                                                                                                                                                                                                                                    |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| The following document is largely conceptual and therefore does *not* represent a manual for the final interface. Statements within the following are likely to change, further details of possible changes are given throughout. Please either open an issue or pull request on the [source repository](https://github.com/FAIRDataPipeline/FAIR-CLI) raising any changes/issues. |
-
-
+# The FAIR Command Line Interface (CLI)
 
 FAIR-CLI forms the main interface for synchronising changes between your local and shared remote FAIR Data Pipeline registries, it is also used to instantiate model runs/data submissions to the pipeline.
 
@@ -17,26 +11,21 @@ The project is still under development with many features still to be implemente
 
 ## Installation
 
-The project makes use of [Poetry](https://python-poetry.org/) for development which allows quick and easy mangement of dependencies, and provides a virtual environment exclusive to the project. Ultimately the project will be built into a pip installable module (using `poetry build`) meaning users will not need Poetry. You can access this environment by installing poetry:
-```bash
-pip install poetry
+The `FAIR CLI` requires [python 3.8+](https://www.python.org/downloads/) and can be installed using [pip:](https://pypi.org/project/fair-cli/)
+
 ```
-and, ensuring you are in the project repository, running:
+pip3 install fair-cli
 ```
-poetry install
+
+***Note:***
+On windows the command may be:
 ```
-which will setup the virtual environment and install requirements. You can then either launch the environment as a shell using:
-```bash
-poetry shell
-```
-or run commands within it externally using:
-```bash
-poetry run <command>
+pip install fair-cli
 ```
 
 ## Structure
 
-The layout of FAIR-CLI on a simplified system looks like this:
+The layout of FAIR CLI on a simplified system looks like this:
 ```bash
 $HOME
 ├── .fair

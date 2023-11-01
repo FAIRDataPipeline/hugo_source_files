@@ -1,19 +1,22 @@
 ---
 weight: 2
-title: "FAIR CLI functions"
+title: "FAIR CLI Commands"
 ---
 
-# `fair` CLI functions
-
-<span style="font-size:12pt; color:red">Note that this is a living document and the following is subject to change.</span>
+# `fair` CLI Commands
 
 A simple example of how the data pipline should run from the command line:
 
 ```bash
+fair init
 fair pull config.yaml
 fair run config.yaml
-fair push config.yaml
+fair add <code-run / data-product>
+fair push
 ```
+
+## `fair init`
+- initialise a fair repository, this must be a git repository.
 
 ## `fair pull`
 
@@ -24,7 +27,7 @@ fair push config.yaml
 ## `fair run`
 
 - read (and validate) the *config.yaml* file
-- generate a working *config.yaml* file (see [Working example]({{% ref "/docs/cli/cli_functions/examples/example1" %}}))
+- generate a working *config.yaml* file (see [Working example]({{% ref "/docs/cli/cli_commands/examples/example1" %}}))
   - globbing is used to interpret `*` as all matching objects as well as the original string returned, *e.g.* if `real/data/1` version 0.0.1 and `real/data/thing/1` version 0.0.1 already exist in the registry, the user-written config:
   
     ```yaml
@@ -82,7 +85,16 @@ fair push config.yaml
 - save the path to *<local_store>/coderun/\<date>T\<time>/* in the global environment as `$FDP_CONFIG_DIR` so that it can be picked up by the script that is run after this has been completed
 - execute the submission script
 
+## `fair list`
+- list data_products and code_runs on the local registry.
+
+## `fair add`
+
+- stages a `code_run` or `data_product` to be pushed to the remote registry.
+- a `code_run` should be the hash of the `code-run` e.g., 5062cc4f-2c45-48f5-989a-6fe7fe0452ca.
+- a `data_product` should be formatted:  <namespace>:<data_product name>@v<version> eg: PSU:SEIRS_model/parameters@v1.0.0.
+
 ## `fair push`
 
-- push new files (generated from `write:` and `register:`) to the remote data store
-- record metadata in the data registry (whilst editing relevant entries, *e.g.* `storage_root`)
+- push new files (generated from `write:` and `register:`) to the remote data store.
+- record metadata in the remote data registry (whilst editing relevant entries, *e.g.* `storage_root`).

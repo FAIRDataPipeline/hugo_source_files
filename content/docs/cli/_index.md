@@ -1,6 +1,6 @@
 ---
 weight: 2
-title: "Fair CLI"
+title: "FAIR CLI"
 bookCollapseSection: true
 ---
 
