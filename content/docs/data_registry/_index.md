@@ -4,6 +4,8 @@ title: "FAIR Data Registry"
 bookCollapseSection: true
 ---
 
+<span style="color:red">*Notice: This Documentation is in the process of being updated, some of the information may be out of date, or incorrect.*</span>
+
 # FAIR Data Registry
 
 The FAIR data pipeline requires to maintain a data registry as we have the following **objectives**:
