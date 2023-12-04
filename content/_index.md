@@ -4,6 +4,8 @@ type: docs
 bookCollapseSection: true
 ---
 
+<span style="color:red">*Notice: This Documentation is in the process of being updated, some of the information may be out of date, or incorrect.*</span>
+
 # Introduction
 
 The FAIR Data Pipeline is intended to enable tracking of provenance of [FAIR](https://doi.org/10.1038/sdata.2016.18) (findable, accessible, interoperable and reusable) data used in epidemiological modelling. Pipeline APIs written in [C]({{< relref "/docs/api/c" >}}), [C++]({{< relref "/docs/api/cpp" >}}), [FORTRAN]({{< relref "/docs/api/fortran" >}}), [Java]({{< relref "/docs/api/java" >}}), [Julia]({{< relref "/docs/api/julia" >}}), [Python]({{< relref "/docs/api/python" >}}) and [R]({{< relref "/docs/api/r" >}}) can be called by modelling software for data ingestion. These interact with a local relational database storing metadata and the local filesystem, and are configured using a yaml file associated with the model run. Local files and metadata can be synchronised with a remote registry via a command line tool (`fair`).
