@@ -1,5 +1,7 @@
 ---
-weight: 20
+weight: 2
+title: "Julia"
+bookCollapseSection: false
 ---
 
 # DataRegistryUtils.jl

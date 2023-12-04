@@ -1,5 +1,7 @@
 ---
-weight: 20
+weight: 6
+title: "C++"
+bookCollapseSection: false
 ---
 
 # cppDataPipeline

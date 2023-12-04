@@ -1,6 +1,7 @@
 ---
-weight: 7
+weight: 6
 title: "Repository Status"
+bookCollapseSection: false
 ---
 
 Work in progress. All blank cells are TBDs. Idea is not to duplicate the software checklist or other information held in repositories, but to summarise it in one place.

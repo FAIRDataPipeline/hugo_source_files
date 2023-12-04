@@ -1,6 +1,7 @@
 ---
 weight: 2
 title: "FAIR CLI Commands"
+bookCollapseSection: false
 ---
 
 # `fair` CLI Commands

@@ -1,5 +1,7 @@
 ---
-weight: 10
+weight: 1
+title: "R"
+bookCollapseSection: false
 ---
 
 # rDataPipeline

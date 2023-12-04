@@ -1,6 +1,6 @@
 ---
 title: "RO Crate Objects"
-weight: 4
+weight: 5
 ---
 
 # Research Object Crate (RO-Crate)

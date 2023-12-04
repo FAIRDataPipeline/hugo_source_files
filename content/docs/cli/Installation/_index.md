@@ -1,6 +1,7 @@
 ---
 weight: 1
 title: "FAIR CLI Installation"
+bookCollapseSection: false
 ---
 
 # Installation

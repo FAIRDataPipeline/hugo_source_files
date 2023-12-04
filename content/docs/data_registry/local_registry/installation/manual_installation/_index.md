@@ -1,3 +1,9 @@
+---
+weight: 1
+title: "Manual Installation"
+bookCollapseSection: false
+---
+
 ## Installation
 
 There are a few alternative ways to install a local FAIR data registry and we describe the different options below.

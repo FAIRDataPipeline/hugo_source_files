@@ -1,6 +1,7 @@
 ---
-title: "Installation Instructions"
+title: "Installation"
 weight: 1
+bookCollapseSection: true
 ---
 
 

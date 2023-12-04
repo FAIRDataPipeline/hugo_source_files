@@ -1,6 +1,7 @@
 ---
-bookCollapseSection: true
-weight: 30
+weight: 3
+title: "Python"
+bookCollapseSection: false
 ---
 
 # pyDataPipeline

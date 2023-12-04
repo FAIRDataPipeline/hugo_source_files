@@ -1,5 +1,6 @@
 ---
-weight: 40
+weight: 4
+title: "Java"
 bookCollapseSection: true
 ---
 
