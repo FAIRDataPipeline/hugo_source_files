@@ -19,18 +19,6 @@ pygmentsUseClasses = true
 [markup.tableOfContents]
   startLevel = 1
 
-[menu]
-# [[menu.before]]
-#[[menu.after]]
-#  name = "SCRC UoG"
-#  url = "https://www.gla.ac.uk/research/az/scrc/"
-#  weight = 10
-
-[[menu.after]]
-  name = "Remote Data Registry"
-  url = "https://data.fairdatapipeline.org/"
-  weight = 20
-
 [params]
   # (Optional, default true) Controls table of contents visibility on right side of pages.
   # Start and end levels can be controlled with markup.tableOfContents setting.
