@@ -1,6 +1,6 @@
 ---
 title: "Schema Description"
-weight: 2
+weight: 3
 ---
 
 The FAIR data registry schema has been designed to address the different requirements around the information needed on different research objects associated with an epidemiological pipeline.
@@ -50,6 +50,6 @@ Finally, the schema also includes some entities that are used internally:
 
 ## Schema Diagram
 
-The whole [schema diagram](https://data.scrc.uk/static/images/schema.svg) can be accessed on the remote data registry. We are also including the image here, which you can open in a new tab to see it full scale:
+The whole [schema diagram](https://data.fairdatapipeline.org/static/images/schema.svg) can be accessed on the remote data registry. We are also including the image here, which you can open in a new tab to see it full scale:
 
 ![schema](/docs/data_registry/schema.svg)

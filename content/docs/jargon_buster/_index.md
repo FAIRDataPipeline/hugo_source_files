@@ -1,6 +1,7 @@
 ---
-weight: 7
+weight: 5
 title: "Jargon buster"
+bookCollapseSection: false
 ---
 
 # Jargon buster

@@ -1,6 +1,6 @@
 ---
 title: "Provenance Report"
-weight: 3
+weight: 4
 ---
 
 # Provenance Report
@@ -17,7 +17,7 @@ Provenance reports are only available for `DataProducts` and can be accessed via
 the RESTful API for example:
 
 ```
-https://data.scrc.uk/api/prov-report/3/
+https://data.fairdatapipeline.org/api/prov-report/3/
 ```
 
 ## Query parameters
@@ -78,7 +78,7 @@ Using `provn` as an example you may see a section similar to:
 
 ```
   prefix lreg <http://192.168.20.10:8000/>
-  prefix fair <https://data.scrc.uk/vocab/#>
+  prefix fair <https://data.fairdatapipeline.org/vocab/#>
   prefix dcat <http://www.w3.org/ns/dcat#>
   prefix dcmitype <http://purl.org/dc/dcmitype/>
   prefix dcterms <http://purl.org/dc/terms/>
@@ -100,7 +100,7 @@ an `ExternalObject`, where the `DataProduct` is a `specializationOf` an
 And this is an example of the XML that is produced:
 
 ```xml
-<prov:document xmlns:lreg="http://192.168.20.10:8000/" xmlns:fair="https://data.scrc.uk/vocab/#" xmlns:dcat="http://www.w3.org/ns/dcat#" xmlns:dcmitype="http://purl.org/dc/dcmitype/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/spec/#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<prov:document xmlns:lreg="http://192.168.20.10:8000/" xmlns:fair="https://data.fairdatapipeline.org/vocab/#" xmlns:dcat="http://www.w3.org/ns/dcat#" xmlns:dcmitype="http://purl.org/dc/dcmitype/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/spec/#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <prov:entity prov:id="lreg:api/data_product/1">
         <prov:type xsi:type="xsd:QName">dcat:Dataset</prov:type>

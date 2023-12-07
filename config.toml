@@ -4,6 +4,7 @@ baseURL = 'https://www.fairdatapipeline.org/'
 title = 'FAIRDataPipeline'
 theme = 'hugo-book'
 enableEmoji = true
+BookFavicon = "favicon.svg"
 
 # Book configuration
 disablePathToLower = true
@@ -17,18 +18,6 @@ pygmentsUseClasses = true
 
 [markup.tableOfContents]
   startLevel = 1
-
-[menu]
-# [[menu.before]]
-[[menu.after]]
-  name = "SCRC UoG"
-  url = "https://www.gla.ac.uk/research/az/scrc/"
-  weight = 10
-
-[[menu.after]]
-  name = "Remote Data Registry"
-  url = "https://data.scrc.uk/"
-  weight = 20
 
 [params]
   # (Optional, default true) Controls table of contents visibility on right side of pages.
@@ -95,4 +84,4 @@ pygmentsUseClasses = true
   # 4. Add an import to the new stylesheet in _custom.scss:
   # @import "scriptstyle";
 
-    BookLogo = "logo.jpg"
+  BookLogo = "logo.jpg"

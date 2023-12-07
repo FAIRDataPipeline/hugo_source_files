@@ -6,9 +6,9 @@ bookCollapseSection: false
 
 The FAIR Data Pipeline needs three components to be installed on your computer in order to run. These are:
 
-- Command Line Interface (CLI)
-- (Local) Data Registry
-- A Modelling API (in whatever programming language you want to use)
+- [Command Line Interface (CLI)]({{< relref "/docs/cli/installation" >}})
+- [(Local) Data Registry]({{< relref "/docs/data_registry/local_registry" >}})
+- [A Modelling API (in whatever programming language you want to use)]({{< relref "/docs/api" >}})
 
 ## Prerequisites
 
@@ -26,7 +26,9 @@ The CLI needs to be installed using `pip` (the package installer for Python), wh
 
 Installation instructions for the Modelling APIs are in their respective GitHub repositories:
 
+- [C](https://github.com/FAIRDataPipeline/cppDataPipeline#installation)
 - [C++](https://github.com/FAIRDataPipeline/cppDataPipeline#installation)
+- [FORTRAN](https://github.com/FAIRDataPipeline/FortranDataPipeline#installation)
 - [Java](https://github.com/FAIRDataPipeline/javaSimpleModel#installation-of-dependencies)
 - [Julia](https://github.com/FAIRDataPipeline/DataPipeline.jl#installation)
 - [Python](https://github.com/FAIRDataPipeline/pyDataPipeline#installation)
