@@ -2,6 +2,7 @@
 weight: 7
 title: "Uses cases"
 bookCollapseSection: true
+bookHidden: true
 ---
 Use Case 1. (Pre-process and) upload a new dataset using script/config file
 ===========================================================================

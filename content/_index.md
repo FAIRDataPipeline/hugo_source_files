@@ -8,10 +8,11 @@ bookCollapseSection: true
 
 # Introduction
 
-The FAIR Data Pipeline is intended to enable tracking of provenance of [FAIR](https://doi.org/10.1038/sdata.2016.18) (findable, accessible, interoperable and reusable) data used in epidemiological modelling. Pipeline APIs written in [C]({{< relref "/docs/api/c" >}}), [C++]({{< relref "/docs/api/cpp" >}}), [FORTRAN]({{< relref "/docs/api/fortran" >}}), [Java]({{< relref "/docs/api/java" >}}), [Julia]({{< relref "/docs/api/julia" >}}), [Python]({{< relref "/docs/api/python" >}}) and [R]({{< relref "/docs/api/r" >}}) can be called by modelling software for data ingestion. These interact with a local relational database storing metadata and the local filesystem, and are configured using a yaml file associated with the model run. Local files and metadata can be synchronised with a remote registry via a command line tool (`fair`).
+The FAIR Data Pipeline is intended to enable tracking of provenance of [FAIR](https://doi.org/10.1038/sdata.2016.18) (findable, accessible, interoperable and reusable) data used in epidemiological modelling. Pipeline APIs written in [C]({{< relref "/docs/api/c" >}}), [C++]({{< relref "/docs/api/cpp" >}}), [FORTRAN]({{< relref "/docs/api/fortran" >}}), [Java]({{< relref "/docs/api/java" >}}), [Julia]({{< relref "/docs/api/julia" >}}), [Python]({{< relref "/docs/api/python" >}}) and [R]({{< relref "/docs/api/r" >}}) can be called by modelling software for data ingestion. These interact with a local relational database storing metadata and the local filesystem, and are configured using a yaml file associated with the model run. Local files and metadata can be synchronised with a remote registry via a command line interface ([`fair`]({{< relref "/docs/cli/" >}})).
 
 The key benefits of using the FAIR Data Pipeline are:
 
+- Opensource, all code is available on the [FAIRDataPipeline GitHub](https://github.com/FAIRDataPipeline)
 - Data recorded in a FAIR fashion (metadata on all data and code open and available for inspection)
 - Provenance tracing allows model outputs to be traced to inputs and modelling code
 - Multiple language support
@@ -61,7 +62,7 @@ graph LR;
 
 ## Getting data
 
-The command line utility `fair` is used to download and upload data and metadata required for and produced by model runs.
+The command line interface [`fair`]({{< relref "/docs/cli/" >}}) is used to download and upload data and metadata required for and produced by model runs.
 
 {{<mermaid align="left">}}
 graph LR;
