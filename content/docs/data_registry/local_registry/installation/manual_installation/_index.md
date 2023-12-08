@@ -2,6 +2,7 @@
 weight: 1
 title: "Manual Installation"
 bookCollapseSection: false
+bookHidden: true
 ---
 
 ## Installation
