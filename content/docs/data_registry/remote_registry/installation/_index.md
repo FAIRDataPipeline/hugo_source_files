@@ -24,6 +24,11 @@ Such as `PostgreSQL`(recommended), `MariaDB`, `MySQL`, `Oracle`, `SQLite` (not r
 ### [`Graphviz`](https://graphviz.org/)
 `Graphiz` is needed to create provernance reports, full installations instructions can be found on the [`Graphviz` site](https://graphviz.org/download/)
 
+### An S3 Object Storage
+This can be and S3 capible storage e.g. [AWS S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html), [Openstack](https://www.openstack.org/) or [Minio](https://min.io/)
+
+If you are self hosted we would recommend using [Minio](https://min.io/)
+
 ## Installation on a Debian based system e.g. Ubuntu
 This installation guide will focus on debian based systems but can be easily adapted.
 
@@ -75,10 +80,179 @@ with open('/home/ubuntu/secret_key.txt') as f:
     SECRET_KEY = f.read().strip()
 ```
 
-### Edit `ALLOWED_HOSTS`
+#### Edit `ALLOWED_HOSTS`
 
 Add your domain to `ALLOWED_HOSTS` replacing `data.fairdatapipeline.org`
 
-### Optional
+#### Edit `DATABASES`
+The `databases` dictionary (fields) should be modified to contain a single `default` database containing the following fields:
+`ENGINE` the engine for your database see the [django documentation](https://docs.djangoproject.com/en/5.0/ref/databases/) for more details.
+`NAME` the database names
+`USER` username of a user with read and write access to the database
+`PASSWORD` password of the above user
+`HOST` domain or ip of the database server
+`PORT` port the databas is running on
 
-If you wish to use caching install and setup PyLibMCCache.
+#### Edit `BUCKETS`
+The `BUCKETS` dictionary should be modified to contain a single `default` S3 bucket containing the following fields:
+
+`url` the fully qualified URL of the S3 server e.g. `https://s3.domain.com:port`, the port is optional if not running on the default port. For AWS the endpoint URL for different regions can be found in the [AWS documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html)
+
+`bucket_name` the name of the bucket
+
+`access_key` access key to bucket belonging to a user with read and write access
+
+`secret_key` matching secret key to the above
+
+`duration` how long urls generated for the bucket should be valid for in seconds (default: 600)
+
+
+#### Set Up Authentication
+The remote registry is designed to be authenticated with GitHub or GitLab OAuth, to do this you need to create either a [GitHub OAuth App](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app) or a [GitLab Oauth application](https://docs.gitlab.com/ee/integration/oauth_provider.html).
+
+To configure these you will need the following callback URLs
+**GitHub:**
+```
+<registry_url>/complete/github/
+```
+**GitLab:**
+```
+<registry_url>/complete/gitlab/
+```
+Where `<registry_url>` is the fully qualified url of the registry e.g. `https://data.fairdatapipeline.org`
+
+Once the application has been setup the following fields will need to be added to settings.py:
+
+**GitHub:**
+```
+SOCIAL_AUTH_GITHUB_KEY = '<key>'
+SOCIAL_AUTH_GITHUB_SECRET = '<secret>'
+AUTH_METHOD = "GitHub"
+```
+Replacing the key and secret from the GitHub OAuth App.
+
+**GitLab:**
+```
+SOCIAL_AUTH_GITLAB_SCOPE = ['api']
+SOCIAL_AUTH_GITLAB_KEY = '<key>'
+SOCIAL_AUTH_GITLAB_SECRET = '<secret>'
+AUTH_METHOD = "GitLab"
+```
+Replacing the key and secret from the GitLab OAuth Application
+
+**N.B. if you are running your own instance of GitLab, you will also need to add the following field:
+```
+SOCIAL_AUTH_GITLAB_API_URL = 'https://example.com'
+```
+Where `https://example.com` is the full url to your GitLab domain adding the port if not running on the default port e.g. `https://example.com:1234`
+
+### Authenticating Users
+With the above authentication, by default anyone with an account on the given provider can login to the data registry.
+
+**To restrict access:**
+The registry can accept a yaml file containing users which are allowed to log into the registry. To do this create a yaml file containing the following:
+```
+username: GitHub Username [required string]
+email: email address [optional string]
+fullname: Full Name [required string]
+orgs: organisation names [optional array]
+```
+
+Then add the following field to the `settings.py` file with full path to the yaml file:
+```
+AUTHORISED_USER_FILE = 'authorised_users/authorised_users.yaml'
+```
+an example of this yaml file is located on the [FAIRDataPipeline/authorised_users repository](https://github.com/FAIRDataPipeline/authorised_users/blob/main/authorised_users.yaml)
+
+### Step 6: Initialise the registry
+The registry should now be initialised, to do this run the following commands from the folder where you cloned the registry:
+```
+source venv/bin/activate
+export DJANGO_SETTINGS_MODULE="drams.settings"
+export DJANGO_SUPERUSER_USERNAME=admin
+export DJANGO_SUPERUSER_PASSWORD=password
+export FAIR_USE_SUPERUSER="True"
+cd scripts
+chmod +x .rebuild.sh
+./rebuild.sh
+```
+Replacing `admin` and `password` with your desired superuser account.
+
+### Step 7: Configure the Service using gunicorn
+Create the following files: 
+
+**`/etc/systemd/system/gunicorn.socket`**
+```
+[Unit]
+Description=gunicorn socket
+
+[Socket]
+ListenStream=/home/ryan/data-registry/gunicorn.sock
+
+[Install]
+WantedBy=sockets.target
+```
+Replacing `/home/ryan/data-registry/` with the directory where you cloned the git repository
+
+**`/etc/systemd/system/gunicorn.service`**
+```
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+User=ryan
+Group=ryan
+WorkingDirectory=/home/ryan/data-registry
+Environment="DJANGO_SETTINGS_MODULE=drams.settings"
+ExecStart=/home/ryan/data-registry/venv/bin/gunicorn \
+          --access-logfile - \
+          --workers 3 \
+          --bind unix:/home/ryan/data-registry/gunicorn.sock \
+          drams.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+```
+Again replacing both instances of `/home/ryan/data-registry/` with the directory where you cloned the git repository
+
+#### Enable and Start the Service
+Run the following commands to enable and run the data registry service
+```
+sudo systemctl start gunicorn.socket
+sudo systemctl enable gunicorn.socket
+```
+
+### Step 8: Configure a reverse proxy with nginx
+Edit or add a site to your nginx sites-enabled (for this example we will use the default site at `/etc/nginx/sites-enabled/default`). If you choose to add a site, remember to symlink the file to the sites-available directory.
+```
+server {
+
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        root /home/ryan/data-registry;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix/home/ryan/data-registry/gunicorn.sock;
+    }
+}
+```
+Replacing both instances of `/home/ryan/data-registry/` with the directory where you cloned the git repository
+
+**N.B.** for multisite nginx servers you should add the server name to the file e.g.
+```
+server_name data.fairdatapipeline.org;
+```
+
+Finally restart nginx:
+```
+sudo systemctl restart nginx
+```
+
+You may also need to install and SSL certificate, which can be done using [certbot](https://certbot.eff.org/instructions?ws=nginx&os=ubuntufocal).
