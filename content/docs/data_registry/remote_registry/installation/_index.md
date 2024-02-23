@@ -21,10 +21,7 @@ Available through package managers such as `apt`, `brew` or `chocolatey`
 ### A database
 Such as `PostgreSQL`(recommended), `MariaDB`, `MySQL`, `Oracle`, `SQLite` (not recommended for production). Full database support can be found on the [django site](https://docs.djangoproject.com/en/5.0/ref/databases/)
 
-N.B. You will also need to install the corresponding database connector e.g.
-```
-pip install psycopg
-```
+N.B. You may also need to install the corresponding database connector
 
 ### [`Graphviz`](https://graphviz.org/)
 `Graphiz` is needed to create provernance reports, full installations instructions can be found on the [`Graphviz` site](https://graphviz.org/download/)
