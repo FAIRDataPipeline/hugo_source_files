@@ -96,7 +96,7 @@ The `databases` dictionary (fields) should be modified to contain a single `defa
 #### Edit `BUCKETS`
 The `BUCKETS` dictionary should be modified to contain a single `default` S3 bucket containing the following fields:
 
-`url` the fully qualified URL of the S3 server e.g. `https://s3.domain.com:port`, the port is optional if not running on the default port. For AWS the endpoint URL for different regions can be found in the [AWS documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html)
+`url` the fully qualified URL of the S3 server e.g. `https://s3.domain.com:port/`, the port is optional if not running on the default port. For AWS the endpoint URL for different regions can be found in the [AWS documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html)
 
 `bucket_name` the name of the bucket
 
@@ -173,7 +173,7 @@ export DJANGO_SUPERUSER_USERNAME=admin
 export DJANGO_SUPERUSER_PASSWORD=password
 export FAIR_USE_SUPERUSER="True"
 cd scripts
-chmod +x .rebuild.sh
+chmod +x rebuild.sh
 ./rebuild.sh
 ```
 Replacing `admin` and `password` with your desired superuser account.
