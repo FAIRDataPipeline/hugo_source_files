@@ -21,6 +21,8 @@ Available through package managers such as `apt`, `brew` or `chocolatey`
 ### A database
 Such as `PostgreSQL`(recommended), `MariaDB`, `MySQL`, `Oracle`, `SQLite` (not recommended for production). Full database support can be found on the [django site](https://docs.djangoproject.com/en/5.0/ref/databases/)
 
+N.B. You may also need to install the corresponding database connector
+
 ### [`Graphviz`](https://graphviz.org/)
 `Graphiz` is needed to create provernance reports, full installations instructions can be found on the [`Graphviz` site](https://graphviz.org/download/)
 
@@ -96,7 +98,7 @@ The `databases` dictionary (fields) should be modified to contain a single `defa
 #### Edit `BUCKETS`
 The `BUCKETS` dictionary should be modified to contain a single `default` S3 bucket containing the following fields:
 
-`url` the fully qualified URL of the S3 server e.g. `https://s3.domain.com:port`, the port is optional if not running on the default port. For AWS the endpoint URL for different regions can be found in the [AWS documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html)
+`url` the fully qualified URL of the S3 server e.g. `https://s3.domain.com:port/`, the port is optional if not running on the default port. For AWS the endpoint URL for different regions can be found in the [AWS documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html)
 
 `bucket_name` the name of the bucket
 
@@ -173,7 +175,7 @@ export DJANGO_SUPERUSER_USERNAME=admin
 export DJANGO_SUPERUSER_PASSWORD=password
 export FAIR_USE_SUPERUSER="True"
 cd scripts
-chmod +x .rebuild.sh
+chmod +x rebuild.sh
 ./rebuild.sh
 ```
 Replacing `admin` and `password` with your desired superuser account.
@@ -239,7 +241,7 @@ server {
 
     location / {
         include proxy_params;
-        proxy_pass http://unix/home/ryan/data-registry/gunicorn.sock;
+        proxy_pass http://unix:/home/ryan/data-registry/gunicorn.sock;
     }
 }
 ```
