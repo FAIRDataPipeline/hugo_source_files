@@ -86,6 +86,10 @@ with open('/home/ubuntu/secret_key.txt') as f:
 
 Add your domain to `ALLOWED_HOSTS` replacing `data.fairdatapipeline.org`
 
+### Edit `DOMAIN_URL`
+
+Replace the `DOMAIN_URL` with your fully qualified domain url followed by a trailing slash e.g. `https://data.fairdatapipeline.org/`
+
 #### Edit `DATABASES`
 The `databases` dictionary (fields) should be modified to contain a single `default` database containing the following fields:
 `ENGINE` the engine for your database see the [django documentation](https://docs.djangoproject.com/en/5.0/ref/databases/) for more details.
